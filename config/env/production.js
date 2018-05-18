@@ -253,7 +253,6 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
-      'http://regoldi.herokuapp.com/',
       'https://regoldi.herokuapp.com/',
     //   'https://example.com',
     //   'https://staging.example.com',
