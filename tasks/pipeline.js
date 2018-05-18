@@ -71,6 +71,7 @@ var jsFilesToInject = [
   'dependencies/jquery.min.js',
   'dependencies/bowser.js',
   'dependencies/vue.js',
+  'dependencies/vue-router.js',
   'dependencies/**/*.js',
 
   // First amongst the app-level files, bring in cloud configuration

@@ -1,0 +1,95 @@
+<div id="product">
+    <div class="page-header text-center">
+        <h1>Produtos</h1>
+        <h2>Visualizar e Editar Produtos.</h2>
+        <div class="header-buttons">
+          <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Produtos</button>
+        </div>
+      </div>
+      <div class="friends-list" v-if="products.length > 0">
+        <h5 class="text-muted">Produtos</h5>
+        <table class="table table-striped">
+          <thead>
+            <th>Nome</th>
+            <th class="d-none d-md-table-cell">Materia Prima</th>
+            <th class="d-none d-md-table-cell">Preço de Venda</th>
+            <th class="actions-column"></th>
+          </thead>
+          <tbody>
+            <tr v-for="product in products">
+              <td><strong>{{product.name}}</strong></td>
+              <td class="d-none d-md-table-cell">{{product.costPrice}}</td>
+              <td class="d-none d-md-table-cell">{{product.salePrice}}</td>
+              <td class="actions-column">
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveProduct(product.id)">Apagar Produto</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <% /* "Add product" modal */ %>
+  <modal v-if="virtualPageSlug === 'new'" v-cloak key="new" @close="closeAddProductsModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Adicionar Produtos</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="addProduct" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingAddProductsForm" @submitted="submittedAddProductsForm()">
+      <div class="modal-body">
+        <div class="form-group" v-for="(product, index) in addProductsFormData.products">
+          <div class="row">
+            <div class="col">
+              <label v-if="index === 0">Nome</label>
+              <input class="form-control" type="text" v-model="addProductsFormData.products[index].name" >
+            </div>
+            <div class="col">
+              <label v-if="index === 0">Preço de Custo</label>
+              <input class="form-control" type="number" v-model="addProductsFormData.products[index].costPrice">
+            </div>
+            <div class="col">
+              <label v-if="index === 0">Preço de Venda</label>
+              <input class="form-control" type="number" v-model="addProductsFormData.products[index].salePrice" >
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>
+        </div>
+         <p class="text-danger" v-if="formErrors.products"><small>Please make sure all your invitees have a name and an email address.</small></p>
+         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer flex-row-reverse justify-content-start">
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+      </div>
+    </ajax-form>
+  </modal>
+
+
+  <% /* "Remove friend" modal */ %>
+  <modal v-if="confirmRemoveProductModalOpen && selectedProduct" v-cloak key="remove" @close="closeRemoveProductModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Desejas remover o cliente {{selectedProduct.name}}?</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="removeProduct" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingRemoveProductForm" @submitted="submittedRemoveProductForm($event)">
+      <div class="modal-body">
+        <p>Deseja realmente remover o produto {{selectedProduct.name}} ?</p>
+        <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Produto</ajax-button>
+      </div>
+    </ajax-form>
+  </modal>
+
+  <%/* For virtual pages */%>
+  <router-view></router-view>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

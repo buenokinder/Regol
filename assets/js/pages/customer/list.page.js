@@ -10,25 +10,18 @@ parasails.registerPage('customer', {
     virtualPageSlug: '',
 
     // Form data
-    addFriendsFormData: {
-      friends: [
+    addCustomersFormData: {
+      customers: [
         {
-          fullName: '',
-          emailAddress: ''
-        },
-        {
-          fullName: '',
-          emailAddress: ''
-        },
-        {
-          fullName: '',
-          emailAddress: ''
+          name: '',
+          email: '',
+          telemovel: ''
         }
       ]
     },
 
     // For tracking client-side validation errors in our form.
-    // > Has property set to `true` for each invalid property in `addFriendsFormData`.
+    // > Has property set to `true` for each invalid property in `addCustomersFormData`.
     formErrors: { /* … */ },
 
     // Syncing / loading state
@@ -40,8 +33,8 @@ parasails.registerPage('customer', {
     // Success state when form has been submitted
     cloudSuccess: false,
 
-    selectedFriend: undefined,
-    confirmRemoveFriendModalOpen: false,
+    selectedCustomer: undefined,
+    confirmRemoveCustomerModalOpen: false,
   },
 
   virtualPages: true,
@@ -62,26 +55,30 @@ parasails.registerPage('customer', {
   methods: {
 
     clickAddButton: function() {
+      console.log('Feito');
       // Open the modal.
       this.goto('/customer/new');
     },
 
-    _clearAddFriendsModal: function() {
+    _clearAddCustomersModal: function() {
       this.goto('/customer');
       // Reset form data.
-      this.addFriendsFormData = {
-        friends: [
+      this.addCustomersFormData = {
+        customers: [
           {
-            fullName: '',
-            emailAddress: ''
+            name: '',
+            email: '',
+            telemove: '',
           },
           {
-            fullName: '',
-            emailAddress: ''
+            name: '',
+            email: '',
+            telemove: '',
           },
           {
-            fullName: '',
-            emailAddress: ''
+            name: '',
+            email: '',
+            telemove: '',
           }
         ]
       };
@@ -89,111 +86,75 @@ parasails.registerPage('customer', {
       this.cloudError = '';
     },
 
-    closeAddFriendsModal: function() {
-      this._clearAddFriendsModal();
+    closeAddCustomersModal: function() {
+      this._clearAddCustomersModal();
     },
 
     clickAddMoreButton: function() {
-      this.addFriendsFormData.friends.push({
-        fullName: '',
-        emailAddress: ''
+      this.addCustomersFormData.customers.push({
+        name: '',
+        email: '',
+        telemove: '',
       });
     },
 
-    handleParsingAddFriendsForm: function() {
+    handleParsingAddCustomersForm: function() {
       console.log('can you handle this?');
-      // Clear out any pre-existing error messages.
+
       this.formErrors = {};
 
-      var argins = _.cloneDeep(this.addFriendsFormData);
+      var argins = _.cloneDeep(this.addCustomersFormData);
 
-      // Check whether there are any rows with a name but not an email.
-      var isValidEmailAddress = parasails.require('isValidEmailAddress');
-      var hasAtLeastOneInvalidFriend = !_.isUndefined(_.find(argins.friends, (friend)=> {
-        if((friend.fullName !== '' || friend.emailAddress !== '') && !isValidEmailAddress(friend.emailAddress)) {
-          return true;
-        }
-        return false;
-      }));
-
-      if(hasAtLeastOneInvalidFriend) {
-        this.formErrors.friends = true;
-        return;
-      }
-
-      // If there were any issues, they've already now been communicated to the user,
-      // so simply return undefined.  (This signifies that the submission should be
-      // cancelled.)
       if (Object.keys(this.formErrors).length > 0) {
         return;
       }
 
-      // Otherwise, trim out any empty rows before submitting.
-      _.remove(argins.friends, {fullName: '', emailAddress: ''});
+      _.remove(argins.customers, {fullName: '', emailAddress: ''});
 
       return argins;
     },
 
-    submittedAddFriendsForm: function() {
-      var invitedFriends = _.filter(this.addFriendsFormData.friends, (friend)=>{
-        return friend.fullName !== '' && friend.emailAddress !== '';
+    submittedAddCustomersForm: function() {
+      
+      var Customers = _.filter(this.addCustomersFormData.customers, (customer)=>{
+        return customer.name !== '' && customer.email !== ''  && customer.telemovel !== '';
       });
-      console.log('invited friends:',invitedFriends);
-      // Add the new friends to the requests list
-      this.me.outboundFriendRequests = this.me.outboundFriendRequests.concat(invitedFriends);
-      this.$forceUpdate();
-      this._clearAddFriendsModal();
+      console.log('Customers:',Customers);
+
+      this.customers.unshift(Customers);
+      this._clearAddCustomersModal();
     },
 
-    clickRemoveFriend: function(friendId) {
-      this.selectedFriend = _.find(this.me.friends, {id: friendId});
-      console.log('selectedFriend',this.selectedFriend);
+    clickRemoveCustomer: function(customerId) {
+      this.selectedCustomer = _.find(this.customers, {id: customerId});
+      console.log('selectedCustomer',this.selectedCustomer);
 
       // Open the modal.
-      this.confirmRemoveFriendModalOpen = true;
+      this.confirmRemoveCustomerModalOpen = true;
     },
 
-    closeRemoveFriendModal: function() {
-      this.selectedFriend = undefined;
-      this.confirmRemoveFriendModalOpen = false;
+    closeRemoveCustomerModal: function() {
+      this.selectedCustomer = undefined;
+      this.confirmRemoveCustomerModalOpen = false;
       this.cloudError = '';
     },
 
-    handleParsingRemoveFriendForm: function() {
+    handleParsingRemoveCustomerForm: function() {
       return {
-        id: this.selectedFriend.id
+        id: this.selectedCustomer.id
       };
     },
 
-    submittedRemoveFriendForm: function() {
+    submittedRemoveCustomerForm: function() {
 
-      // Remove this user from our friends list.
-      _.remove(this.me.friends, {id: this.selectedFriend.id});
+      _.remove(this.customers, {id: this.selectedCustomer.id});
 
       // Close the modal.
-      this.selectedFriend = undefined;
-      this.confirmRemoveFriendModalOpen = false;
+      this.selectedCustomer = undefined;
+      this.confirmRemoveCustomerModalOpen = false;
       this.cloudError = '';
     },
 
-    clickApproveFriend: async function(userId) {
-      // Prevent double-posting
-      if(this.syncing) {
-        return;
-      }
-      this.syncing = true;
-      await Cloud.approveFriend.with({ id: userId });
-      // Add this user to our approved friends list.
-      var approvedFriend =_.find(this.me.inboundFriendRequests, {id: userId});
-      this.me.friends.unshift({
-        id: approvedFriend.id,
-        fullName: approvedFriend.fullName,
-        emailAddress: approvedFriend.emailAddress
-      });
-      // Remove this user from our friends list.
-      _.remove(this.me.inboundFriendRequests, {id: userId});
-      // Clear loading state
-      this.syncing = false;
-    },
+   
   },
 });

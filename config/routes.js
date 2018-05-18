@@ -35,6 +35,8 @@ module.exports.routes = {
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
   'GET /customer':            { action: 'customer/list' },
+
+  'GET /product':            { action: 'product/list' },
   
 
   
@@ -54,6 +56,14 @@ module.exports.routes = {
   'POST  /api/v1/entrance/send-password-recovery-email': { action: 'entrance/send-password-recovery-email' },
   'POST  /api/v1/entrance/update-password-and-login':    { action: 'entrance/update-password-and-login' },
   'POST  /api/v1/deliver-contact-form-message':          { action: 'deliver-contact-form-message' },
+
+  'DELETE  /api/v1/customers/:id':                      { action: 'customer/remove-customer' },
+  'POST   /api/v1/customers':                           { action: 'customer/add-customer' },
+  'PUT    /api/v1/customers/:id':                    { action: 'customer/update-customer' },
+
+  'DELETE  /api/v1/products/:id':                      { action: 'product/remove-product' },
+  'POST   /api/v1/products':                           { action: 'product/add-product' },
+  'PUT    /api/v1/products/:id':                    { action: 'product/update-product' },
 
 
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
