@@ -374,8 +374,8 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    baseUrl: 'https://regoldi.herokuapp.com',
-    internalEmailAddress: 'support@example.com',
+    //baseUrl: 'https://regoldi.herokuapp.com',
+    //internalEmailAddress: 'support@example.com',
 
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
