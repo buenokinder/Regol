@@ -47,8 +47,6 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      adapter: 'sails-mongo',
-      url: process.env.MONGODB_URI,
       // adapter: 'sails-mysql',
       // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
@@ -252,11 +250,10 @@ module.exports = {
     * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
     *                                                                          *
     ***************************************************************************/
-    onlyAllowOrigins: [
-      //'https://regoldi.herokuapp.com/',
+    // onlyAllowOrigins: [
     //   'https://example.com',
     //   'https://staging.example.com',
-     ],
+    // ],
 
 
     /***************************************************************************
@@ -340,7 +337,7 @@ module.exports = {
   * this, just try deploying without setting it and see if it works.)       *
   *                                                                         *
   ***************************************************************************/
-   port: process.env.PORT,
+  // port: 80,
 
 
 
@@ -374,8 +371,8 @@ module.exports = {
   *                                                                         *
   ***************************************************************************/
   custom: {
-    //baseUrl: 'https://regoldi.herokuapp.com',
-    //internalEmailAddress: 'support@example.com',
+    baseUrl: 'https://example.com',
+    internalEmailAddress: 'support@example.com',
 
     // mailgunDomain: 'mg.example.com',
     // mailgunSecret: 'key-prod_fake_bd32301385130a0bafe030c',
