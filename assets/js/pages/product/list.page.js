@@ -8,7 +8,14 @@ parasails.registerPage('product', {
   
       // The "virtual" portion of the URL which is managed by this page script.
       virtualPageSlug: '',
-  
+      money: {
+        decimal: ',',
+        thousands: '.',
+        prefix: '',
+        suffix: '  €',
+        precision: 2,
+        masked: false
+      },
       // Form data
       addProductsFormData: {
         products: [

@@ -46,11 +46,12 @@
             </div>
             <div class="col">
               <label v-if="index === 0">Preço de Custo</label>
-              <input class="form-control" type="number" v-model="addProductsFormData.products[index].costPrice">
+              <money v-model="addProductsFormData.products[index].costPrice"  v-bind="money" class="form-control" ></money>
+    
             </div>
             <div class="col">
               <label v-if="index === 0">Preço de Venda</label>
-              <input class="form-control" type="number" v-model="addProductsFormData.products[index].salePrice" >
+              <money v-model="addProductsFormData.products[index].salePrice"  v-bind="money" class="form-control" ></money>
             </div>
           </div>
         </div>

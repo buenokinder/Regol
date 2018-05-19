@@ -70,13 +70,15 @@ and exposed as \`req.me\`.)`
 
 
   fn: async function (inputs, exits) {
-
+    console.log('foi')
     // Look up by the email address.
     // (note that we lowercase it to ensure the lookup is always case-insensitive,
     // regardless of which database we're using)
     var userRecord = await User.findOne({
       emailAddress: inputs.emailAddress.toLowerCase(),
     });
+
+    console.log('foi 2')
 
     // If there was no matching user, respond thru the "badCombo" exit.
     if(!userRecord) {
