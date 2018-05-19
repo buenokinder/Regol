@@ -52,7 +52,7 @@ module.exports.datastores = {
     // url: 'mysql://user:password@host:port/database',
  
       adapter: 'sails-mongo',
-      url: process.env.MONGODB_URI,
+      url: 'mongodb://admin:hzui1100@127.0.0.1:27017',
     
     
     
