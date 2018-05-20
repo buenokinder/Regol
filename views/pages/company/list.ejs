@@ -1,0 +1,84 @@
+<div id="company">
+    <div class="page-header text-center">
+        <h1>Empresas</h1>
+        <h2>Visualizar e Editar Empresas.</h2>
+        <div class="header-buttons">
+          <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Empresas</button>
+        </div>
+      </div>
+      <div class="friends-list" v-if="companies.length > 0">
+        <h5 class="text-muted">Empresas</h5>
+        <table class="table table-striped">
+          <thead>
+            <th>Nome</th>
+            <th class="actions-column"></th>
+          </thead>
+          <tbody>
+            <tr v-for="company in companies">
+              <td><strong>{{company.name}}</strong></td>
+              <td class="actions-column">
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveCompany(company.id)">Remove client</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <% /* "Add company" modal */ %>
+  <modal v-if="virtualPageSlug === 'new'" v-cloak key="new" @close="closeAddCompanysModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Adicionar Empresas</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="addCompany" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingAddCompanysForm" @submitted="submittedAddCompanysForm()">
+      <div class="modal-body">
+        <div class="form-group" v-for="(company, index) in addCompanysFormData.companies">
+          <div class="row">
+            <div class="col">
+              <label v-if="index === 0">Nome</label>
+              <input class="form-control" type="text" v-model="addCompanysFormData.companies[index].name" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
+            </div>
+       
+          </div>
+        </div>
+        <div class="form-group">
+          <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>
+        </div>
+         <p class="text-danger" v-if="formErrors.companies"><small>Please make sure all your invitees have a name and an email address.</small></p>
+         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer flex-row-reverse justify-content-start">
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+      </div>
+    </ajax-form>
+  </modal>
+
+
+  <% /* "Remove friend" modal */ %>
+  <modal v-if="confirmRemoveCompanyModalOpen && selectedCompany" v-cloak key="remove" @close="closeRemoveCompanyModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Desejas remover o cliente {{selectedCompany.name}}?</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="removeCompany" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingRemoveCompanyForm" @submitted="submittedRemoveCompanyForm($event)">
+      <div class="modal-body">
+        <p>Deseja realmente remover o cliente {{selectedCompany.name}} ?</p>
+        <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Empresa</ajax-button>
+      </div>
+    </ajax-form>
+  </modal>
+
+  <%/* For virtual pages */%>
+  <router-view></router-view>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

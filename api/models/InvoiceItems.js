@@ -12,11 +12,24 @@ module.exports = {
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      name: {
-        type: 'string',
-        description: 'Company Name.',
+      product: {
+        model: 'product'
+      },
+      
+      costPrice: {
+        type: 'number',
         required: true
+      },
+  
+      salePrice: {
+        type: 'number',
+        required: true
+      },
+  
+      invoice: {
+        model: 'invoice'
       }
+  
     },
   
   };

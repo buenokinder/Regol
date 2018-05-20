@@ -1,16 +1,16 @@
 module.exports = {
 
 
-    friendlyName: 'Remove Company',
+    friendlyName: 'Remove Product',
   
   
-    description: 'Remove a Company.',
+    description: 'Remove a Product.',
   
   
     inputs: {
   
       id: {
-        description: 'The id of the Company to remove',
+        description: 'The id of the Product to remove',
         type: 'number',
         required: true
       },
@@ -29,15 +29,15 @@ module.exports = {
   
     fn: async function (inputs, exits) {
   
-      var companyToRemove = await Company.findOne({ id: inputs.id });
+      var productToRemove = await Product.findOne({ id: inputs.id });
   
         // Ensure the thing still exists.
-        if(!companyToRemove) {
+        if(!productToRemove) {
         throw 'notFound';
         }
 
         // Destroy the record.
-        await Company.destroy({ id: inputs.id });
+        await Product.destroy({ id: inputs.id });
 
         return exits.success();
     }

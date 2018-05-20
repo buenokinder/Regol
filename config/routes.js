@@ -38,7 +38,9 @@ module.exports.routes = {
 
   'GET /product':            { action: 'product/list' },
   
-
+  'GET /invoice':            { action: 'invoice/list' },
+  'GET /company':            { action: 'company/list' },
+  
   
 
 
@@ -66,6 +68,15 @@ module.exports.routes = {
   'PUT    /api/v1/products/:id':                    { action: 'product/update-product' },
 
 
+  'DELETE  /api/v1/invoices/:id':                      { action: 'invoice/remove-invoice' },
+  'POST   /api/v1/invoices':                           { action: 'invoice/add-invoice' },
+  'PUT    /api/v1/invoices/:id':                    { action: 'invoice/update-invoice' },
+
+  'DELETE  /api/v1/companies/:id':                      { action: 'company/remove-company' },
+  'POST   /api/v1/companies':                           { action: 'company/add-company' },
+  'PUT    /api/v1/companies/:id':                    { action: 'company/update-company' },
+
+  
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗
   //  ╚╩╝╚═╝╚═╝╩ ╩╚═╝╚═╝╩ ╩╚═╝

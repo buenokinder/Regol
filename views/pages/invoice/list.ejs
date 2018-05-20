@@ -1,0 +1,103 @@
+<div id="invoice">
+    <div class="page-header text-center">
+        <h1>Faturas</h1>
+        <h2>Visualizar e Editar Faturas.</h2>
+        <div class="header-buttons">
+          <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Fatura</button>
+        </div>
+      </div>
+      <div class="friends-list" v-if="invoices.length > 0">
+        <h5 class="text-muted">Faturas</h5>
+        <table class="table table-striped">
+          <thead>
+            <th>Nome</th>
+            <th class="d-none d-md-table-cell">Email</th>
+            <th class="d-none d-md-table-cell">Telemovel</th>
+            <th class="actions-column"></th>
+          </thead>
+          <tbody>
+            <tr v-for="invoice in invoices">
+              <td><strong>{{invoice.name}}</strong></td>
+              <td class="d-none d-md-table-cell">{{invoice.email}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.telemovel}}</td>
+              <td class="actions-column">
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoice(invoice.id)">Remove client</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <% /* "Add invoice" modal */ %>
+  <modal v-if="virtualPageSlug === 'new'" v-cloak key="new" @close="closeAddInvoicesModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Adicionar Faturas</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="addInvoice" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingAddInvoicesForm" @submitted="submittedAddInvoicesForm()">
+      <div class="modal-body">
+        <div class="form-group" v-for="(invoice, index) in addInvoicesFormData.invoice">
+          <div class="row">
+            <div class="col">
+              <label v-if="index === 0">Data</label>
+              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.data" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
+            </div>
+            <div class="col">
+              <label v-if="index === 0">Número</label>
+              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.name" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
+            </div>
+            <div class="col">
+              
+              <v-select :options="['foo','bar','baz']"></v-select>
+            </div>
+            <div class="col">
+              <label v-if="index === 0">Email</label>
+              <input class="form-control" type="email" v-model="addInvoicesFormData.invoices[index].email" :placeholder="index === 0 ? 'raphael@example.com' : index === 1 ? 'donatello@example.com' : index === 2 ? 'leonardo@example.com' : 'Email address'">
+            </div>
+            <div class="col">
+              <label v-if="index === 0">Telemovel</label>
+              <input class="form-control" type="text" v-model="addInvoicesFormData.invoices[index].telemovel" :placeholder="index === 0 ? '999999999' : index === 1 ? '999999999' : index === 2 ? '999999999' : 'Telemovel'">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>
+        </div>
+         <p class="text-danger" v-if="formErrors.invoices"><small>Please make sure all your invitees have a name and an email address.</small></p>
+         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer flex-row-reverse justify-content-start">
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+      </div>
+    </ajax-form>
+  </modal>
+
+
+  <% /* "Remove friend" modal */ %>
+  <modal v-if="confirmRemoveInvoiceModalOpen && selectedInvoice" v-cloak key="remove" @close="closeRemoveInvoiceModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Desejas remover o cliente {{selectedInvoice.name}}?</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="removeInvoice" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingRemoveInvoiceForm" @submitted="submittedRemoveInvoiceForm($event)">
+      <div class="modal-body">
+        <p>Deseja realmente remover o cliente {{selectedInvoice.name}} ?</p>
+        <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Cliente</ajax-button>
+      </div>
+    </ajax-form>
+  </modal>
+
+  <%/* For virtual pages */%>
+  <router-view></router-view>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

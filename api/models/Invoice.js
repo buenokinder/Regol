@@ -12,11 +12,34 @@ module.exports = {
       //  ╔═╗╦═╗╦╔╦╗╦╔╦╗╦╦  ╦╔═╗╔═╗
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
-      name: {
+      numero: {
         type: 'string',
-        description: 'Company Name.',
+        description: 'Product Name.',
         required: true
-      }
+      },
+      date: {
+        type: 'string',
+        columnType: 'datetime'
+      },
+      company: {
+        model: 'company'
+      },
+      customer: {
+        model: 'customer'
+      },
+      invoiceItems: {
+        collection: 'invoiceItems',
+        via: 'invoice'
+      },
+      discount: {
+        type: 'number',
+        required: true
+      },
+      total: {
+        type: 'number',
+        required: true
+      },
+  
     },
   
   };

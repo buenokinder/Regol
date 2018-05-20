@@ -31,8 +31,7 @@ module.exports = {
     salePrice: {
       type: 'number',
       required: true
-    },
-
+    }
 
 
   },

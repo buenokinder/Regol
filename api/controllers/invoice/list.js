@@ -10,7 +10,7 @@ module.exports = {
     exits: {
   
       success: {
-        viewTemplatePath: 'pages/company/list',
+        viewTemplatePath: 'pages/invoice/list',
         description: 'Display the Products List.'
       },
   
@@ -18,10 +18,10 @@ module.exports = {
   
   
     fn: async function (inputs, exits) {
-      var companies = await Company.find();
+      var invoices = await Invoice.find();
       return exits.success({
-        currentSection: 'company',
-        companies: companies,
+        currentSection: 'invoice',
+        invoices: invoices,
       });
   
     }

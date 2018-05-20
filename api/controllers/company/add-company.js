@@ -2,30 +2,24 @@
 module.exports = {
 
 
-    friendlyName: 'Add Product',
+    friendlyName: 'Add Company',
   
   
-    description: 'Add one or more Products.',
+    description: 'Add one or more Companies.',
   
   
     inputs: {
   
-    products: {
-        description: 'An array of Product to add as Products.',
+    companies: {
+        description: 'An array of Company to add as Companies.',
         type: [
           {
-            name: 'string',
-            costPrice: 'number',
-            salePrice: 'number',
-            code: 'string'
+            name: 'string'
           }
         ],
         example: [
           {
-            name: 'Produto A',
-            costPrice: 150,
-            salePrice: 260,
-            code: 'string'
+            name: 'Company A'
           }
         ],
         required: true
@@ -41,12 +35,12 @@ module.exports = {
   
     fn: async function (inputs, exits) {
   
-      for (let product of inputs.products) {
+      for (let company of inputs.companies) {
         
-        var existingProduct = await Product.findOne({ name: product.name });
+        var existingCompany = await Company.findOne({ name: company.name });
   
-        if(!existingProduct) {
-          await Product.create(product).fetch();
+        if(!existingCompany) {
+          await Company.create(company).fetch();
         }
       }//∞
   
