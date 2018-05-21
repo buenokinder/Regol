@@ -10,16 +10,18 @@
         <h5 class="text-muted">Faturas</h5>
         <table class="table table-striped">
           <thead>
-            <th>Nome</th>
-            <th class="d-none d-md-table-cell">Email</th>
-            <th class="d-none d-md-table-cell">Telemovel</th>
+            <th>Número</th>
+            <th class="d-none d-md-table-cell">Data</th>
+            <th class="d-none d-md-table-cell">Desconto</th>
+            <th class="d-none d-md-table-cell">Total</th>
             <th class="actions-column"></th>
           </thead>
           <tbody>
             <tr v-for="invoice in invoices">
-              <td><strong>{{invoice.name}}</strong></td>
-              <td class="d-none d-md-table-cell">{{invoice.email}}</td>
-              <td class="d-none d-md-table-cell">{{invoice.telemovel}}</td>
+              <td><strong>{{invoice.numero}}</strong></td>
+              <td class="d-none d-md-table-cell">{{invoice.date}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.discount}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.total}}</td>
               <td class="actions-column">
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoice(invoice.id)">Remove client</button>
               </td>
@@ -42,25 +44,25 @@
           <div class="row">
               <div class="col">
                   <label  >Empresa</label>
-                  <v-select :options="companies" label="name"></v-select>
+                  <v-select  v-model="addInvoicesFormData.invoice.company"  :options="companies" label="name"></v-select>
                 </div>
                 
               </div>
               <div class="row">
             <div class="col">
               <label  >Data</label>
-              <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="addInvoicesFormData.invoice.data" >
+              <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="addInvoicesFormData.invoice.date" >
             </div>
             <div class="col">
               <label >Número</label>
-              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.name" >
+              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.numero" >
             </div>
            
           </div>
           <div class="row">
               <div class="col">
                   <label  >Cliente</label>
-                  <v-select :options="customers" label="name"></v-select>
+                  <v-select v-model="addInvoicesFormData.invoice.customer"  :options="customers" label="name"></v-select>
                 </div>
                 
               </div>

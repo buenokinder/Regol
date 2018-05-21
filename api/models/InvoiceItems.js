@@ -16,7 +16,7 @@ module.exports = {
         model: 'product'
       },
       
-      qunatity: {
+      quantity: {
         type: 'number',
         required: true
       },

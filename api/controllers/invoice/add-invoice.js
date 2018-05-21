@@ -10,26 +10,11 @@ module.exports = {
   
     inputs: {
   
-    invoices: {
-        description: 'An array of Product to add as Products.',
-        type: [
-          {
-            name: 'string',
-            costPrice: 'number',
-            salePrice: 'number',
-            code: 'string'
-          }
-        ],
-        example: [
-          {
-            name: 'Produto A',
-            costPrice: 150,
-            salePrice: 260,
-            code: 'string'
-          }
-        ],
-        required: true
-      }
+      invoice: {
+        type: 'ref',
+        description: 'The current incoming request (req).',
+        required: false
+      },
   
     },
   
@@ -40,15 +25,37 @@ module.exports = {
   
   
     fn: async function (inputs, exits) {
-  
-      for (let product of inputs.products) {
+     
+     
+      var invoice = inputs.invoice;
         
-        var existingProduct = await Product.findOne({ name: product.name });
-  
-        if(!existingProduct) {
-          await Product.create(product).fetch();
+        var existingInvoice = await Invoice.findOne({ numero: invoice.numero });
+        var newInvoice = {};
+        newInvoice["numero"] = invoice.numero;
+        newInvoice.company =   invoice.company.id ;
+        newInvoice.customer =  invoice.customer.id ;
+        newInvoice.date = invoice.date;
+        newInvoice.total = invoice.total;
+        newInvoice.discount = invoice.discount;
+
+        if(!existingInvoice) {
+          sails.log(newInvoice);
+          await Invoice.create(newInvoice).fetch();
+
+          for (let invoiceItem of invoice.invoiceItems) {
+            sails.log(invoiceItem)
+            var newInvoiceItem= {};
+            newInvoiceItem.quantity = invoiceItem.quantity;
+            newInvoiceItem.costPrice = invoiceItem.costPrice;
+            newInvoiceItem.salePrice = invoiceItem.salePrice;
+            newInvoiceItem.product = invoiceItem.product.id;
+
+
+              await InvoiceItems.create(newInvoiceItem).fetch();
+            
+          }//∞
         }
-      }//∞
+      
   
       return exits.success();
   
