@@ -17,23 +17,6 @@ module.exports = {
         description: 'Customer Name.',
         required: true
       },
-  
-      email: {
-        type: 'string',
-        required: false,
-        isEmail: true,
-        maxLength: 200,
-        example: 'carlos.bueno@apple.com'
-      },
-  
-      telemovel: {
-        type: 'string',
-        required: false,
-        description: ''
-      },
-  
- 
-  
     },
   
   };

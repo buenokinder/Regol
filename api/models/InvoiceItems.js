@@ -16,6 +16,11 @@ module.exports = {
         model: 'product'
       },
       
+      qunatity: {
+        type: 'number',
+        required: true
+      },
+
       costPrice: {
         type: 'number',
         required: true

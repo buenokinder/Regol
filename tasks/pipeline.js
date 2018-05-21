@@ -73,6 +73,7 @@ var jsFilesToInject = [
   'dependencies/vue.js',
   'dependencies/vue-router.js',
   'dependencies/vue-select.js',
+  'dependencies/vue-the-mask.js',
   
   'dependencies/**/*.js',
 

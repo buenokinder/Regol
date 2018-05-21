@@ -1,3 +1,5 @@
+
+Vue.use(VueTheMask)
 parasails.registerPage('invoice', {
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
@@ -5,19 +7,41 @@ parasails.registerPage('invoice', {
   data: {
 
     invoices: [],
-
+    companies: [],
+    products: [],
+    customers: [],
+    product: '' ,
+    quantity: 0,
+    // product: {
+    //   // name: '',
+    //   // costPrice: 0,
+    //   // salePrice: 0,
+    //   // code: ''
+    // },
+    money: {
+      decimal: ',',
+      thousands: '.',
+      prefix: '',
+      suffix: '  €',
+      precision: 2,
+      masked: false
+    },
     // The "virtual" portion of the URL which is managed by this page script.
     virtualPageSlug: '',
 
     // Form data
     addInvoicesFormData: {
-      invoices: [
+      invoice: 
         {
-          name: '',
-          email: '',
-          telemovel: ''
+          numero: '',
+          data: '',
+          company: '',
+          customer: '',
+          discount: 0,
+          total: 0,
+          invoiceItems: []
         }
-      ]
+        
     },
 
     // For tracking client-side validation errors in our form.
@@ -64,23 +88,18 @@ parasails.registerPage('invoice', {
       this.goto('/invoice');
       // Reset form data.
       this.addInvoicesFormData = {
-        invoices: [
-          {
-            name: '',
-            email: '',
-            telemove: '',
-          },
-          {
-            name: '',
-            email: '',
-            telemove: '',
-          },
-          {
-            name: '',
-            email: '',
-            telemove: '',
-          }
-        ]
+         invoice: 
+        {
+          numero: '',
+          data: '',
+          company: '',
+          customer: '',
+          discount: 0,
+          total: 0,
+          invoiceItems: [{
+            
+          }]
+        }
       };
       this.formErrors = {};
       this.cloudError = '';
@@ -91,10 +110,12 @@ parasails.registerPage('invoice', {
     },
 
     clickAddMoreButton: function() {
-      this.addInvoicesFormData.invoices.push({
-        name: '',
-        email: '',
-        telemove: '',
+      
+      this.addInvoicesFormData.invoice.invoiceItems.push({
+        quantity: this.quantity,
+        product: this.product,
+        costPrice: this.product.costPrice,
+        salePrice: this.product.salePrice,
       });
     },
 

@@ -38,29 +38,82 @@
     </div>
     <ajax-form action="addInvoice" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingAddInvoicesForm" @submitted="submittedAddInvoicesForm()">
       <div class="modal-body">
-        <div class="form-group" v-for="(invoice, index) in addInvoicesFormData.invoice">
+        <div class="form-group" >
           <div class="row">
+              <div class="col">
+                  <label  >Empresa</label>
+                  <v-select :options="companies" label="name"></v-select>
+                </div>
+                
+              </div>
+              <div class="row">
             <div class="col">
-              <label v-if="index === 0">Data</label>
-              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.data" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
+              <label  >Data</label>
+              <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="addInvoicesFormData.invoice.data" >
             </div>
             <div class="col">
-              <label v-if="index === 0">Número</label>
-              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.name" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
+              <label >Número</label>
+              <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.name" >
             </div>
-            <div class="col">
-              
-              <v-select :options="['foo','bar','baz']"></v-select>
-            </div>
-            <div class="col">
-              <label v-if="index === 0">Email</label>
-              <input class="form-control" type="email" v-model="addInvoicesFormData.invoices[index].email" :placeholder="index === 0 ? 'raphael@example.com' : index === 1 ? 'donatello@example.com' : index === 2 ? 'leonardo@example.com' : 'Email address'">
-            </div>
-            <div class="col">
-              <label v-if="index === 0">Telemovel</label>
-              <input class="form-control" type="text" v-model="addInvoicesFormData.invoices[index].telemovel" :placeholder="index === 0 ? '999999999' : index === 1 ? '999999999' : index === 2 ? '999999999' : 'Telemovel'">
-            </div>
+           
           </div>
+          <div class="row">
+              <div class="col">
+                  <label  >Cliente</label>
+                  <v-select :options="customers" label="name"></v-select>
+                </div>
+                
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <label  >Produtos</label>
+                      
+                      <v-select  v-model="product"  :options="products" label="name"></v-select>
+                    </div>
+              </div>
+       
+              <div class="row">
+              <div class="col-md-4">
+                  <label >Quantidade</label>
+                  <input class="form-control" type="text" v-model="quantity" >
+                </div>
+                   
+                    <div class="col-md-4">
+                        <label >Preço Custo</label>
+                        <money v-model="product.costPrice"  v-bind="money" class="form-control" ></money>
+                      
+                      </div>
+                      <div class="col-md-4">
+                          <label >Preço de Venda</label>
+                          <money v-model="product.salePrice"  v-bind="money" class="form-control" ></money>
+                        
+                        </div>
+                  
+              </div>
+                  <div class="friends-list" v-if="addInvoicesFormData.invoice.invoiceItems.length > 0">
+                      <h5 class="text-muted">Produtos</h5>
+                      <table class="table table-striped">
+                        <thead>
+                          <th>Produto</th>
+                          <th class="d-none d-md-table-cell">Quantidade</th>
+                          <th class="d-none d-md-table-cell">Materia Prima</th>
+                          <th class="d-none d-md-table-cell">Preço de Venda</th>
+                          <th class="actions-column"></th>
+                        </thead>
+                        <tbody>
+                          <tr v-for="invoiceItem in addInvoicesFormData.invoice.invoiceItems">
+                            <td><strong>{{invoiceItem.product.name}}</strong></td>
+                            <td><strong>{{invoiceItem.quantity}}</strong></td>
+                            <td class="d-none d-md-table-cell">{{invoiceItem.costPrice}}</td>
+                            <td class="d-none d-md-table-cell">{{invoiceItem.salePrice}}</td>
+                            <td class="actions-column">
+                              <button class="btn btn-sm btn-outline-danger" @click="clickRemoveProduct(product.id)">Apagar Item</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
         </div>
         <div class="form-group">
           <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>

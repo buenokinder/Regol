@@ -19,9 +19,15 @@ module.exports = {
   
     fn: async function (inputs, exits) {
       var invoices = await Invoice.find();
+      var products = await Product.find();
+      var customers = await Customer.find();
+      var companies = await Company.find();
       return exits.success({
         currentSection: 'invoice',
         invoices: invoices,
+        products: products,
+        customers: customers,
+        companies:companies,
       });
   
     }

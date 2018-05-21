@@ -13,16 +13,12 @@ module.exports = {
         description: 'An array of customer to add as Customers.',
         type: [
           {
-            name: 'string',
-            email: 'string',
-            telemovel: 'string'
+            name: 'string'
           }
         ],
         example: [
           {
-            name: 'Carlos Bueno',
-            email: 'carlos.bueno@sapo.pt',
-            telemovel: '919 584 328'
+            name: 'Carlos Bueno'
           }
         ],
         required: true
@@ -39,7 +35,7 @@ module.exports = {
     fn: async function (inputs, exits) {
   
       for (let customer of inputs.customers) {
-        var existingCustomer = await Customer.findOne({ email: customer.email });
+        var existingCustomer = await Customer.findOne({ email: customer.name });
   
         if(!existingCustomer) {
           await Customer.create(customer).fetch();
