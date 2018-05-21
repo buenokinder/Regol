@@ -72,6 +72,19 @@ parasails.registerPage('invoice', {
     // Attach any initial data from the server.
     _.extend(this, SAILS_LOCALS);
   },
+  computed: {
+    total: function() {
+        if (!this.addInvoicesFormData.invoice.invoiceItems) {
+            return 0;
+        }
+
+        var subTotal = this.addInvoicesFormData.invoice.invoiceItems.reduce(function (total, value) {
+            return total + Number(value.salePrice*value.quantity);
+        }, 0);
+        this.addInvoicesFormData.invoice.total =subTotal-this.addInvoicesFormData.invoice.discount;
+        return subTotal-this.addInvoicesFormData.invoice.discount;
+    }
+  },
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
@@ -137,12 +150,9 @@ parasails.registerPage('invoice', {
 
     submittedAddInvoicesForm: function() {
       
-      var Invoices = _.filter(this.addInvoicesFormData.invoices, (invoice)=>{
-        return invoice.name !== '' && invoice.email !== ''  && invoice.telemovel !== '';
-      });
-      console.log('Invoices:',Invoices);
 
-      this.invoices.unshift(Invoices);
+
+      this.invoices.unshift(this.addInvoicesFormData.invoice);
       this._clearAddInvoicesModal();
     },
 

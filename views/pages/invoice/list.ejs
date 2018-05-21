@@ -12,6 +12,7 @@
           <thead>
             <th>Número</th>
             <th class="d-none d-md-table-cell">Data</th>
+            <th class="d-none d-md-table-cell">Cliente</th>
             <th class="d-none d-md-table-cell">Desconto</th>
             <th class="d-none d-md-table-cell">Total</th>
             <th class="actions-column"></th>
@@ -20,10 +21,11 @@
             <tr v-for="invoice in invoices">
               <td><strong>{{invoice.numero}}</strong></td>
               <td class="d-none d-md-table-cell">{{invoice.date}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.customer.name}}</td>
               <td class="d-none d-md-table-cell">{{invoice.discount}}</td>
               <td class="d-none d-md-table-cell">{{invoice.total}}</td>
               <td class="actions-column">
-                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoice(invoice.id)">Remove client</button>
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoice(invoice.id)">Remover Fatura</button>
               </td>
             </tr>
           </tbody>
@@ -67,6 +69,13 @@
                 
               </div>
               <div class="row">
+                <div class="col">
+                    <label  >Desconto</label>
+                    <money v-model="addInvoicesFormData.invoice.discount"  v-bind="money" class="form-control" ></money>
+                  </div>
+                  
+                </div>
+              <div class="row">
                   <div class="col-md-12">
                       <label  >Produtos</label>
                       
@@ -92,6 +101,9 @@
                         </div>
                   
               </div>
+              <div class="form-group">
+                <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Adicionar Produto</span>
+              </div>
                   <div class="friends-list" v-if="addInvoicesFormData.invoice.invoiceItems.length > 0">
                       <h5 class="text-muted">Produtos</h5>
                       <table class="table table-striped">
@@ -113,13 +125,17 @@
                             </td>
                           </tr>
                         </tbody>
+                        <tfoot>
+                          <tr >
+                            <td><strong>Total: {{total}} €</strong></td>
+                            
+                          </tr>
+                        </tfoot>
                       </table>
                     </div>
 
         </div>
-        <div class="form-group">
-          <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>
-        </div>
+        
          <p class="text-danger" v-if="formErrors.invoices"><small>Please make sure all your invitees have a name and an email address.</small></p>
          <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
       </div>
@@ -134,19 +150,19 @@
   <% /* "Remove friend" modal */ %>
   <modal v-if="confirmRemoveInvoiceModalOpen && selectedInvoice" v-cloak key="remove" @close="closeRemoveInvoiceModal()">
     <div class="modal-header">
-      <h5 class="modal-title">Desejas remover o cliente {{selectedInvoice.name}}?</h5>
+      <h5 class="modal-title">Desejas remover a fatura de numero {{selectedInvoice.numero}} ?</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span>&times;</span>
       </button>
     </div>
     <ajax-form action="removeInvoice" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingRemoveInvoiceForm" @submitted="submittedRemoveInvoiceForm($event)">
       <div class="modal-body">
-        <p>Deseja realmente remover o cliente {{selectedInvoice.name}} ?</p>
+        <p>Deseja realmente remover a fatura de numero {{selectedInvoice.numero}} ?</p>
         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
       </div>
       <div class="modal-footer">
         <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
-        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Cliente</ajax-button>
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Fatura</ajax-button>
       </div>
     </ajax-form>
   </modal>

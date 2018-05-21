@@ -35,7 +35,7 @@ module.exports = {
     fn: async function (inputs, exits) {
   
       for (let customer of inputs.customers) {
-        var existingCustomer = await Customer.findOne({ email: customer.name });
+        var existingCustomer = await Customer.findOne({ name: customer.name });
   
         if(!existingCustomer) {
           await Customer.create(customer).fetch();

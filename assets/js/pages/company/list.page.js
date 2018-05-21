@@ -14,9 +14,7 @@ parasails.registerPage('company', {
     addCompanysFormData: {
       companies: [
         {
-          name: '',
-          email: '',
-          telemovel: ''
+          name: ''
         }
       ]
     },
@@ -69,12 +67,6 @@ parasails.registerPage('company', {
           {
             name: ''
             
-          },
-          {
-            name: ''
-          },
-          {
-            name: ''
           }
         ]
       };
@@ -111,13 +103,14 @@ parasails.registerPage('company', {
     },
 
     submittedAddCompanysForm: function() {
-      
+      var companyRetorno = {};
       var Companys = _.filter(this.addCompanysFormData.companies, (company)=>{
-        return company.name !== '' && company.email !== ''  && company.telemovel !== '';
+        companyRetorno = company;
+        return company.name;
       });
-      console.log('Companys:',Companys);
+      console.log('Companys:',companyRetorno);
 
-      this.companies.unshift(Companys);
+      this.companies.unshift(companyRetorno);
       this._clearAddCompanysModal();
     },
 

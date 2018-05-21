@@ -18,7 +18,7 @@ module.exports = {
   
   
     fn: async function (inputs, exits) {
-      var invoices = await Invoice.find();
+      var invoices = await Invoice.find().populate('customer');
       var products = await Product.find();
       var customers = await Customer.find();
       var companies = await Company.find();

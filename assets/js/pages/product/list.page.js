@@ -127,13 +127,14 @@ parasails.registerPage('product', {
       },
   
       submittedAddProductsForm: function() {
-        
+        var productReturn = {};
         var Products = _.filter(this.addProductsFormData.products, (product)=>{
-          return product.name !== '';
+          productReturn = product;
+          return product;
         });
-        console.log('Products:',Products);
+        console.log('Products:',productReturn);
   
-        this.products.unshift(Products);
+        this.products.unshift(productReturn);
         this._clearAddProductsModal();
       },
   

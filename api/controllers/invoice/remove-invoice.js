@@ -29,15 +29,15 @@ module.exports = {
   
     fn: async function (inputs, exits) {
   
-      var productToRemove = await Product.findOne({ id: inputs.id });
+      var invoiceToRemove = await Invoice.findOne({ id: inputs.id });
   
         // Ensure the thing still exists.
-        if(!productToRemove) {
+        if(!invoiceToRemove) {
         throw 'notFound';
         }
 
         // Destroy the record.
-        await Product.destroy({ id: inputs.id });
+        await Invoice.destroy({ id: inputs.id });
 
         return exits.success();
     }

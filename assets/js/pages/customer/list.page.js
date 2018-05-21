@@ -13,9 +13,7 @@ parasails.registerPage('customer', {
     addCustomersFormData: {
       customers: [
         {
-          name: '',
-          email: '',
-          telemovel: ''
+          name: ''
         }
       ]
     },
@@ -67,18 +65,6 @@ parasails.registerPage('customer', {
         customers: [
           {
             name: '',
-            email: '',
-            telemove: '',
-          },
-          {
-            name: '',
-            email: '',
-            telemove: '',
-          },
-          {
-            name: '',
-            email: '',
-            telemove: '',
           }
         ]
       };
@@ -115,13 +101,15 @@ parasails.registerPage('customer', {
     },
 
     submittedAddCustomersForm: function() {
-      
+      var customers = {};
       var Customers = _.filter(this.addCustomersFormData.customers, (customer)=>{
-        return customer.name !== '' && customer.email !== ''  && customer.telemovel !== '';
+        console.log(customer.name)
+        customers = customer;
+        return customer != '';
       });
-      console.log('Customers:',Customers);
+    
 
-      this.customers.unshift(Customers);
+      this.customers.unshift(customers);
       this._clearAddCustomersModal();
     },
 

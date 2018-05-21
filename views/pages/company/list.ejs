@@ -17,7 +17,7 @@
             <tr v-for="company in companies">
               <td><strong>{{company.name}}</strong></td>
               <td class="actions-column">
-                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveCompany(company.id)">Remove client</button>
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveCompany(company.id)">Remove Empresa</button>
               </td>
             </tr>
           </tbody>
@@ -60,14 +60,14 @@
   <% /* "Remove friend" modal */ %>
   <modal v-if="confirmRemoveCompanyModalOpen && selectedCompany" v-cloak key="remove" @close="closeRemoveCompanyModal()">
     <div class="modal-header">
-      <h5 class="modal-title">Desejas remover o cliente {{selectedCompany.name}}?</h5>
+      <h5 class="modal-title">Desejas remover a empresa {{selectedCompany.name}}?</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span>&times;</span>
       </button>
     </div>
     <ajax-form action="removeCompany" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingRemoveCompanyForm" @submitted="submittedRemoveCompanyForm($event)">
       <div class="modal-body">
-        <p>Deseja realmente remover o cliente {{selectedCompany.name}} ?</p>
+        <p>Deseja realmente remover a empresa {{selectedCompany.name}} ?</p>
         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
       </div>
       <div class="modal-footer">

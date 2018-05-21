@@ -11,15 +11,11 @@
         <table class="table table-striped">
           <thead>
             <th>Nome</th>
-            <th class="d-none d-md-table-cell">Email</th>
-            <th class="d-none d-md-table-cell">Telemovel</th>
             <th class="actions-column"></th>
           </thead>
           <tbody>
             <tr v-for="customer in customers">
               <td><strong>{{customer.name}}</strong></td>
-              <td class="d-none d-md-table-cell">{{customer.email}}</td>
-              <td class="d-none d-md-table-cell">{{customer.telemovel}}</td>
               <td class="actions-column">
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveCustomer(customer.id)">Remove client</button>
               </td>
@@ -43,14 +39,6 @@
             <div class="col">
               <label v-if="index === 0">Nome</label>
               <input class="form-control" type="text" v-model="addCustomersFormData.customers[index].name" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
-            </div>
-            <div class="col">
-              <label v-if="index === 0">Email</label>
-              <input class="form-control" type="email" v-model="addCustomersFormData.customers[index].email" :placeholder="index === 0 ? 'raphael@example.com' : index === 1 ? 'donatello@example.com' : index === 2 ? 'leonardo@example.com' : 'Email address'">
-            </div>
-            <div class="col">
-              <label v-if="index === 0">Telemovel</label>
-              <input class="form-control" type="text" v-model="addCustomersFormData.customers[index].telemovel" :placeholder="index === 0 ? '999999999' : index === 1 ? '999999999' : index === 2 ? '999999999' : 'Telemovel'">
             </div>
           </div>
         </div>
