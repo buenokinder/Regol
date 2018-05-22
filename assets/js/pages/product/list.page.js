@@ -40,9 +40,10 @@ parasails.registerPage('product', {
   
       // Success state when form has been submitted
       cloudSuccess: false,
-  
+      selectedProductUpdate: undefined,
       selectedProduct: undefined,
       confirmRemoveProductModalOpen: false,
+      confirmRemoveProductUpdateModalOpen: false,
     },
   
     virtualPages: true,
@@ -78,25 +79,15 @@ parasails.registerPage('product', {
                 costPrice: 0,
                 salePrice: 0,
                 code: '',
-            },
-            {
-                name: '',
-                costPrice: 0,
-                salePrice: 0,
-                code: '',
-            },
-            {
-                name: '',
-                costPrice: 0,
-                salePrice: 0,
-                code: '',
             }
           ]
         };
         this.formErrors = {};
         this.cloudError = '';
       },
-  
+      closeUpdateProductsModal: function() {
+        this.selectedProductUpdate = undefined;
+      },
       closeAddProductsModal: function() {
         this._clearAddProductsModal();
       },
@@ -145,6 +136,14 @@ parasails.registerPage('product', {
         // Open the modal.
         this.confirmRemoveProductModalOpen = true;
       },
+
+      clickUpdateProduct: function(productId) {
+        this.selectedProductUpdate = _.find(this.products, {id: productId});
+        console.log('selectedProduct',this.selectedProductUpdate);
+  
+        // Open the modal.
+        this.confirmRemoveProductUpdateModalOpen = true;
+      },
   
       closeRemoveProductModal: function() {
         this.selectedProduct = undefined;
@@ -155,6 +154,12 @@ parasails.registerPage('product', {
       handleParsingRemoveProductForm: function() {
         return {
           id: this.selectedProduct.id
+        };
+      },
+
+      handleParsingUpdateProductsForm: function() {
+        return {
+          id: this.selectedProductUpdate.id
         };
       },
   

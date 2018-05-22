@@ -21,6 +21,7 @@
               <td class="d-none d-md-table-cell">{{product.costPrice}}</td>
               <td class="d-none d-md-table-cell">{{product.salePrice}}</td>
               <td class="actions-column">
+                <button class="btn btn-sm btn-outline-danger" @click="clickUpdateProduct(product.id)">Editar Produto</button>
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveProduct(product.id)">Apagar Produto</button>
               </td>
             </tr>
@@ -68,6 +69,43 @@
     </ajax-form>
   </modal>
 
+
+  <% /* "Add product" modal */ %>
+  <modal v-if="confirmRemoveProductUpdateModalOpen" v-cloak key="update" @close="closeUpdateProductsModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Adicionar Produtos</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="updateProduct" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUpdateProductsForm" @submitted="submittedUpdateProductsForm()">
+      <div class="modal-body">
+ 
+          <div class="row">
+            <div class="col">
+              <label >Nome</label>
+              <input class="form-control" type="text" v-model="selectedProductUpdate.name" >
+            </div>
+            <div class="col">
+              <label>Preço de Custo</label>
+              <money v-model="selectedProductUpdate.costPrice"  v-bind="money" class="form-control" ></money>
+    
+            </div>
+            <div class="col">
+              <label>Preço de Venda</label>
+              <money v-model="selectedProductUpdate.salePrice"  v-bind="money" class="form-control" ></money>
+            </div>
+          </div>
+    
+         <p class="text-danger" v-if="formErrors.products"><small>Please make sure all your invitees have a name and an email address.</small></p>
+         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer flex-row-reverse justify-content-start">
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+      </div>
+    </ajax-form>
+  </modal>
 
   <% /* "Remove friend" modal */ %>
   <modal v-if="confirmRemoveProductModalOpen && selectedProduct" v-cloak key="remove" @close="closeRemoveProductModal()">
