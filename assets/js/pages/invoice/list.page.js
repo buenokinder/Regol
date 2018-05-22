@@ -56,9 +56,10 @@ parasails.registerPage('invoice', {
 
     // Success state when form has been submitted
     cloudSuccess: false,
-
+    selectedInvoiceItem: undefined,
     selectedInvoice: undefined,
     confirmRemoveInvoiceModalOpen: false,
+    confirmRemoveInvoiceItemModalOpen: false,
   },
 
   virtualPages: true,
@@ -155,6 +156,14 @@ parasails.registerPage('invoice', {
       this.invoices.unshift(this.addInvoicesFormData.invoice);
       this._clearAddInvoicesModal();
     },
+    
+    clickRemoveInvoiceItem: function(invoiceItem) {
+      console.log(this.addInvoicesFormData.invoice.numero) 
+
+      this.selectedInvoiceItem = _.find(this.addInvoicesFormData.invoice.invoiceItems, invoiceItem);
+      console.log('selectedInvoiceItem',this.selectedInvoiceItem);
+      this.confirmRemoveInvoiceItemModalOpen = true;
+    },
 
     clickRemoveInvoice: function(invoiceId) {
       this.selectedInvoice = _.find(this.invoices, {id: invoiceId});
@@ -162,6 +171,10 @@ parasails.registerPage('invoice', {
 
       // Open the modal.
       this.confirmRemoveInvoiceModalOpen = true;
+    },
+    closeRemoveInvoiceItemModal: function() {
+      this.selectedInvoiceItem = undefined;
+      this.confirmRemoveInvoiceModalItemOpen = false;
     },
 
     closeRemoveInvoiceModal: function() {
@@ -176,6 +189,12 @@ parasails.registerPage('invoice', {
       };
     },
 
+    handleParsingRemoveInvoiceItemForm: function() {
+      return {
+        id: this.selectedInvoiceItem.id
+      };
+    },
+
     submittedRemoveInvoiceForm: function() {
 
       _.remove(this.invoices, {id: this.selectedInvoice.id});
@@ -183,6 +202,15 @@ parasails.registerPage('invoice', {
       // Close the modal.
       this.selectedInvoice = undefined;
       this.confirmRemoveInvoiceModalOpen = false;
+      this.cloudError = '';
+    },
+    submittedRemoveInvoiceItemForm: function() {
+
+      _.remove(this.addInvoicesFormData.invoice.invoiceItems,  this.selectedInvoice);
+
+      // Close the modal.
+      this.selectedInvoiceItem = undefined;
+      this.confirmRemoveInvoiceItemModalOpen = false;
       this.cloudError = '';
     },
 

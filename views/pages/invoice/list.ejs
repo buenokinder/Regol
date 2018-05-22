@@ -12,7 +12,7 @@
           <thead>
             <th>Número</th>
             <th class="d-none d-md-table-cell">Data</th>
-            <th class="d-none d-md-table-cell">Cliente</th>
+            <!-- <th class="d-none d-md-table-cell">Cliente</th> -->
             <th class="d-none d-md-table-cell">Desconto</th>
             <th class="d-none d-md-table-cell">Total</th>
             <th class="actions-column"></th>
@@ -121,7 +121,7 @@
                             <td class="d-none d-md-table-cell">{{invoiceItem.costPrice}}</td>
                             <td class="d-none d-md-table-cell">{{invoiceItem.salePrice}}</td>
                             <td class="actions-column">
-                              <button class="btn btn-sm btn-outline-danger" @click="clickRemoveProduct(product.id)">Apagar Item</button>
+                              <button type="button" class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoiceItem(invoiceItem)">Apagar Item</button>
                             </td>
                           </tr>
                         </tbody>
@@ -145,7 +145,23 @@
       </div>
     </ajax-form>
   </modal>
-
+  <modal v-if="confirmRemoveInvoiceItemModalOpen && selectedInvoiceItem" v-cloak key="remove" @close="closeRemoveInvoiceItemModal()">
+      <div class="modal-header">
+        <h5 class="modal-title">Desejas remover o Produto  {{selectedInvoiceItem.product.name}} ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+     
+        <div class="modal-body">
+          <p>Desejas remover o Produto  {{selectedInvoiceItem.product.name}} </p>
+        </div>
+        <div class="modal-footer">
+          <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+          <button type="button" class="btn btn-danger ml-1" @click="submittedRemoveInvoiceItemForm()">Remover Fatura</button>
+        </div>
+     
+    </modal>
 
   <% /* "Remove friend" modal */ %>
   <modal v-if="confirmRemoveInvoiceModalOpen && selectedInvoice" v-cloak key="remove" @close="closeRemoveInvoiceModal()">

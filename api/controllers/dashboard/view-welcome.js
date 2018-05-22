@@ -18,8 +18,18 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-
-    return exits.success();
+    var totalCustomers =   await Customer.count();
+    var totalProducts =   await Product.count();
+    var totalSales =   await InvoiceItems.sum("salePrice");
+    var totalCost =   await InvoiceItems.sum("costPrice");
+   
+    return exits.success({
+      currentSection: 'welcome',
+      totalCustomers: totalCustomers,
+      totalSales: totalSales.toFixed(2),
+      totalCost: totalCost.toFixed(2),
+      totalProducts: totalProducts,
+    });
 
   }
 

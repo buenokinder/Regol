@@ -3,6 +3,10 @@ parasails.registerPage('welcome', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
+    totalCustomers: 0,
+    totalSales: 0,
+    totalCost: 0,
+    totalProducts: 0,
     dashboardModalVisible: false,
   },
 
