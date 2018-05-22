@@ -84,16 +84,16 @@
           <div class="row">
             <div class="col">
               <label >Nome</label>
-              <input class="form-control" type="text" v-model="selectedProductUpdate.name" >
+              <input class="form-control" type="text" v-model="selectedProductUpdate.product.name" >
             </div>
             <div class="col">
               <label>Preço de Custo</label>
-              <money v-model="selectedProductUpdate.costPrice"  v-bind="money" class="form-control" ></money>
+              <money v-model="selectedProductUpdate.product.costPrice"  v-bind="money" class="form-control" ></money>
     
             </div>
             <div class="col">
               <label>Preço de Venda</label>
-              <money v-model="selectedProductUpdate.salePrice"  v-bind="money" class="form-control" ></money>
+              <money v-model="selectedProductUpdate.product.salePrice"  v-bind="money" class="form-control" ></money>
             </div>
           </div>
     

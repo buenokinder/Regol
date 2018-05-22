@@ -43,6 +43,19 @@ parasails.registerPage('invoice', {
         }
         
     },
+    updateInvoicesFormData: {
+      invoice: 
+        {
+          numero: '',
+          data: '',
+          company: '',
+          customer: '',
+          discount: 0,
+          total: 0,
+          invoiceItems: []
+        }
+        
+    },
 
     // For tracking client-side validation errors in our form.
     // > Has property set to `true` for each invalid property in `addInvoicesFormData`.
@@ -59,6 +72,7 @@ parasails.registerPage('invoice', {
     selectedInvoiceItem: undefined,
     selectedInvoice: undefined,
     confirmRemoveInvoiceModalOpen: false,
+    confirmUpdateInvoiceModalOpen: false,
     confirmRemoveInvoiceItemModalOpen: false,
   },
 
@@ -132,7 +146,21 @@ parasails.registerPage('invoice', {
         salePrice: this.product.salePrice,
       });
     },
+    handleParsingUpdateInvoicesForm: function() {
+      console.log('handle update?');
 
+      this.formErrors = {};
+
+      var argins = _.cloneDeep(this.updateInvoicesFormData);
+
+      if (Object.keys(this.formErrors).length > 0) {
+        return;
+      }
+
+      _.remove(argins.invoice, {fullName: '', emailAddress: ''});
+
+      return argins;
+    },
     handleParsingAddInvoicesForm: function() {
       console.log('can you handle this?');
 
@@ -164,7 +192,13 @@ parasails.registerPage('invoice', {
       console.log('selectedInvoiceItem',this.selectedInvoiceItem);
       this.confirmRemoveInvoiceItemModalOpen = true;
     },
+    clickUpdateInvoice: function(invoiceId) {
+      this.updateInvoicesFormData.invoice = _.find(this.invoices, {id: invoiceId});
+      console.log('selectedInvoice',this.updateInvoicesFormData);
 
+      // Open the modal.
+      this.confirmUpdateInvoiceModalOpen = true;
+    },
     clickRemoveInvoice: function(invoiceId) {
       this.selectedInvoice = _.find(this.invoices, {id: invoiceId});
       console.log('selectedInvoice',this.selectedInvoice);

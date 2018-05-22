@@ -10,26 +10,12 @@ module.exports = {
   
     inputs: {
   
-    products: {
-        description: 'An array of Product to add as Products.',
-        type: [
-          {
-            name: 'string',
-            costPrice: 'number',
-            salePrice: 'number',
-            code: 'string'
-          }
-        ],
-        example: [
-          {
-            name: 'Produto A',
-            costPrice: 150,
-            salePrice: 260,
-            code: 'string'
-          }
-        ],
-        required: true
-      }
+    product: {
+      type: 'ref',
+      description: 'The current incoming request (req).',
+      required: false
+    },
+        
   
     },
   
@@ -40,15 +26,16 @@ module.exports = {
   
   
     fn: async function (inputs, exits) {
-  
-      for (let product of inputs.products) {
-        
-        var existingProduct = await Product.findOne({ name: product.name });
-  
-        if(!existingProduct) {
-          await Product.update(existingProduct).set(product).fetch();
+      var product = inputs.product;
+      
+        var existingProduct = await Product.findOne({ id: product.id });
+        console.log('VAI 1')
+        if(existingProduct) {
+          console.log('VAI')
+          var retorno = await Product.update(existingProduct).set(product).fetch();
+          console.log(retorno)
         }
-      }//∞
+      
   
       return exits.success();
   

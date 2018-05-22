@@ -3,7 +3,6 @@ parasails.registerPage('product', {
     //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
     //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
     data: {
-  
     products: [],
   
       // The "virtual" portion of the URL which is managed by this page script.
@@ -40,7 +39,7 @@ parasails.registerPage('product', {
   
       // Success state when form has been submitted
       cloudSuccess: false,
-      selectedProductUpdate: undefined,
+      selectedProductUpdate: { product: undefined},
       selectedProduct: undefined,
       confirmRemoveProductModalOpen: false,
       confirmRemoveProductUpdateModalOpen: false,
@@ -85,8 +84,25 @@ parasails.registerPage('product', {
         this.formErrors = {};
         this.cloudError = '';
       },
+      _clearUpdateProductsModal: function() {
+        this.goto('/product');
+        // Reset form data.
+        this.addProductsFormData = {
+        products: [
+            {
+                name: '',
+                costPrice: 0,
+                salePrice: 0,
+                code: '',
+            }
+          ]
+        };
+        this.confirmRemoveProductUpdateModalOpen = false;
+        this.formErrors = {};
+        this.cloudError = '';
+      },
       closeUpdateProductsModal: function() {
-        this.selectedProductUpdate = undefined;
+        this.selectedProductUpdate.product = {};
       },
       closeAddProductsModal: function() {
         this._clearAddProductsModal();
@@ -116,6 +132,17 @@ parasails.registerPage('product', {
   
         return argins;
       },
+      submittedUpdateProductsForm: function() {
+       var productReturn = {};
+        var Products = _.filter(this.addProductsFormData.products, (product)=>{
+          productReturn = product;
+           return product;
+         });
+         console.log('Products:',productReturn);
+  
+       
+        this._clearUpdateProductsModal();
+      },
   
       submittedAddProductsForm: function() {
         var productReturn = {};
@@ -138,8 +165,8 @@ parasails.registerPage('product', {
       },
 
       clickUpdateProduct: function(productId) {
-        this.selectedProductUpdate = _.find(this.products, {id: productId});
-        console.log('selectedProduct',this.selectedProductUpdate);
+        this.selectedProductUpdate.product = _.find(this.products, {id: productId});
+        console.log('selectedProduct',this.selectedProductUpdate.product);
   
         // Open the modal.
         this.confirmRemoveProductUpdateModalOpen = true;
@@ -158,9 +185,23 @@ parasails.registerPage('product', {
       },
 
       handleParsingUpdateProductsForm: function() {
-        return {
-          id: this.selectedProductUpdate.id
-        };
+
+        console.log('can you handle this?');
+  
+        this.formErrors = {};
+  
+        var argins = _.cloneDeep(this.selectedProductUpdate);
+        console.log(argins);
+        if (Object.keys(this.formErrors).length > 0) {
+          return;
+        }
+  
+        _.remove(argins.product, {name: '', costPrice: 0 });
+        argins.id = argins.product.id;
+        return argins;
+        //return {
+        //   id: this.selectedProductUpdate.id
+        // };
       },
   
       submittedRemoveProductsForm: function() {

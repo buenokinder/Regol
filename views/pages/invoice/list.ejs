@@ -25,6 +25,7 @@
               <td class="d-none d-md-table-cell">{{invoice.discount}}</td>
               <td class="d-none d-md-table-cell">{{invoice.total}}</td>
               <td class="actions-column">
+                  <button class="btn btn-sm btn-outline-danger" @click="clickUpdateInvoice(invoice.id)">Editar Fatura</button>
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoice(invoice.id)">Remover Fatura</button>
               </td>
             </tr>
@@ -162,6 +163,140 @@
         </div>
      
     </modal>
+
+
+
+    <% /* "Update invoice" modal */ %>
+    <modal v-if="confirmUpdateInvoiceModalOpen" v-cloak key="new" @close="closeUpdateInvoicesModal()">
+      <div class="modal-header">
+        <h5 class="modal-title">Adicionar Faturas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span>&times;</span>
+        </button>
+      </div>
+      <ajax-form action="updateInvoice" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUpdateInvoicesForm" @submitted="submittedUpdateInvoicesForm()">
+        <div class="modal-body">
+          <div class="form-group" >
+            <div class="row">
+                <div class="col">
+                    <label>Empresa</label>
+                    <v-select  v-model="updateInvoicesFormData.invoice.company"  :options="companies" label="name"></v-select>
+                  </div>
+                  
+                </div>
+                <div class="row">
+              <div class="col">
+                <label  >Data</label>
+                <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="updateInvoicesFormData.invoice.date" >
+              </div>
+              <div class="col">
+                <label >Número</label>
+                <input class="form-control" type="text" v-model="updateInvoicesFormData.invoice.numero" >
+              </div>
+             
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label  >Cliente</label>
+                    <v-select v-model="updateInvoicesFormData.invoice.customer"  :options="customers" label="name"></v-select>
+                  </div>
+                  
+                </div>
+                <div class="row">
+                  <div class="col">
+                      <label  >Desconto</label>
+                      <money v-model="updateInvoicesFormData.invoice.discount"  v-bind="money" class="form-control" ></money>
+                    </div>
+                    
+                  </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label  >Produtos</label>
+                        
+                        <v-select  v-model="product"  :options="products" label="name"></v-select>
+                      </div>
+                </div>
+         
+                <div class="row">
+                <div class="col-md-4">
+                    <label >Quantidade</label>
+                    <input class="form-control" type="text" v-model="quantity" >
+                  </div>
+                     
+                      <div class="col-md-4">
+                          <label >Preço Custo</label>
+                          <money v-model="product.costPrice"  v-bind="money" class="form-control" ></money>
+                        
+                        </div>
+                        <div class="col-md-4">
+                            <label >Preço de Venda</label>
+                            <money v-model="product.salePrice"  v-bind="money" class="form-control" ></money>
+                          
+                          </div>
+                    
+                </div>
+                <div class="form-group">
+                  <span class="add-more-button" @click="clickAddMoreButtonUpdate()"><span class="fa fa-plus text-info mr-1"></span> Adicionar Produto</span>
+                </div>
+                    <div class="friends-list" v-if="addInvoicesFormData.invoice.invoiceItems.length > 0">
+                        <h5 class="text-muted">Produtos</h5>
+                        <table class="table table-striped">
+                          <thead>
+                            <th>Produto</th>
+                            <th class="d-none d-md-table-cell">Quantidade</th>
+                            <th class="d-none d-md-table-cell">Materia Prima</th>
+                            <th class="d-none d-md-table-cell">Preço de Venda</th>
+                            <th class="actions-column"></th>
+                          </thead>
+                          <tbody>
+                            <tr v-for="invoiceItem in updateInvoicesFormData.invoice.invoiceItems">
+                              <td><strong>{{invoiceItem.product.name}}</strong></td>
+                              <td><strong>{{invoiceItem.quantity}}</strong></td>
+                              <td class="d-none d-md-table-cell">{{invoiceItem.costPrice}}</td>
+                              <td class="d-none d-md-table-cell">{{invoiceItem.salePrice}}</td>
+                              <td class="actions-column">
+                                <button type="button" class="btn btn-sm btn-outline-danger" @click="clickRemoveUpdateInvoiceItem(invoiceItem)">Apagar Item</button>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            <tr >
+                              <td><strong>Total: {{total}} €</strong></td>
+                              
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+  
+          </div>
+          
+           <p class="text-danger" v-if="formErrors.invoices"><small>Please make sure all your invitees have a name and an email address.</small></p>
+           <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+        </div>
+        <div class="modal-footer flex-row-reverse justify-content-start">
+          <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+          <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+        </div>
+      </ajax-form>
+    </modal>
+    <modal v-if="confirmRemoveInvoiceItemModalOpen && selectedInvoiceItem" v-cloak key="remove" @close="closeRemoveInvoiceItemModal()">
+        <div class="modal-header">
+          <h5 class="modal-title">Desejas remover o Produto  {{selectedInvoiceItem.product.name}} ?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span>&times;</span>
+          </button>
+        </div>
+       
+          <div class="modal-body">
+            <p>Desejas remover o Produto  {{selectedInvoiceItem.product.name}} </p>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+            <button type="button" class="btn btn-danger ml-1" @click="submittedRemoveInvoiceItemForm()">Remover Fatura</button>
+          </div>
+       
+      </modal>
+
 
   <% /* "Remove friend" modal */ %>
   <modal v-if="confirmRemoveInvoiceModalOpen && selectedInvoice" v-cloak key="remove" @close="closeRemoveInvoiceModal()">
