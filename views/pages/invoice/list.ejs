@@ -167,7 +167,7 @@
 
 
     <% /* "Update invoice" modal */ %>
-    <modal v-if="confirmUpdateInvoiceModalOpen" v-cloak key="new" @close="closeUpdateInvoicesModal()">
+    <modal v-if="confirmUpdateInvoiceModalOpen" v-cloak key="update" @close="closeUpdateInvoicesModal()">
       <div class="modal-header">
         <h5 class="modal-title">Adicionar Faturas</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -261,7 +261,7 @@
                           </tbody>
                           <tfoot>
                             <tr >
-                              <td><strong>Total: {{total}} €</strong></td>
+                              <td><strong>Total: {{totalUpdate}} €</strong></td>
                               
                             </tr>
                           </tfoot>

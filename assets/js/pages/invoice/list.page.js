@@ -30,11 +30,11 @@ parasails.registerPage('invoice', {
     virtualPageSlug: '',
 
     // Form data
-    addInvoicesFormData: {
+    addFixedCostsFormData: {
       invoice: 
         {
           numero: '',
-          data: '',
+          date: '',
           company: '',
           customer: '',
           discount: 0,
@@ -47,7 +47,7 @@ parasails.registerPage('invoice', {
       invoice: 
         {
           numero: '',
-          data: '',
+          date: '',
           company: '',
           customer: '',
           discount: 0,
@@ -98,8 +98,20 @@ parasails.registerPage('invoice', {
         }, 0);
         this.addInvoicesFormData.invoice.total =subTotal-this.addInvoicesFormData.invoice.discount;
         return subTotal-this.addInvoicesFormData.invoice.discount;
-    }
+    },  
+    totalUpdate: function() {
+      if (!this.updateInvoicesFormData.invoice.invoiceItems) {
+          return 0;
+      }
+
+      var subTotal = this.updateInvoicesFormData.invoice.invoiceItems.reduce(function (total, value) {
+          return total + Number(value.salePrice*value.quantity);
+      }, 0);
+      this.updateInvoicesFormData.invoice.total =subTotal-this.updateInvoicesFormData.invoice.discount;
+      return subTotal-this.updateInvoicesFormData.invoice.discount;
+  }
   },
+
 
   //  ╦╔╗╔╔╦╗╔═╗╦═╗╔═╗╔═╗╔╦╗╦╔═╗╔╗╔╔═╗
   //  ║║║║ ║ ║╣ ╠╦╝╠═╣║   ║ ║║ ║║║║╚═╗
@@ -124,9 +136,7 @@ parasails.registerPage('invoice', {
           customer: '',
           discount: 0,
           total: 0,
-          invoiceItems: [{
-            
-          }]
+          invoiceItems: []
         }
       };
       this.formErrors = {};
@@ -135,20 +145,21 @@ parasails.registerPage('invoice', {
     _clearUpdateInvoicesModal: function() {
       this.goto('/invoice');
       // Reset form data.
-      this.updateInvoicesFormData = {
-         invoice: 
-        {
-          numero: '',
-          data: '',
-          company: '',
-          customer: '',
-          discount: 0,
-          total: 0,
-          invoiceItems: [{
+      //  this.updateInvoicesFormData = {
+      //     invoice: 
+      //    {
+      //      numero: '',
+      //      data: '',
+      //      name: '',
+      //      company: {name: ''},
+      //      customer: { name: ''},
+      //      discount: 0,
+      //      total: 0,
+      //      invoiceItems: [{
             
-          }]
-        }
-      };
+      //      }]
+      //    }
+      //  };
       this.formErrors = {};
       this.cloudError = '';
     },
@@ -160,6 +171,15 @@ parasails.registerPage('invoice', {
       this._clearAddInvoicesModal();
     },
 
+    clickAddMoreButtonUpdate: function() {
+      
+      this.updateInvoicesFormData.invoice.invoiceItems.push({
+        quantity: this.quantity,
+        product: this.product,
+        costPrice: this.product.costPrice,
+        salePrice: this.product.salePrice,
+      });
+    },
     clickAddMoreButton: function() {
       
       this.addInvoicesFormData.invoice.invoiceItems.push({
@@ -181,7 +201,7 @@ parasails.registerPage('invoice', {
       }
 
       _.remove(argins.invoice, {fullName: '', emailAddress: ''});
-
+      argins.id = argins.invoice.id;
       return argins;
     },
     handleParsingAddInvoicesForm: function() {
@@ -207,11 +227,19 @@ parasails.registerPage('invoice', {
       this.invoices.unshift(this.addInvoicesFormData.invoice);
       this._clearAddInvoicesModal();
     },
-    
+    clickRemoveUpdateInvoiceItem: function(invoiceItem) {
+      console.log(this.updateInvoicesFormData.invoice.numero) 
+     
+      this.selectedInvoiceItem = _.find(this.updateInvoicesFormData.invoice.invoiceItems, invoiceItem);
+      this.selectedInvoiceItem['from']  = "update";
+      console.log('selectedInvoiceItem',this.selectedInvoiceItem);
+      this.confirmRemoveInvoiceItemModalOpen = true;
+    },
     clickRemoveInvoiceItem: function(invoiceItem) {
       console.log(this.addInvoicesFormData.invoice.numero) 
-
+      
       this.selectedInvoiceItem = _.find(this.addInvoicesFormData.invoice.invoiceItems, invoiceItem);
+      this.selectedInvoiceItem['from'] = "add";
       console.log('selectedInvoiceItem',this.selectedInvoiceItem);
       this.confirmRemoveInvoiceItemModalOpen = true;
     },
@@ -261,9 +289,11 @@ parasails.registerPage('invoice', {
       this.confirmRemoveInvoiceModalOpen = false;
       this.cloudError = '';
     },
-    submittedRemoveInvoiceItemForm: function() {
-
-      _.remove(this.addInvoicesFormData.invoice.invoiceItems,  this.selectedInvoice);
+    submittedRemoveInvoiceItemForm: function(from) {
+      if(this.selectedInvoiceItem.from == "add")
+      _.remove(this.addInvoicesFormData.invoice.invoiceItems,  this.selectedInvoiceItem);
+    else
+      _.remove(this.updateInvoicesFormData.invoice.invoiceItems,  this.selectedInvoiceItem);
 
       // Close the modal.
       this.selectedInvoiceItem = undefined;

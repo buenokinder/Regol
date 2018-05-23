@@ -40,6 +40,8 @@ module.exports.routes = {
   
   'GET /invoice':            { action: 'invoice/list' },
   'GET /company':            { action: 'company/list' },
+  'GET /fixedcost':            { action: 'fixedcost/list' },
+
   
   
 
@@ -76,6 +78,12 @@ module.exports.routes = {
   'POST   /api/v1/companies':                           { action: 'company/add-company' },
   'PUT    /api/v1/companies/:id':                    { action: 'company/update-company' },
 
+
+  'DELETE  /api/v1/fixedcosts/:id':                      { action: 'fixedcost/remove-fixedcost' },
+  'POST   /api/v1/fixedcosts':                           { action: 'fixedcost/add-fixedcost' },
+  'PUT    /api/v1/fixedcosts/:id':                    { action: 'fixedcost/update-fixedcost' },
+
+  
   
   //  ╦ ╦╔═╗╔╗ ╦ ╦╔═╗╔═╗╦╔═╔═╗
   //  ║║║║╣ ╠╩╗╠═╣║ ║║ ║╠╩╗╚═╗

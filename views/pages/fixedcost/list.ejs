@@ -1,0 +1,152 @@
+<div id="fixedCost">
+    <div class="page-header text-center">
+        <h1>Custo Fixo</h1>
+        <h2>Visualizar e Editar Custo Fixo.</h2>
+        <div class="header-buttons">
+          <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Custo Fixo</button>
+        </div>
+      </div>
+      <div class="friends-list" v-if="fixedCosts.length > 0">
+        <h5 class="text-muted">Custo Fixo</h5>
+        <table class="table table-striped">
+          <thead>
+            <th>Data</th>
+            <th class="d-none d-md-table-cell">Nome</th>
+            <th class="d-none d-md-table-cell">Valor</th>
+            <th class="actions-column"></th>
+          </thead>
+          <tbody>
+            <tr v-for="fixedCost in fixedCosts">
+              <td><strong>{{fixedCost.date}}</strong></td>
+              <td class="d-none d-md-table-cell">{{fixedCost.name}}</td>
+              <td class="d-none d-md-table-cell">{{fixedCost.value}}</td>
+              <td class="actions-column">
+                <button class="btn btn-sm btn-outline-danger" @click="clickUpdateFixedCost(fixedCost.id)">Editar Custo Fixo</button>
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveFixedCost(fixedCost.id)">Apagar Custo Fixo</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <% /* "Add fixedCost" modal */ %>
+  <modal v-if="virtualPageSlug === 'new'" v-cloak key="new" @close="closeAddFixedCostsModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Adicionar Custo Fixo</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="addFixedcost" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingAddFixedCostsForm" @submitted="submittedAddFixedCostsForm()">
+      <div class="modal-body">
+        <div class="form-group" >
+          <div class="row">
+              <div class="col">
+                  <label >Data</label>
+                  <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="addFixedCostsFormData.fixedCost.date" >
+        
+                </div>
+            
+           
+                    <div class="col">
+                        <label  >Empresa</label>
+                        <v-select v-model="addFixedCostsFormData.fixedCost.company"  :options="companies" label="name"></v-select>
+                      </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+              <label >Nome</label>
+              <input class="form-control" type="text" v-model="addFixedCostsFormData.fixedCost.name" >
+            </div>
+           
+            <div class="col">
+              <label >Valor</label>
+              <money v-model="addFixedCostsFormData.fixedCost.value"  v-bind="money" class="form-control" ></money>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>
+        </div>
+         <p class="text-danger" v-if="formErrors.fixedCosts"><small>Please make sure all your invitees have a name and an email address.</small></p>
+         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer flex-row-reverse justify-content-start">
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+      </div>
+    </ajax-form>
+  </modal>
+
+
+  <% /* "Add fixedCost" modal */ %>
+  <modal v-if="confirmRemoveFixedCostUpdateModalOpen" v-cloak key="update" @close="closeUpdateFixedCostsModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Adicionar Custo Fixo</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="updateFixedcost" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingUpdateFixedCostsForm" @submitted="submittedUpdateFixedCostsForm()">
+      <div class="modal-body">
+          <div class="row">
+              <div class="col">
+                  <label >Data</label>
+                  <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="selectedFixedCostUpdate.fixedCost.date" >
+        
+                </div>
+            
+           
+                    <div class="col">
+                        <label  >Empresa</label>
+                        <v-select v-model="selectedFixedCostUpdate.fixedCost.company"  :options="companies" label="name"></v-select>
+                      </div>
+                    </div>
+                      <div class="row">
+                      <div class="col"> 
+              <label >Nome</label>
+              <input class="form-control" type="text" v-model="selectedFixedCostUpdate.fixedCost.name" >
+            </div>
+           
+            <div class="col">
+              <label >Valor</label>
+              <money v-model="selectedFixedCostUpdate.fixedCost.value"  v-bind="money" class="form-control" ></money>
+            </div>
+          </div>
+
+    
+         <p class="text-danger" v-if="formErrors.fixedCosts"><small>Please make sure all your invitees have a name and an email address.</small></p>
+         <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer flex-row-reverse justify-content-start">
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-primary ml-1">Guardar</ajax-button>
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+      </div>
+    </ajax-form>
+  </modal>
+
+  <% /* "Remove friend" modal */ %>
+  <modal v-if="confirmRemoveFixedCostModalOpen && selectedFixedCost" v-cloak key="remove" @close="closeRemoveFixedCostModal()">
+    <div class="modal-header">
+      <h5 class="modal-title">Desejas remover o cliente {{selectedFixedCost.name}}?</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+      </button>
+    </div>
+    <ajax-form action="removeFixedcost" :syncing.sync="syncing" :cloud-error.sync="cloudError" :handle-parsing="handleParsingRemoveFixedCostForm" @submitted="submittedRemoveFixedCostForm($event)">
+      <div class="modal-body">
+        <p>Deseja realmente remover o produto {{selectedFixedCost.name}} ?</p>
+        <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Custo Fixo</ajax-button>
+      </div>
+    </ajax-form>
+  </modal>
+
+  <%/* For virtual pages */%>
+  <router-view></router-view>
+</div>
+
+<%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
