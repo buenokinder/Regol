@@ -30,7 +30,7 @@ parasails.registerPage('invoice', {
     virtualPageSlug: '',
 
     // Form data
-    addFixedCostsFormData: {
+    addInvoicesFormData: {
       invoice: 
         {
           numero: '',
