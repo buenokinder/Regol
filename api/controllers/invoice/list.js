@@ -21,6 +21,14 @@ module.exports = {
       var invoices = await Invoice.find().populate('customer')
                                           .populate('company')
                                           .populate('invoiceItems');
+
+      for (let invoice of invoices) {
+        for (let invoiceItem of invoice.invoiceItems) {
+          invoiceItem.product = await Product.findOne({ id: invoiceItem.product});
+       
+        }       
+       
+      }                                    
       var products = await Product.find();
       var customers = await Customer.find();
       var companies = await Company.find();

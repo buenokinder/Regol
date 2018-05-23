@@ -37,14 +37,16 @@ module.exports = {
         newInvoice.date = invoice.date;
         newInvoice.total = invoice.total;
         newInvoice.discount = invoice.discount;
-
+        console.log('Teste');
         if(!existingInvoice) {
-          sails.log(newInvoice);
-          await Invoice.create(newInvoice).fetch();
 
+          var invoiceRetorno = await Invoice.create(newInvoice).fetch();
+          console.log(invoiceRetorno);
           for (let invoiceItem of invoice.invoiceItems) {
-            sails.log(invoiceItem)
+            
             var newInvoiceItem= {};
+            
+            newInvoiceItem.invoice = invoiceRetorno.id;
             newInvoiceItem.quantity = invoiceItem.quantity;
             newInvoiceItem.costPrice = invoiceItem.costPrice;
             newInvoiceItem.salePrice = invoiceItem.salePrice;

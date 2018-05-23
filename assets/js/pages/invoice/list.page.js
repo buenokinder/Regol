@@ -132,6 +132,29 @@ parasails.registerPage('invoice', {
       this.formErrors = {};
       this.cloudError = '';
     },
+    _clearUpdateInvoicesModal: function() {
+      this.goto('/invoice');
+      // Reset form data.
+      this.updateInvoicesFormData = {
+         invoice: 
+        {
+          numero: '',
+          data: '',
+          company: '',
+          customer: '',
+          discount: 0,
+          total: 0,
+          invoiceItems: [{
+            
+          }]
+        }
+      };
+      this.formErrors = {};
+      this.cloudError = '';
+    },
+    closeUpdateInvoicesModal: function() {
+      this._clearUpdateInvoicesModal();
+    },
 
     closeAddInvoicesModal: function() {
       this._clearAddInvoicesModal();
