@@ -53,9 +53,13 @@
               </div>
               <div class="row">
             <div class="col">
-              <label  >Data</label>
+              <label  >Data Emissão</label>
               <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="addInvoicesFormData.invoice.date" >
             </div>
+            <div class="col">
+                <label  >Data Competencia</label>
+                <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="addInvoicesFormData.invoice.fiscalDate" >
+              </div>
             <div class="col">
               <label >Número</label>
               <input class="form-control" type="text" v-model="addInvoicesFormData.invoice.numero" >
@@ -186,9 +190,13 @@
                 </div>
                 <div class="row">
               <div class="col">
-                <label  >Data</label>
+                <label  >Data Emissão</label>
                 <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="updateInvoicesFormData.invoice.date" >
               </div>
+              <div class="col">
+                  <label  >Data Competencia</label>
+                  <input class="form-control"  type="tel" v-mask="'##/##/####'" v-model="updateInvoicesFormData.invoice.fiscalDate" >
+                </div>
               <div class="col">
                 <label >Número</label>
                 <input class="form-control" type="text" v-model="updateInvoicesFormData.invoice.numero" >

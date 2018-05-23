@@ -35,6 +35,7 @@ parasails.registerPage('invoice', {
         {
           numero: '',
           date: '',
+          fiscalDate: '',
           company: '',
           customer: '',
           discount: 0,
@@ -48,6 +49,7 @@ parasails.registerPage('invoice', {
         {
           numero: '',
           date: '',
+          fiscalDate: '',
           company: '',
           customer: '',
           discount: 0,

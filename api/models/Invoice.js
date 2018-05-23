@@ -21,6 +21,10 @@ module.exports = {
         type: 'string',
         columnType: 'datetime'
       },
+      fiscalDate: {
+        type: 'string',
+        columnType: 'datetime'
+      },
       company: {
         model: 'company'
       },
