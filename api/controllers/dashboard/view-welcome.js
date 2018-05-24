@@ -22,7 +22,6 @@ module.exports = {
     var totalProducts =   await Product.count();
     var totalSales =   await Invoice.sum("total");
     var totalDiscount =   await Invoice.sum("discount");
-    var totalCost =   await InvoiceItems.sum("costPrice");
     var totalItems =   await InvoiceItems.sum("quantity");
     var totalItemsTotal =   await InvoiceItems.find();
     var totalItemsTotals = Number(0); 
@@ -32,6 +31,12 @@ module.exports = {
       console.log(currentValue.quantity);
       return accumulator + (currentValue.quantity*currentValue.salePrice);
     }, 0);
+
+    var totalCost = totalItemsTotal.reduce(function (accumulator, currentValue) {
+      console.log(currentValue.quantity);
+      return accumulator + (currentValue.quantity*currentValue.costPrice);
+    }, 0);
+
     sails.log(total);
     // for (let item of totalItemsTotal) {
     //   totalItemsTotals=totalItemsTotals+(item.quantity*item.totalSales);
