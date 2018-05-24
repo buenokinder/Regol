@@ -38,15 +38,15 @@ module.exports = {
       return accumulator + (currentValue.quantity*currentValue.costPrice);
     }, 0);
 
-    sails.log(total);
-    // for (let item of totalItemsTotal) {
-    //   totalItemsTotals=totalItemsTotals+(item.quantity*item.totalSales);
-    //   sails.log(item.quantity*item.salePrice)
-    //   sails.log(totalItemsTotals)
-    // }
+    var totalProductsSale = totalItemsTotal.reduce(function (accumulator, currentValue) {
+      console.log(currentValue.quantity);
+      return accumulator + (currentValue.quantity);
+    }, 0);
 
+
+    var averageProducstPrice =  (totalProductsSale/totalItemsTotal)
     var totalFixedCost =   await FixedCost.sum("value");
-
+    var averageContribuitionFixedCost =   (totalFixedCost/totalItemsTotal);
     return exits.success({
       currentSection: 'welcome',
       totalCustomers: totalCustomers,
@@ -58,6 +58,7 @@ module.exports = {
       totalFixedCost: totalFixedCost.toFixed(2),
       totalItems: totalItems,
       totalInvoices: totalInvoice,
+      averageProducstPrice: averageProducstPrice,
     });
 
   }
