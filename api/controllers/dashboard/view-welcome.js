@@ -44,9 +44,9 @@ module.exports = {
     }, 0);
 
 
-    var averageProducstPrice =  (totalProductsSale/totalItemsTotal)
+    var averageProducstPrice =  (total/totalProductsSale)
     var totalFixedCost =   await FixedCost.sum("value");
-    var averageContribuitionFixedCost =   (totalFixedCost/totalItemsTotal);
+    var averageContribuitionFixedCost =   (totalFixedCost/totalProductsSale);
     return exits.success({
       currentSection: 'welcome',
       totalCustomers: totalCustomers,
@@ -58,7 +58,8 @@ module.exports = {
       totalFixedCost: totalFixedCost.toFixed(2),
       totalItems: totalItems,
       totalInvoices: totalInvoice,
-      averageProducstPrice: averageProducstPrice,
+      averageProducstPrice: averageProducstPrice.toFixed(2),
+      averageContribuitionFixedCost: averageContribuitionFixedCost.toFixed(2),
     });
 
   }
