@@ -20,6 +20,10 @@ module.exports = {
       maxLength: 200,
       example: 'carol.reyna@microsoft.com'
     },
+    userGroupd: {
+      model: 'userGroup',
+      required: false
+    },
 
     password: {
       type: 'string',

@@ -33,9 +33,14 @@ module.exports = {
   
       invoice: {
         model: 'invoice'
-      }
+      },
+      
   
-    },
+    },total: function () {
+      var retorno = 0;
+      retorno= Number(this.salePrice * this.quantity); 
+      return _.omit(this, ['retorno']);
+      }
   
   };
   

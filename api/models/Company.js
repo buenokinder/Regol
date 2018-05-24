@@ -16,7 +16,11 @@ module.exports = {
         type: 'string',
         description: 'Company Name.',
         required: true
-      }
+      },
+      userGroupd: {
+        model: 'userGroup',
+        required: false
+      },
     },
   
   };

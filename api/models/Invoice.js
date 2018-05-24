@@ -43,6 +43,14 @@ module.exports = {
         type: 'number',
         required: true
       },
+    userGroupd: {
+      model: 'userGroup',
+      required: false
+    },
+    duplicated: {
+      type: 'boolean',
+      required: false
+    },
   
     },
   

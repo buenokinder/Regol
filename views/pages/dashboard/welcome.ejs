@@ -20,12 +20,18 @@
       <div class="col-md-4">
         <caixa :qtd="totalProducts" titulo="Total de Produtos" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
       </div>
+      <div class="col-md-4">
+          <caixa :qtd="totalDiscount" titulo="Total de Descontos" url="/invoice" cor="brown" icone="ion ion-person-stalker"></caixa>
+        </div>
+
+        <div class="col-md-4">
+            <caixa :qtd="totalItemsTotal" titulo="Total sem Desconto" url="/invoice" cor="turquoise" icone="ion ion-person-stalker"></caixa>
+          </div>
    
      </div>
   </div>
 
 </div>
-
 <style media="screen">
   .bg-aqua{
       background-color: #00c0ef !important;

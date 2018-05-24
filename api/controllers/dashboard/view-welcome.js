@@ -20,18 +20,41 @@ module.exports = {
   fn: async function (inputs, exits) {
     var totalCustomers =   await Customer.count();
     var totalProducts =   await Product.count();
-    var totalSales =   await InvoiceItems.sum("salePrice");
+    var totalSales =   await Invoice.sum("total");
+    var totalDiscount =   await Invoice.sum("discount");
     var totalCost =   await InvoiceItems.sum("costPrice");
-   
+    var totalItems =   await InvoiceItems.sum("quantity");
+    var totalItemsTotal =   await InvoiceItems.find();
+    var totalItemsTotals = Number(0); 
+    sails.log(totalItemsTotals)
+
+    var total = totalItemsTotal.reduce(function (accumulator, currentValue) {
+      console.log(currentValue.quantity);
+      return accumulator + (currentValue.quantity*currentValue.salePrice);
+    }, 0);
+    sails.log(total);
+    // for (let item of totalItemsTotal) {
+    //   totalItemsTotals=totalItemsTotals+(item.quantity*item.totalSales);
+    //   sails.log(item.quantity*item.salePrice)
+    //   sails.log(totalItemsTotals)
+    // }
+
+    var totalFixedCost =   await FixedCost.sum("value");
+
     return exits.success({
       currentSection: 'welcome',
       totalCustomers: totalCustomers,
       totalSales: totalSales.toFixed(2),
+      totalDiscount: totalDiscount.toFixed(2),
       totalCost: totalCost.toFixed(2),
       totalProducts: totalProducts,
+      totalItemsTotal: total.toFixed(2),
+      totalFixedCost: totalFixedCost.toFixed(2),
+      totalItems: totalItems,
     });
 
   }
 
 
 };
+

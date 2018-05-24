@@ -11,8 +11,9 @@
         <table class="table table-striped">
           <thead>
             <th>Número</th>
-            <th class="d-none d-md-table-cell">Data</th>
-            <!-- <th class="d-none d-md-table-cell">Cliente</th> -->
+            <th class="d-none d-md-table-cell">Data Emissão</th>
+            <th class="d-none d-md-table-cell">Data Competencia</th>
+           <th class="d-none d-md-table-cell">Cliente</th> 
             <th class="d-none d-md-table-cell">Desconto</th>
             <th class="d-none d-md-table-cell">Total</th>
             <th class="actions-column"></th>
@@ -21,9 +22,10 @@
             <tr v-for="invoice in invoices">
               <td><strong>{{invoice.numero}}</strong></td>
               <td class="d-none d-md-table-cell">{{invoice.date}}</td>
-              <!-- <td class="d-none d-md-table-cell">{{invoice.customer.name}}</td> -->
-              <td class="d-none d-md-table-cell">{{invoice.discount}}</td>
-              <td class="d-none d-md-table-cell">{{invoice.total}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.fiscalDate}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.customer.name}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.discount}} €</td>
+              <td class="d-none d-md-table-cell">{{invoice.total}} €</td>
               <td class="actions-column">
                   <button class="btn btn-sm btn-outline-danger" @click="clickUpdateInvoice(invoice.id)">Editar Fatura</button>
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveInvoice(invoice.id)">Remover Fatura</button>
