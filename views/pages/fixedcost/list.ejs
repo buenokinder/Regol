@@ -1,13 +1,13 @@
 <div id="fixedCost">
     <div class="page-header text-center">
-        <h1>Custo Fixo</h1>
-        <h2>Visualizar e Editar Custo Fixo.</h2>
+        <h1>Custo Indirecto</h1>
+        <h2>Visualizar e Editar Custo Indirecto.</h2>
         <div class="header-buttons">
-          <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Custo Fixo</button>
+          <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Custo Indirecto</button>
         </div>
       </div>
       <div class="friends-list" v-if="fixedCosts.length > 0">
-        <h5 class="text-muted">Custo Fixo</h5>
+        <h5 class="text-muted">Custo Indirecto</h5>
         <table class="table table-striped">
           <thead>
             <th>Data</th>
@@ -21,8 +21,8 @@
               <td class="d-none d-md-table-cell">{{fixedCost.name}}</td>
               <td class="d-none d-md-table-cell">{{fixedCost.value}}</td>
               <td class="actions-column">
-                <button class="btn btn-sm btn-outline-danger" @click="clickUpdateFixedCost(fixedCost.id)">Editar Custo Fixo</button>
-                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveFixedCost(fixedCost.id)">Apagar Custo Fixo</button>
+                <button class="btn btn-sm btn-outline-danger" @click="clickUpdateFixedCost(fixedCost.id)">Editar Custo Indirecto</button>
+                <button class="btn btn-sm btn-outline-danger" @click="clickRemoveFixedCost(fixedCost.id)">Apagar Custo Indirecto</button>
               </td>
             </tr>
           </tbody>
@@ -82,7 +82,7 @@
   <% /* "Add fixedCost" modal */ %>
   <modal v-if="confirmRemoveFixedCostUpdateModalOpen" v-cloak key="update" @close="closeUpdateFixedCostsModal()">
     <div class="modal-header">
-      <h5 class="modal-title">Adicionar Custo Fixo</h5>
+      <h5 class="modal-title">Adicionar Custo Indirecto</h5>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span>&times;</span>
       </button>
@@ -140,7 +140,7 @@
       </div>
       <div class="modal-footer">
         <button data-dismiss="modal" class="btn btn-outline-secondary mr-1">Cancelar</button>
-        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Custo Fixo</ajax-button>
+        <ajax-button type="submit" :syncing="syncing" class="btn btn-danger ml-1">Remover Custo Indirecto</ajax-button>
       </div>
     </ajax-form>
   </modal>
