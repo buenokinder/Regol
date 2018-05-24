@@ -73,6 +73,7 @@ module.exports = {
       averageContribuitionFixedCost: averageContribuitionFixedCost.toFixed(2),
       faturamentoSemPrejuizo:faturamentoSemPrejuizo.toFixed(0),
       qtdProdutosEquilibrio: qtdProdutosEquilibrio.toFixed(0),
+      totalProductsSale: totalProductsSale.toFixed(0),
     });
 
   }
