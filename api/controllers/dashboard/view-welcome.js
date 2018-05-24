@@ -29,24 +29,35 @@ module.exports = {
     sails.log(totalItemsTotals)
 
     var total = totalItemsTotal.reduce(function (accumulator, currentValue) {
-      console.log(currentValue.quantity);
       return accumulator + (currentValue.quantity*currentValue.salePrice);
     }, 0);
 
     var totalCost = totalItemsTotal.reduce(function (accumulator, currentValue) {
-      console.log(currentValue.quantity);
       return accumulator + (currentValue.quantity*currentValue.costPrice);
     }, 0);
 
     var totalProductsSale = totalItemsTotal.reduce(function (accumulator, currentValue) {
-      console.log(currentValue.quantity);
       return accumulator + (currentValue.quantity);
     }, 0);
 
-
+    sails.log(totalProductsSale)
+    sails.log(totalCost)
+    sails.log(total)
     var averageProducstPrice =  (total/totalProductsSale)
     var totalFixedCost =   await FixedCost.sum("value");
+   
     var averageContribuitionFixedCost =   (totalFixedCost/totalProductsSale);
+    var faturamentoSemPrejuizo = totalFixedCost/(averageProducstPrice/averageContribuitionFixedCost);
+    var qtdProdutosEquilibrio = faturamentoSemPrejuizo/averageProducstPrice
+    
+
+  
+    sails.log(totalFixedCost)
+    sails.log(totalProductsSale)
+    sails.log(averageProducstPrice)
+    sails.log(averageContribuitionFixedCost)
+    
+
     return exits.success({
       currentSection: 'welcome',
       totalCustomers: totalCustomers,
@@ -60,6 +71,8 @@ module.exports = {
       totalInvoices: totalInvoice,
       averageProducstPrice: averageProducstPrice.toFixed(2),
       averageContribuitionFixedCost: averageContribuitionFixedCost.toFixed(2),
+      faturamentoSemPrejuizo:faturamentoSemPrejuizo.toFixed(0),
+      qtdProdutosEquilibrio: qtdProdutosEquilibrio.toFixed(0),
     });
 
   }
