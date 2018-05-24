@@ -23,6 +23,7 @@ module.exports = {
     var totalSales =   await Invoice.sum("total");
     var totalDiscount =   await Invoice.sum("discount");
     var totalItems =   await InvoiceItems.sum("quantity");
+    var totalInvoice =   await Invoice.count();
     var totalItemsTotal =   await InvoiceItems.find();
     var totalItemsTotals = Number(0); 
     sails.log(totalItemsTotals)
@@ -56,6 +57,7 @@ module.exports = {
       totalItemsTotal: total.toFixed(2),
       totalFixedCost: totalFixedCost.toFixed(2),
       totalItems: totalItems,
+      totalInvoices: totalInvoice,
     });
 
   }
