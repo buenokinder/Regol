@@ -35,9 +35,9 @@ module.exports = {
         newInvoice["numero"] = invoice.numero;
         newInvoice.company =   invoice.company.id ;
         newInvoice.customer =  invoice.customer.id ;
-        newInvoice.date = invoice.date;
+        newInvoice.date = new Date(invoice.date);
         newInvoice.total = invoice.total;
-        newInvoice.fiscalDate = invoice.fiscalDate;
+        newInvoice.fiscalDate = new Date(invoice.fiscalDate);
         newInvoice.discount = invoice.discount;
         console.log('1')
         

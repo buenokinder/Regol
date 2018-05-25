@@ -21,8 +21,8 @@
           <tbody>
             <tr v-for="invoice in invoices">
               <td><strong>{{invoice.numero}}</strong></td>
-              <td class="d-none d-md-table-cell">{{invoice.date}}</td>
-              <td class="d-none d-md-table-cell">{{invoice.fiscalDate}}</td>
+              <td class="d-none d-md-table-cell">{{invoice.date | formatDate }}</td>
+              <td class="d-none d-md-table-cell">{{invoice.fiscalDate | formatDate }}</td>
               <td class="d-none d-md-table-cell">{{invoice.customer.name}}</td>
               <td class="d-none d-md-table-cell">{{invoice.discount}} €</td>
               <td class="d-none d-md-table-cell">{{invoice.total}} €</td>
