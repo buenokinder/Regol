@@ -32,7 +32,7 @@ module.exports = {
         fixedCostNew.name = fixedCost.name;
         fixedCostNew.company = fixedCost.company.id;
         fixedCostNew.value = fixedCost.value;
-        fixedCostNew.date = fixedCost.date;
+        fixedCostNew.date = new Date(fixedCost.date);
         
 
         var existingFixedCost = await FixedCost.findOne({ name: fixedCost.name });

@@ -20,43 +20,49 @@ module.exports = {
   fn: async function (inputs, exits) {
     var totalCustomers =   await Customer.count();
     var totalProducts =   await Product.count();
-    var totalSales =   await Invoice.sum("total");
-    var totalDiscount =   await Invoice.sum("discount");
-    var totalItems =   await InvoiceItems.sum("quantity");
+
+    var date = new Date(), y = date.getFullYear(), m = date.getMonth();
+    var firstDay = new Date(y, m, 1);
+    var lastDay = new Date(y, m + 1, 0);
+    sails.log(firstDay);
+    var totalSales =   await Invoice.sum("total").where({
+                                                          date: { '>': firstDay }});
+
+    var invoices =   await Invoice.find().populate('invoiceItems').where({
+                                                            date: { '>': firstDay }});
+
+
+    
+    var total = 0;
+    var totalItemsTotal = 0;
+    var totalItems = 0;
+    var totalInvoice = 0;
+    var totalProductsSale = 0;
+    var totalCost = 0;
+    for (let invoice of invoices) {
+      totalInvoice = totalInvoice + 1;
+      for (let invoiceItem of invoice.invoiceItems) {
+        total = total + (invoiceItem.quantity*invoiceItem.salePrice)
+        totalCost = totalCost + (invoiceItem.quantity*invoiceItem.costPrice)
+        totalItems = totalItems + invoiceItem.quantity;
+        totalProductsSale = totalItems;
+        totalItemsTotal = totalItemsTotal + 1;
+      }
+    }
+
+    var totalDiscount = await Invoice.sum("discount").where({
+      date: { '>': firstDay }});
+   
     var totalInvoice =   await Invoice.count();
-    var totalItemsTotal =   await InvoiceItems.find();
-    var totalItemsTotals = Number(0); 
-    sails.log(totalItemsTotals)
+   
 
-    var total = totalItemsTotal.reduce(function (accumulator, currentValue) {
-      return accumulator + (currentValue.quantity*currentValue.salePrice);
-    }, 0);
-
-    var totalCost = totalItemsTotal.reduce(function (accumulator, currentValue) {
-      return accumulator + (currentValue.quantity*currentValue.costPrice);
-    }, 0);
-
-    var totalProductsSale = totalItemsTotal.reduce(function (accumulator, currentValue) {
-      return accumulator + (currentValue.quantity);
-    }, 0);
-
-    sails.log(totalProductsSale)
-    sails.log(totalCost)
-    sails.log(total)
     var averageProducstPrice =  (total/totalProductsSale)
     var totalFixedCost =   await FixedCost.sum("value");
    
     var averageContribuitionFixedCost =   (totalFixedCost/totalProductsSale);
+
     var faturamentoSemPrejuizo = totalFixedCost/(averageProducstPrice/averageContribuitionFixedCost);
     var qtdProdutosEquilibrio = faturamentoSemPrejuizo/averageProducstPrice
-    
-
-  
-    sails.log(totalFixedCost)
-    sails.log(totalProductsSale)
-    sails.log(averageProducstPrice)
-    sails.log(averageContribuitionFixedCost)
-    
 
     return exits.success({
       currentSection: 'welcome',

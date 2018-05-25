@@ -31,7 +31,11 @@ module.exports = {
     salePrice: {
       type: 'number',
       required: true
-    }
+    },
+    userGroupd: {
+      model: 'userGroup',
+      required: false
+    },
 
 
   },
