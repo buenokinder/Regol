@@ -367,7 +367,6 @@
 {"createdAt":1527244579258,"updatedAt":1527244579258,"id":408,"quantity":15,"costPrice":0.69,"salePrice":1.2,"product":38,"invoice":93,"_id":408}
 {"createdAt":1527244579260,"updatedAt":1527244579260,"id":409,"quantity":1,"costPrice":4.98,"salePrice":9.9,"product":14,"invoice":93,"_id":409}
 {"createdAt":1527244579261,"updatedAt":1527244579261,"id":410,"quantity":5,"costPrice":0.38,"salePrice":0.75,"product":73,"invoice":93,"_id":410}
-{"createdAt":1527245151840,"updatedAt":1527245151840,"id":411,"quantity":1,"costPrice":35,"salePrice":61.25,"product":95,"invoice":92,"_id":411}
 {"createdAt":1527245332772,"updatedAt":1527245332772,"id":412,"quantity":10,"costPrice":0.5,"salePrice":1.2,"product":34,"invoice":94,"_id":412}
 {"createdAt":1527252586846,"updatedAt":1527252586846,"id":417,"quantity":5,"costPrice":0.57,"salePrice":1.4,"product":46,"invoice":50,"_id":417}
 {"createdAt":1527252586847,"updatedAt":1527252586847,"id":418,"quantity":1,"costPrice":4.98,"salePrice":9.9,"product":14,"invoice":50,"_id":418}

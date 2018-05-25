@@ -39,7 +39,13 @@ module.exports = {
     var totalInvoice = 0;
     var totalProductsSale = 0;
     var totalCost = 0;
+    var soma = 0;
     for (let invoice of invoices) {
+      soma = soma + invoice.total;
+      sails.log('NF ' + invoice.total)
+      sails.log('NF ' + invoice.numero)
+      sails.log('Soma ' + soma)
+      sails.log('----------------')
       totalInvoice = totalInvoice + 1;
       for (let invoiceItem of invoice.invoiceItems) {
         total = total + (invoiceItem.quantity*invoiceItem.salePrice)

@@ -13,7 +13,7 @@ module.exports = {
       //  ╠═╝╠╦╝║║║║║ ║ ║╚╗╔╝║╣ ╚═╗
       //  ╩  ╩╚═╩╩ ╩╩ ╩ ╩ ╚╝ ╚═╝╚═╝
       numero: {
-        type: 'string',
+        type: 'number',
         description: 'Product Name.',
         required: true
       },
