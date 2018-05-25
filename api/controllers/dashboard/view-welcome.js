@@ -57,7 +57,8 @@ module.exports = {
    
 
     var averageProducstPrice =  (total/totalProductsSale)
-    var totalFixedCost =   await FixedCost.sum("value");
+    var totalFixedCost =   await FixedCost.sum("value").where({
+      date: { '>': firstDay }});
    
     var averageContribuitionFixedCost =   (totalFixedCost/totalProductsSale);
 
