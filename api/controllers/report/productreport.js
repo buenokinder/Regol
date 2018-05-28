@@ -26,7 +26,14 @@ module.exports = {
   var items = [];
   const result = await  rawMongoCollection.aggregate([
        {$match: {}}
-     , { $group : { _id : { product: "$product"  , salePrice: "$salePrice"  } ,
+     ,
+     { $lookup: {
+      from: "product",
+      localField: "product",
+      foreignField: "_id",
+      as: "product"
+   }},
+     { $group : { _id : { product: "$product"  , salePrice: "$salePrice"  } ,
      totalPrice: { $sum: { $multiply: [ "$salePrice", "$quantity" ] } },
      totalCost: { $sum: { $multiply: [ "$costPrice", "$quantity" ] } },
      quantity: { $sum:  "$quantity" } } }, 
