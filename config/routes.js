@@ -43,7 +43,7 @@ module.exports.routes = {
   'GET /fixedcost':            { action: 'fixedcost/list' },
 
 
-  'GET /reports/product':            { action: 'report/product' },
+  'GET /report/productreport':            { action: 'report/productreport' },
   
   
 

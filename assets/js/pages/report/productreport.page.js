@@ -1,4 +1,4 @@
-parasails.registerPage('productReport', {
+parasails.registerPage('productreport', {
     //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗
     //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
     //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
@@ -25,9 +25,8 @@ parasails.registerPage('productReport', {
       confirmRemoveProductUpdateModalOpen: false,
     },
   
-    virtualPages: true,
-    html5HistoryMode: 'history',
-    virtualPagesRegExp: new RegExp(/^\/product\/?([^\/]+)?/),
+ 
+    
   
     //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
     //  ║  ║╠╣ ║╣ ║  ╚╦╝║  ║  ║╣

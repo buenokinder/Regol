@@ -1,0 +1,35 @@
+<div id="productreport">
+       
+  <!-- <div class="page-header text-center">
+    <h1>Produtos</h1>
+
+  </div> -->
+  <div class="friends-list" v-if="invoiceItems.length > 0">
+    <h5 class="text-muted">Produtos</h5>
+    <table class="table table-striped">
+      <thead>
+        <th>Nome</th>
+        <th class="d-none d-md-table-cell">Código</th>
+        <th class="d-none d-md-table-cell">Quantidade</th>
+        <th class="d-none d-md-table-cell">Custo</th>
+        <th class="d-none d-md-table-cell">Luco Bruto</th>
+        <th class="d-none d-md-table-cell">Luco Liquido</th>
+        <th class="actions-column"></th>
+      </thead>
+      <tbody>
+        <tr v-for="invoiceItem in invoiceItems">
+          <td><strong>{{invoiceItem.product}}</strong></td>
+          <td class="d-none d-md-table-cell">{{invoiceItem.totalPrice}}</td>
+          <td class="d-none d-md-table-cell">{{invoiceItem.quantity}}</td>
+          <td class="d-none d-md-table-cell">{{invoiceItem.totalCost}}</td>
+        
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <%/* For virtual pages */%>
+  <router-view></router-view>
+
+</div>
+    
+    <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>

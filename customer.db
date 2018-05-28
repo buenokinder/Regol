@@ -1,4 +1,4 @@
-{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
+
 {"createdAt":1526891536856,"updatedAt":1526891536856,"id":2,"name":"Café MCV Azurém","userGroupd":null,"_id":2}
 {"createdAt":1526894610880,"updatedAt":1526894610880,"id":4,"name":"RESTAURANTE MIKADO","userGroupd":null,"_id":4}
 {"createdAt":1526894768706,"updatedAt":1526894768706,"id":5,"name":"CAFÉ CRUZEIRO","userGroupd":null,"_id":5}
