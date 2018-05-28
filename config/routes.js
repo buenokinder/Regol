@@ -42,6 +42,8 @@ module.exports.routes = {
   'GET /company':            { action: 'company/list' },
   'GET /fixedcost':            { action: 'fixedcost/list' },
 
+
+  'GET /reports/product':            { action: 'report/product' },
   
   
 

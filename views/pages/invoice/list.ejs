@@ -91,17 +91,21 @@
               </div>
        
               <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-3">
                   <label >Quantidade</label>
                   <input class="form-control" type="text" v-model="quantity" >
                 </div>
+                <div class="col-md-3">
+                    <label >Código</label>
+                    <input class="form-control" type="text" readonly v-model="product.code" >
+                  </div>
                    
-                    <div class="col-md-4">
+                    <div class="col-md-3">
                         <label >Preço Custo</label>
                         <money v-model="product.costPrice"  v-bind="money" class="form-control" ></money>
                       
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-3">
                           <label >Preço de Venda</label>
                           <money v-model="product.salePrice"  v-bind="money" class="form-control" ></money>
                         
@@ -117,6 +121,7 @@
                         <thead>
                           <th>Produto</th>
                           <th class="d-none d-md-table-cell">Quantidade</th>
+                          <th class="d-none d-md-table-cell">Código</th>
                           <th class="d-none d-md-table-cell">Materia Prima</th>
                           <th class="d-none d-md-table-cell">Preço de Venda</th>
                           <th class="actions-column"></th>
@@ -125,6 +130,7 @@
                           <tr v-for="invoiceItem in addInvoicesFormData.invoice.invoiceItems">
                             <td><strong>{{invoiceItem.product.name}}</strong></td>
                             <td><strong>{{invoiceItem.quantity}}</strong></td>
+                            <td class="d-none d-md-table-cell">{{invoiceItem.product.code}}</td>
                             <td class="d-none d-md-table-cell">{{invoiceItem.costPrice}}</td>
                             <td class="d-none d-md-table-cell">{{invoiceItem.salePrice}}</td>
                             <td class="actions-column">
@@ -254,6 +260,7 @@
                           <thead>
                             <th>Produto</th>
                             <th class="d-none d-md-table-cell">Quantidade</th>
+                            <th class="d-none d-md-table-cell">Código</th>
                             <th class="d-none d-md-table-cell">Materia Prima</th>
                             <th class="d-none d-md-table-cell">Preço de Venda</th>
                             <th class="actions-column"></th>
@@ -262,6 +269,7 @@
                             <tr v-for="invoiceItem in updateInvoicesFormData.invoice.invoiceItems">
                               <td><strong>{{invoiceItem.product.name}}</strong></td>
                               <td><strong>{{invoiceItem.quantity}}</strong></td>
+                              <td class="d-none d-md-table-cell">{{invoiceItem.product.code}}</td>
                               <td class="d-none d-md-table-cell">{{invoiceItem.costPrice}}</td>
                               <td class="d-none d-md-table-cell">{{invoiceItem.salePrice}}</td>
                               <td class="actions-column">
