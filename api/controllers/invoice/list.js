@@ -20,7 +20,7 @@ module.exports = {
     fn: async function (inputs, exits) {
       var invoices = await Invoice.find().populate('customer')
                                           .populate('company')
-                                          .populate('invoiceItems').sort('numero ASC');;
+                                          .populate('invoiceItems').sort('numero Desc');;
 
       for (let invoice of invoices) {
         for (let invoiceItem of invoice.invoiceItems) {
