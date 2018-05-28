@@ -1,0 +1,39 @@
+<div id="product">
+        <div class="page-header text-center">
+            <h1>Produtos</h1>
+       
+            <div class="header-buttons">
+              <button class="btn btn-outline-primary" @click="clickAddButton()">Adicionar Produtos</button>
+            </div>
+          </div>
+          <div class="friends-list" v-if="invoiceItems.length > 0">
+            <h5 class="text-muted">Produtos</h5>
+            <table class="table table-striped">
+              <thead>
+                <th>Nome</th>
+                <th class="d-none d-md-table-cell">Código</th>
+                <th class="d-none d-md-table-cell">Quantidade</th>
+                <th class="d-none d-md-table-cell">Custo</th>
+                <th class="d-none d-md-table-cell">Luco Bruto</th>
+                <th class="d-none d-md-table-cell">Luco Liquido</th>
+                <th class="actions-column"></th>
+              </thead>
+              <tbody>
+                <tr v-for="invoiceItem in invoiceItems">
+                  <td><strong>{{invoiceItem.product.name}}</strong></td>
+                  <td class="d-none d-md-table-cell">{{.invoiceItemproduct.code}}</td>
+                  <td class="d-none d-md-table-cell">{{product.costPrice}}</td>
+                  <td class="d-none d-md-table-cell">{{product.salePrice}}</td>
+                  <td class="actions-column">
+                    <button class="btn btn-sm btn-outline-danger" @click="clickUpdateProduct(product.id)">Editar Produto</button>
+                    <button class="btn btn-sm btn-outline-danger" @click="clickRemoveProduct(product.id)">Apagar Produto</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    
+      
+    </div>
+    
+    <%- /* Expose server-rendered data as window.SAILS_LOCALS :: */ exposeLocalsToBrowser() %>
