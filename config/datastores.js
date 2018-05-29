@@ -33,8 +33,8 @@ module.exports.datastores = {
   ***************************************************************************/
 
   default: {
-    // adapter: require('sails-mongo'),
-    // url: 'mongodb://localhost:27017/promotional',
+     adapter: require('sails-mongo'),
+     url: 'mongodb://regoldi:hzui1100@localhost:27017/regoldi',
     // adapter: 'sails-mongo',
     // url: 'mongodb://user:password@host:port/database',
 

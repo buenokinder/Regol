@@ -36,7 +36,10 @@ module.exports = {
       model: 'userGroup',
       required: false
     },
-
+    invoiceItems: {
+      collection: 'invoiceItems',
+      via: 'product'
+     }
 
   },
 

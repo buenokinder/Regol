@@ -1,9 +1,0 @@
-{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
-{"createdAt":1527167952081,"updatedAt":1527167952081,"id":1,"date":"2018-05-03T00:00:00.000Z","name":"Ordenados/ alimentação","value":2142,"company":1,"userGroupd":null,"_id":1}
-{"createdAt":1527168006040,"updatedAt":1527168006040,"id":2,"date":"2018-05-03T00:00:00.000Z","name":"Comissões e prémios","value":349,"company":1,"userGroupd":null,"_id":2}
-{"createdAt":1527168029822,"updatedAt":1527168029822,"id":3,"date":"2018-05-03T00:00:00.000Z","name":"Segurança Social","value":744,"company":1,"userGroupd":null,"_id":3}
-{"createdAt":1527168061839,"updatedAt":1527168061839,"id":4,"date":"2018-05-03T00:00:00.000Z","name":"Renda","value":500,"company":1,"userGroupd":null,"_id":4}
-{"createdAt":1527168090211,"updatedAt":1527168090211,"id":5,"date":"2018-05-03T00:00:00.000Z","name":"Contabilidade","value":125,"company":1,"userGroupd":null,"_id":5}
-{"createdAt":1527168119940,"updatedAt":1527168119940,"id":6,"date":"2018-05-03T00:00:00.000Z","name":"Renting","value":634,"company":1,"userGroupd":null,"_id":6}
-{"createdAt":1527168164920,"updatedAt":1527168164920,"id":7,"date":"2018-05-03T00:00:00.000Z","name":"Seguros","value":40,"company":1,"userGroupd":null,"_id":7}
-{"createdAt":1527168207181,"updatedAt":1527168207181,"id":8,"date":"2018-05-03T00:00:00.000Z","name":"Sage - Sistema Operacional","value":20,"company":1,"userGroupd":null,"_id":8}
