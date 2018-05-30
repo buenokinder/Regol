@@ -1,0 +1,19 @@
+ var fs = require('fs');
+      var invoiceItems = JSON.parse(fs.readFileSync('/Users/carlosbueno/Regol/invoice.json', 'utf8'));
+//console.log(invoices);
+
+      for (var i = 0; i < invoiceItems.length; ++i) {
+        invoice = await Invoice.findOne({ oldid: invoiceItems[i].invoice });
+        product = await Product.findOne({ oldid: invoiceItems[i].product });
+        var newInvoiceItem= {};
+            
+        newInvoiceItem.invoice = invoice.id;
+        newInvoiceItem.quantity = invoiceItems[i].quantity;
+        newInvoiceItem.costPrice = invoiceItems[i].costPrice;
+        newInvoiceItem.salePrice = invoiceItems[i].salePrice;
+        newInvoiceItem.product = product.id;
+
+
+        //await InvoiceItems.create(newInvoiceItem).fetch();
+        console.log(newInvoiceItem);
+      }

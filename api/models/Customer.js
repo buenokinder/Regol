@@ -17,6 +17,10 @@ module.exports = {
         description: 'Customer Name.',
         required: true
       },
+      oldid: {
+        type: 'number',
+        required: false
+      },
       userGroupd: {
         model: 'userGroup',
         required: false

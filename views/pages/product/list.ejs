@@ -20,8 +20,8 @@
             <tr v-for="product in products">
               <td><strong>{{product.name}}</strong></td>
               <td class="d-none d-md-table-cell">{{product.code}}</td>
-              <td class="d-none d-md-table-cell">{{product.costPrice}}</td>
-              <td class="d-none d-md-table-cell">{{product.salePrice}}</td>
+              <td class="d-none d-md-table-cell">{{product.costPrice | formatEuro}}</td>
+              <td class="d-none d-md-table-cell">{{product.salePrice | formatEuro}}</td>
               <td class="actions-column">
                 <button class="btn btn-sm btn-outline-danger" @click="clickUpdateProduct(product.id)">Editar Produto</button>
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveProduct(product.id)">Apagar Produto</button>

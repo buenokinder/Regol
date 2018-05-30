@@ -19,7 +19,7 @@
             <tr v-for="fixedCost in fixedCosts">
               <td><strong>{{fixedCost.date | formatDate }}</strong></td>
               <td class="d-none d-md-table-cell">{{fixedCost.name}}</td>
-              <td class="d-none d-md-table-cell">{{fixedCost.value}}</td>
+              <td class="d-none d-md-table-cell">{{fixedCost.value | formatEuro}}</td>
               <td class="actions-column">
                 <button class="btn btn-sm btn-outline-danger" @click="clickUpdateFixedCost(fixedCost.id)">Editar Custo Indirecto</button>
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveFixedCost(fixedCost.id)">Apagar Custo Indirecto</button>

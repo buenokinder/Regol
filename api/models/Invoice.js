@@ -43,6 +43,10 @@ module.exports = {
         type: 'number',
         required: true
       },
+      oldid: {
+        type: 'number',
+        required: false
+      },
     userGroupd: {
       model: 'userGroup',
       required: false

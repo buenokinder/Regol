@@ -22,7 +22,10 @@ module.exports = {
       description: 'Product Code.',
       required: false
     },
-
+    idold: {
+      type: 'number',
+      required: false
+    },
     costPrice: {
       type: 'number',
       required: true

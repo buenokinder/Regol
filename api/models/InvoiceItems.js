@@ -18,17 +18,17 @@ module.exports = {
       
       quantity: {
         type: 'number',
-        required: true
+        required: false
       },
 
       costPrice: {
         type: 'number',
-        required: true
+        required: false
       },
   
       salePrice: {
         type: 'number',
-        required: true
+        required: false
       },
   
       invoice: {
