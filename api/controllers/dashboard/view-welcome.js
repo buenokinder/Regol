@@ -23,8 +23,8 @@ module.exports = {
     console.log(InvoiceItems.tableName)
     var customerContext = db.collection(Customer.tableName);
     var productContext = db.collection(Product.tableName);
+    var fixedCostContext = db.collection(FixedCost.tableName);
     var invoiceContext = db.collection(Invoice.tableName);
-
 
     var totalCustomers = 0; 
     customerContext.count(function(err, count) {
@@ -85,12 +85,22 @@ module.exports = {
    
 
     var averageProducstPrice =  (total/totalProductsSale)
-    var totalFixedCost =  0;// await FixedCost.sum("value").where({
-     // date: { '>': firstDay }});
+    // var totalFixedCost = await FixedCost.sum("value").where({
+    //  date: { '>': firstDay }});
    
-    var averageContribuitionFixedCost =   (totalFixedCost/totalProductsSale);
 
-    var faturamentoSemPrejuizo = totalFixedCost/(averageProducstPrice/averageContribuitionFixedCost);
+     const totalFixedCost = await  fixedCostContext.aggregate([
+      {$match: {}}
+    ,
+    { $group : { 
+      _id: { month: "$month" },
+      total: { $sum:  "$value" } } }, 
+   
+  ]).toArray();
+console.log( totalFixedCost[0].total);
+    var averageContribuitionFixedCost =   (totalFixedCost[0].total/totalProductsSale);
+
+    var faturamentoSemPrejuizo = totalFixedCost[0].total/(averageProducstPrice/averageContribuitionFixedCost);
     var qtdProdutosEquilibrio = faturamentoSemPrejuizo/averageProducstPrice
 
     return exits.success({
@@ -101,7 +111,7 @@ module.exports = {
       totalCost: totalCost.toFixed(2),
       totalProducts: totalProducts,
       totalItemsTotal: total.toFixed(2),
-      totalFixedCost: totalFixedCost.toFixed(2),
+      totalFixedCost: totalFixedCost[0].total.toFixed(2),
       totalItems: totalItems,
       totalInvoices: totalInvoice,
       averageProducstPrice: averageProducstPrice.toFixed(2),
