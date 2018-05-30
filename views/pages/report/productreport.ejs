@@ -18,22 +18,22 @@
         <th class="actions-column"></th>
       </thead>
       <tbody>
-        
+       
         <tr v-for="invoiceItem in invoiceItems">
           <td><strong>{{invoiceItem._id.product[0].code}}</strong></td>
           <td><strong>{{invoiceItem._id.product[0].name}}</strong></td>
            <td class="d-none d-md-table-cell">{{invoiceItem.quantity}}</td>
-           <td class="d-none d-md-table-cell">{{invoiceItem.totalCost}}</td>
-           <td class="d-none d-md-table-cell">{{invoiceItem.totalPrice}}</td>
+           <td class="d-none d-md-table-cell">{{invoiceItem.totalCost | formatEuro}}</td>
+           <td class="d-none d-md-table-cell">{{invoiceItem.totalPrice | formatEuro}}</td>
          
         
-          <td class="d-none d-md-table-cell">{{invoiceItem.totalPrice-invoiceItem.totalCost}}</td>
+          <td class="d-none d-md-table-cell">{{invoiceItem.totalPrice-invoiceItem.totalCost | formatEuro}}</td>
         </tr>
       </tbody>
       <tfoot>
         <tr>
           <th>Total</th>
-          <th></th>
+        <th>{{total | formatEuro}}</th>
           <th></th>
           <th></th>
         </tr>

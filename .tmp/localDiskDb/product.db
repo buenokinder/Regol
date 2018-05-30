@@ -1,256 +1,98 @@
-{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
-{"createdAt":1526892168367,"updatedAt":1526892168367,"id":2,"name":"Apanhador / cabo","code":"","costPrice":0.59,"salePrice":2.5,"userGroupd":null,"_id":2}
-{"createdAt":1526892529470,"updatedAt":1526892529470,"id":3,"name":"Balde com espremedor Flexivel","code":"","costPrice":0.99,"salePrice":3.5,"userGroupd":null,"_id":3}
-{"createdAt":1526892601670,"updatedAt":1526892601670,"id":4,"name":"Cabo Cromado 150 cm c/ rosca Furo","code":"","costPrice":3.23,"salePrice":8,"userGroupd":null,"_id":4}
-{"createdAt":1526892601673,"updatedAt":1526892601673,"id":5,"name":"Cabo Cromado com rosca","code":"","costPrice":0.54,"salePrice":3,"userGroupd":null,"_id":5}
-{"createdAt":1526892926540,"updatedAt":1526892926540,"id":6,"name":"Dispensador autocorte em ABS","code":"","costPrice":35,"salePrice":59,"userGroupd":null,"_id":6}
-{"createdAt":1526892926542,"updatedAt":1526892926542,"id":7,"name":"Dispensador Cleanline Mecha Branco","code":"","costPrice":12.8,"salePrice":24.5,"userGroupd":null,"_id":7}
-{"createdAt":1526892926544,"updatedAt":1526892926544,"id":8,"name":"Esfregona Algodão","code":"","costPrice":0.56,"salePrice":2.75,"userGroupd":null,"_id":8}
-{"createdAt":1526892926545,"updatedAt":1526892926545,"id":9,"name":"Formas aluminio T16 C\\ tampa","code":"","costPrice":11.9,"salePrice":21.5,"userGroupd":null,"_id":9}
-{"createdAt":1526893117412,"updatedAt":1526893117412,"id":10,"name":"Franja de substituição + armação +cabo","code":"","costPrice":4.29,"salePrice":8.9,"userGroupd":null,"_id":10}
-{"createdAt":1526893117414,"updatedAt":1526893117414,"id":11,"name":"guardanapos 33x33 1 folha","code":"","costPrice":8.87,"salePrice":13.5,"userGroupd":null,"_id":11}
-{"createdAt":1526893117416,"updatedAt":1526893117416,"id":12,"name":"Guardanapos D1000","code":"","costPrice":0.95,"salePrice":2,"userGroupd":null,"_id":12}
-{"createdAt":1526893117417,"updatedAt":1526893117417,"id":13,"name":"Guardanapos tipo L sulfito c/ 50 maços","code":"GTL6000","costPrice":4.31,"salePrice":9.9,"userGroupd":null,"_id":13}
-{"createdAt":1526893117418,"updatedAt":1526893117418,"id":14,"name":"Guardanapos ZZ 14X14 C/ 9000","code":"","costPrice":4.98,"salePrice":9.9,"userGroupd":null,"_id":14}
-{"createdAt":1526893117419,"updatedAt":1526893117419,"id":15,"name":"Luvas de Vinil s\\ pó","code":"","costPrice":2,"salePrice":4.5,"userGroupd":null,"_id":15}
-{"createdAt":1526893117420,"updatedAt":1526893117420,"id":16,"name":"Luvas latex c/ pó c/ 100 unid.","code":"","costPrice":3.6,"salePrice":6,"userGroupd":null,"_id":16}
-{"createdAt":1526893117422,"updatedAt":1526893117422,"id":17,"name":"Luvas multiusos","code":"","costPrice":0.99,"salePrice":2.5,"userGroupd":null,"_id":17}
-{"createdAt":1526893390566,"updatedAt":1526893390566,"id":18,"name":"Luvas Nitrilio s/ pó pack 100 unid","code":"","costPrice":3.47,"salePrice":6.75,"userGroupd":null,"_id":18}
-{"createdAt":1526893390569,"updatedAt":1526893390569,"id":19,"name":"Luvas Palhaço c/ 100 unid.","code":"","costPrice":0.21,"salePrice":0.75,"userGroupd":null,"_id":19}
-{"createdAt":1526893390570,"updatedAt":1526893390570,"id":20,"name":"Maquina Coopermatic","code":"","costPrice":5,"salePrice":12,"userGroupd":null,"_id":20}
-{"createdAt":1526893390571,"updatedAt":1526893390571,"id":21,"name":"Pano microfibra 250 GR - Verde","code":"","costPrice":0.41,"salePrice":2.5,"userGroupd":null,"_id":21}
-{"createdAt":1526893390572,"updatedAt":1526893390572,"id":22,"name":"Papel Higienico domestico 96 rolos","code":"","costPrice":7.89,"salePrice":16.9,"userGroupd":null,"_id":22}
-{"createdAt":1526893390574,"updatedAt":1526893390574,"id":23,"name":"Papel Higienico Jumbo Pasta 12 R","code":"PHJVP12R","costPrice":3.58,"salePrice":9.9,"userGroupd":null,"_id":23}
-{"createdAt":1526893390575,"updatedAt":1526893390575,"id":24,"name":"Piaçaba","code":"","costPrice":2.29,"salePrice":6.9,"userGroupd":null,"_id":24}
-{"createdAt":1526893390577,"updatedAt":1526893390577,"id":25,"name":"placas auto colante pack 6 ","code":"","costPrice":7.65,"salePrice":13.39,"userGroupd":null,"_id":25}
-{"createdAt":1526893390578,"updatedAt":1526893390578,"id":26,"name":"Porta Rolos Jumbo em ABS","code":"","costPrice":5.5,"salePrice":15.6,"userGroupd":null,"_id":26}
-{"createdAt":1526893575156,"updatedAt":1526893575156,"id":27,"name":"raclete limpa vidros inox","code":"","costPrice":5.67,"salePrice":11.5,"userGroupd":null,"_id":27}
-{"createdAt":1526893575158,"updatedAt":1526893575158,"id":28,"name":"Recarga ambientador 250ml","code":"","costPrice":0.9,"salePrice":5,"userGroupd":null,"_id":28}
-{"createdAt":1526893575159,"updatedAt":1526893575159,"id":29,"name":"Recarga Coopermatic 250ml","code":"CPA002","costPrice":5.49,"salePrice":10.5,"userGroupd":null,"_id":29}
-{"createdAt":1526893575161,"updatedAt":1526893575161,"id":30,"name":"REGOL 10 - Desengordurante","code":"","costPrice":1.16,"salePrice":3.1,"userGroupd":null,"_id":30}
-{"createdAt":1526893575163,"updatedAt":1526893575163,"id":31,"name":"REGOL 10 - Desengordurante 10L","code":"","costPrice":1.16,"salePrice":3.05,"userGroupd":null,"_id":31}
-{"createdAt":1526893575164,"updatedAt":1526893575164,"id":32,"name":"REGOL 12 GEL - Gel desifectante e bactericida perfumado","code":"","costPrice":1.02,"salePrice":2.2,"userGroupd":null,"_id":32}
-{"createdAt":1526893575165,"updatedAt":1526893575165,"id":33,"name":"REGOL 15 - Deterg. Desinfectante","code":"","costPrice":0.3,"salePrice":1.2,"userGroupd":null,"_id":33}
-{"createdAt":1526893575167,"updatedAt":1526893575167,"id":34,"name":"REGOL 16 - Deterg. Manual Loiça ","code":"","costPrice":0.5,"salePrice":1.2,"userGroupd":null,"_id":34}
-{"createdAt":1526893575168,"updatedAt":1526893575168,"id":35,"name":"REGOL 16 - Deterg. Manual Loiça- CONCENTRADO 5X1L","code":"R16F5","costPrice":3.7,"salePrice":8.5,"userGroupd":null,"_id":35}
-{"createdAt":1526893746680,"updatedAt":1526893746680,"id":36,"name":"REGOL 16 A - Desinfetante Germicida para lavagem de loiça","code":"","costPrice":0.75,"salePrice":1.7,"userGroupd":null,"_id":36}
-{"createdAt":1526893746682,"updatedAt":1526893746682,"id":37,"name":"REGOL 18 BOSQUE - Multiusos Desinfectante ","code":"","costPrice":0.52,"salePrice":1.2,"userGroupd":null,"_id":37}
-{"createdAt":1526893746700,"updatedAt":1526893746700,"id":38,"name":"REGOL 18 LAVANDA - Multiusos Desinfectante ","code":"R18L","costPrice":0.69,"salePrice":1.2,"userGroupd":null,"_id":38}
-{"createdAt":1526893746701,"updatedAt":1526893746701,"id":39,"name":"REGOL 18 LIMÃO- Multiusos Desinfectante ","code":"","costPrice":0.52,"salePrice":1.2,"userGroupd":null,"_id":39}
-{"createdAt":1526893746703,"updatedAt":1526893746703,"id":40,"name":"REGOL 18 MONTANHA - Multiusos","code":"","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"_id":40}
-{"createdAt":1526893746706,"updatedAt":1526893746706,"id":41,"name":"REGOL 18 PINHO - Multiusos Desinfectante ","code":"R18P","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"_id":41}
-{"createdAt":1526893746707,"updatedAt":1526893746707,"id":42,"name":"REGOL 18 TROPICAL- Multiusos Desinfectante ","code":"","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"_id":42}
-{"createdAt":1526893746709,"updatedAt":1526893746709,"id":43,"name":"REGOL 18GS - Multiusos Desengordurante ","code":"","costPrice":0.7,"salePrice":1.4,"userGroupd":null,"_id":43}
-{"createdAt":1526893950971,"updatedAt":1526893950971,"id":44,"name":"REGOL 18RI - Multiusos desinfetante","code":"","costPrice":1.72,"salePrice":3.2,"userGroupd":null,"_id":44}
-{"createdAt":1526893950974,"updatedAt":1526893950974,"id":45,"name":"REGOL 19  - Deterg. Loiça p/ maquinas - 10L","code":"R19","costPrice":0.57,"salePrice":1.35,"userGroupd":null,"_id":45}
-{"createdAt":1526893950975,"updatedAt":1526893950975,"id":46,"name":"REGOL 19  - Deterg. Loiça p/ maquinas 5 LT","code":"R19","costPrice":0.57,"salePrice":1.4,"userGroupd":null,"_id":46}
-{"createdAt":1526893950977,"updatedAt":1526893950977,"id":47,"name":"REGOL 19 ULTRA - Deterg. Loiça p/ maquinas 10 LT","code":"","costPrice":1.11,"salePrice":2.6,"userGroupd":null,"_id":47}
-{"createdAt":1526893950978,"updatedAt":1526893950978,"id":48,"name":"REGOL 19 ULTRA - Deterg. Loiça p/ maquinas 5LT","code":"","costPrice":1.11,"salePrice":2.65,"userGroupd":null,"_id":48}
-{"createdAt":1526893950979,"updatedAt":1526893950979,"id":49,"name":"REGOL 200 - Desengordurante de fornos e grelhas","code":"","costPrice":1.03,"salePrice":2.4,"userGroupd":null,"_id":49}
-{"createdAt":1526893950981,"updatedAt":1526893950981,"id":50,"name":"REGOL 200 - Desengordurante de fornos e grelhas 5x1L","code":"","costPrice":7.21,"salePrice":15.5,"userGroupd":null,"_id":50}
-{"createdAt":1526893950982,"updatedAt":1526893950982,"id":51,"name":"REGOL 20A- Limpa Vidros area Alimentar","code":"","costPrice":0.61,"salePrice":1.6,"userGroupd":null,"_id":51}
-{"createdAt":1526893950985,"updatedAt":1526893950985,"id":52,"name":"REGOL 22  - Secante e Abrilhantador p/ maq. Loiça","code":"R22","costPrice":0.82,"salePrice":1.8,"userGroupd":null,"_id":52}
-{"createdAt":1526893950986,"updatedAt":1526893950986,"id":53,"name":"REGOL 29 - Sabonete Liquido Perolado","code":"","costPrice":0.52,"salePrice":1.4,"userGroupd":null,"_id":53}
-{"createdAt":1526894131271,"updatedAt":1526894131271,"id":54,"name":"REGOL 29 D - Sabonete Liquido Inodoro","code":"","costPrice":0.77,"salePrice":1.8,"userGroupd":null,"_id":54}
-{"createdAt":1526894131274,"updatedAt":1526894131274,"id":55,"name":"REGOL 5 - Abrilhantador de superficie em inox","code":"","costPrice":7.62,"salePrice":17.5,"userGroupd":null,"_id":55}
-{"createdAt":1526894131275,"updatedAt":1526894131275,"id":56,"name":"REGOL 5 - Limpeza e abrilhantador ","code":"","costPrice":2.07,"salePrice":4.4,"userGroupd":null,"_id":56}
-{"createdAt":1526894131277,"updatedAt":1526894131277,"id":57,"name":"REGOL 52 GREEN - Detergente Liquido lavar roupa","code":"","costPrice":1.05,"salePrice":2.3,"userGroupd":null,"_id":57}
-{"createdAt":1526894131279,"updatedAt":1526894131279,"id":58,"name":"REGOL 53 AZUL - Amaciador textil","code":"R53AZ","costPrice":0.7,"salePrice":1.6,"userGroupd":null,"_id":58}
-{"createdAt":1526894131280,"updatedAt":1526894131280,"id":59,"name":"REGOL 9 - Desengordurante por imersão","code":"","costPrice":0.72,"salePrice":1.5,"userGroupd":null,"_id":59}
-{"createdAt":1526894131282,"updatedAt":1526894131282,"id":60,"name":"REGOL ALU - Deterg. Loiça p/ maquinas ","code":"","costPrice":1.14,"salePrice":2.65,"userGroupd":null,"_id":60}
-{"createdAt":1526894131283,"updatedAt":1526894131283,"id":61,"name":"REGOL B70 - Desinfectante Clorado p/ alimentos","code":"","costPrice":0.41,"salePrice":1.2,"userGroupd":null,"_id":61}
-{"createdAt":1526894131284,"updatedAt":1526894131284,"id":62,"name":"REGOL CL - Espuma Desinfetante de Base Cloro","code":"","costPrice":0.52,"salePrice":1.4,"userGroupd":null,"_id":62}
-{"createdAt":1526894315674,"updatedAt":1526894315674,"id":63,"name":"REGOL DSG25 - Desengordurante fornos e grelhas","code":"RDSG25","costPrice":0.91,"salePrice":2.4,"userGroupd":null,"_id":63}
-{"createdAt":1526894315676,"updatedAt":1526894315676,"id":64,"name":"REGOL SDS - Desinfetante Á base de alcool p/ superficies e utensilios","code":"","costPrice":0.85,"salePrice":1.8,"userGroupd":null,"_id":64}
-{"createdAt":1526894315677,"updatedAt":1526894315677,"id":65,"name":"REGOL SDS - Desinfetante bactericida 500ml","code":"RSDSF6","costPrice":3.92,"salePrice":12.5,"userGroupd":null,"_id":65}
-{"createdAt":1526894315678,"updatedAt":1526894315678,"id":66,"name":"Rolo auto corte pasta 1F 6rls","code":"","costPrice":8.66,"salePrice":19,"userGroupd":null,"_id":66}
-{"createdAt":1526894315681,"updatedAt":1526894315681,"id":67,"name":"Rolo Autocorte reciclado 1F 6RLS","code":"","costPrice":6.02,"salePrice":12.2,"userGroupd":null,"_id":67}
-{"createdAt":1526894315682,"updatedAt":1526894315682,"id":68,"name":"Rolo Industrial Pasta 2 Folhas 300 mts","code":"","costPrice":6.39,"salePrice":14.5,"userGroupd":null,"_id":68}
-{"createdAt":1526894315684,"updatedAt":1526894315684,"id":69,"name":"Rolos mecha pasta - 6 rolos c/ 100 mts","code":"","costPrice":7.21,"salePrice":15,"userGroupd":null,"_id":69}
-{"createdAt":1526894315685,"updatedAt":1526894315685,"id":70,"name":"Saboneteira ABS Branca 1 L","code":"","costPrice":5.5,"salePrice":12.75,"userGroupd":null,"_id":70}
-{"createdAt":1526894315686,"updatedAt":1526894315686,"id":71,"name":"saco de papel S005 31x14x5","code":"","costPrice":8.5,"salePrice":17.5,"userGroupd":null,"_id":71}
-{"createdAt":1526894315687,"updatedAt":1526894315687,"id":72,"name":"Saco plástico de lixo c/ 6 unidades- 100L","code":"","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"_id":72}
-{"createdAt":1526894514594,"updatedAt":1526894514594,"id":73,"name":"Saco Plastico Perfumado Azul c/ 12 unid. 30L","code":"","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"_id":73}
-{"createdAt":1526894514600,"updatedAt":1526894514600,"id":74,"name":"Suporte Bobine Horizontal - Fixação de parede","code":"","costPrice":15,"salePrice":35,"userGroupd":null,"_id":74}
-{"createdAt":1526894514601,"updatedAt":1526894514601,"id":75,"name":"Tapete Urinol","code":"","costPrice":2.69,"salePrice":6.5,"userGroupd":null,"_id":75}
-{"createdAt":1526894514603,"updatedAt":1526894514603,"id":76,"name":"Toalhas de mão Recicladas 21x23","code":"","costPrice":4.41,"salePrice":9.9,"userGroupd":null,"_id":76}
-{"createdAt":1526894514604,"updatedAt":1526894514604,"id":77,"name":"Toalhas de mão pasta 21x23 c/ 3000","code":"","costPrice":5.52,"salePrice":19,"userGroupd":null,"_id":77}
-{"createdAt":1526894514606,"updatedAt":1526894514606,"id":78,"name":"Toalhas de mesa 120x80","code":"","costPrice":8.59,"salePrice":16.5,"userGroupd":null,"_id":78}
-{"createdAt":1526894514608,"updatedAt":1526894514608,"id":79,"name":"Toalhas de mesa 80x80 com 100 unid","code":"","costPrice":5.87,"salePrice":13.5,"userGroupd":null,"_id":79}
-{"createdAt":1526894514609,"updatedAt":1526894514609,"id":80,"name":"toalheiro em ABS","code":"","costPrice":5.5,"salePrice":15.6,"userGroupd":null,"_id":80}
-{"createdAt":1526894514612,"updatedAt":1526894514612,"id":81,"name":"Vassoura NINFA Despontada","code":"","costPrice":1.33,"salePrice":3,"userGroupd":null,"_id":81}
-{"createdAt":1526894514614,"updatedAt":1526894514614,"id":82,"name":"Toalhas de mesa 70x70 c/ 250F","code":"","costPrice":3.5,"salePrice":8.93,"userGroupd":null,"_id":82}
-{"createdAt":1526894514616,"updatedAt":1526894514616,"id":83,"name":"Toalhas de mesa 30x45","code":"","costPrice":5,"salePrice":11.9,"userGroupd":null,"_id":83}
-{"createdAt":1526978991333,"updatedAt":1526978991333,"id":84,"name":"Pack SERVIÇO Mensal","code":"RF","costPrice":0,"salePrice":39.9,"userGroupd":null,"_id":84}
-{"createdAt":1526978991337,"updatedAt":1526978991337,"id":85,"name":"Serviço mensal sem pack","code":"","costPrice":0,"salePrice":50,"userGroupd":null,"_id":85}
-{"createdAt":1526978991339,"updatedAt":1526978991339,"id":86,"name":"Serviço trimestral sem pack","code":"","costPrice":0,"salePrice":68.75,"userGroupd":null,"_id":86}
-{"createdAt":1526978991340,"updatedAt":1526978991340,"id":87,"name":"Serviço semestral sem pack","code":"","costPrice":0,"salePrice":100,"userGroupd":null,"_id":87}
-{"createdAt":1526978991341,"updatedAt":1526978991341,"id":88,"name":"Serviço sem pack","code":"","costPrice":0,"salePrice":29.9,"userGroupd":null,"_id":88}
-{"createdAt":1527071409471,"updatedAt":1527071409471,"id":89,"name":"Saco Plástico lixo 10unid - 50L","code":"","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"_id":89}
-{"createdAt":1527083252752,"updatedAt":1527083252752,"id":90,"name":"REGOL 18 MAD - Deterg sabonoso madeira","code":"","costPrice":1.27,"salePrice":2.8,"userGroupd":null,"_id":90}
-{"createdAt":1527090124155,"updatedAt":1527090124155,"id":91,"name":"Regol Lix Gel - Lixivia em Gel","code":"","costPrice":0.7,"salePrice":1.8,"userGroupd":null,"_id":91}
-{"createdAt":1527153852461,"updatedAt":1527153852461,"id":92,"name":"Regol Café - Descalcificante p/ maq. 1L","code":"","costPrice":1.86,"salePrice":9,"userGroupd":null,"_id":92}
-{"createdAt":1527153876916,"updatedAt":1527153876916,"id":93,"name":"MOPA DE ALGODÃO","code":"","costPrice":1.75,"salePrice":3.5,"userGroupd":null,"_id":93}
-{"createdAt":1527177840158,"updatedAt":1527177840158,"id":94,"name":"REGOL 53 GREEN - Amaciador textil","code":"","costPrice":0.7,"salePrice":1.6,"userGroupd":null,"_id":94}
-{"createdAt":1527243873349,"updatedAt":1527243873349,"id":95,"name":"Doseador Peristaltico Deterg. 220V","code":"","costPrice":35,"salePrice":61.25,"userGroupd":null,"_id":95}
-{"$$deleted":true,"_id":51}
-{"createdAt":1526893950982,"updatedAt":1526893950982,"id":51,"name":"REGOL 20A- Limpa Vidros area Alimentar","code":"R20A","costPrice":0.61,"salePrice":1.6,"userGroupd":null,"_id":51}
-{"$$deleted":true,"_id":44}
-{"createdAt":1526893950971,"updatedAt":1526893950971,"id":44,"name":"REGOL 18RI - Multiusos desinfetante","code":"R18RI","costPrice":1.72,"salePrice":3.2,"userGroupd":null,"_id":44}
-{"$$deleted":true,"_id":67}
-{"createdAt":1526894315681,"updatedAt":1526894315681,"id":67,"name":"Rolo Autocorte reciclado 1F 6RLS","code":"RTR","costPrice":6.02,"salePrice":12.2,"userGroupd":null,"_id":67}
-{"$$deleted":true,"_id":77}
-{"createdAt":1526894514604,"updatedAt":1526894514604,"id":77,"name":"Toalhas de mão pasta 21x23 c/ 3000","code":"TMP2123","costPrice":5.52,"salePrice":19,"userGroupd":null,"_id":77}
-{"$$deleted":true,"_id":53}
-{"createdAt":1526893950986,"updatedAt":1526893950986,"id":53,"name":"REGOL 29 - Sabonete Liquido Perolado","code":"R29","costPrice":0.52,"salePrice":1.4,"userGroupd":null,"_id":53}
-{"$$deleted":true,"_id":42}
-{"createdAt":1526893746707,"updatedAt":1526893746707,"id":42,"name":"REGOL 18 TROPICAL- Multiusos Desinfectante ","code":"R18T","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"_id":42}
-{"$$deleted":true,"_id":69}
-{"createdAt":1526894315684,"updatedAt":1526894315684,"id":69,"name":"Rolos mecha pasta - 6 rolos c/ 100 mts","code":"RMP1106","costPrice":7.21,"salePrice":15,"userGroupd":null,"_id":69}
-{"$$deleted":true,"_id":7}
-{"createdAt":1526892926542,"updatedAt":1526892926542,"id":7,"name":"Dispensador Cleanline Mecha Branco","code":"DPM001","costPrice":12.8,"salePrice":24.5,"userGroupd":null,"_id":7}
-{"$$deleted":true,"_id":70}
-{"createdAt":1526894315685,"updatedAt":1526894315685,"id":70,"name":"Saboneteira ABS Branca 1 L","code":"SBN003","costPrice":5.5,"salePrice":12.75,"userGroupd":null,"_id":70}
-{"$$deleted":true,"_id":50}
-{"createdAt":1526893950981,"updatedAt":1526893950981,"id":50,"name":"REGOL 200 - Desengordurante de fornos e grelhas 5x1L","code":"RD25","costPrice":7.21,"salePrice":15.5,"userGroupd":null,"_id":50}
-{"$$deleted":true,"_id":47}
-{"createdAt":1526893950977,"updatedAt":1526893950977,"id":47,"name":"REGOL 19 ULTRA - Deterg. Loiça p/ maquinas 10 LT","code":"R19U","costPrice":1.11,"salePrice":2.6,"userGroupd":null,"_id":47}
-{"$$deleted":true,"_id":48}
-{"createdAt":1526893950978,"updatedAt":1526893950978,"id":48,"name":"REGOL 19 ULTRA - Deterg. Loiça p/ maquinas 5LT","code":"R19U","costPrice":1.11,"salePrice":2.65,"userGroupd":null,"_id":48}
-{"$$deleted":true,"_id":39}
-{"createdAt":1526893746701,"updatedAt":1526893746701,"id":39,"name":"REGOL 18 LIMÃO- Multiusos Desinfectante ","code":"R18LM","costPrice":0.52,"salePrice":1.2,"userGroupd":null,"_id":39}
-{"$$deleted":true,"_id":75}
-{"createdAt":1526894514601,"updatedAt":1526894514601,"id":75,"name":"Tapete Urinol","code":"EQWC001","costPrice":2.69,"salePrice":6.5,"userGroupd":null,"_id":75}
-{"$$deleted":true,"_id":72}
-{"createdAt":1526894315687,"updatedAt":1526894315687,"id":72,"name":"Saco plástico de lixo c/ 6 unidades- 100L","code":"SLASP/S100","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"_id":72}
-{"$$deleted":true,"_id":33}
-{"createdAt":1526893575165,"updatedAt":1526893575165,"id":33,"name":"REGOL 15 - Deterg. Desinfectante","code":"R15","costPrice":0.3,"salePrice":1.2,"userGroupd":null,"_id":33}
-{"$$deleted":true,"_id":34}
-{"createdAt":1526893575167,"updatedAt":1526893575167,"id":34,"name":"REGOL 16 - Deterg. Manual Loiça ","code":"R16","costPrice":0.5,"salePrice":1.2,"userGroupd":null,"_id":34}
-{"$$deleted":true,"_id":89}
-{"createdAt":1527071409471,"updatedAt":1527071409471,"id":89,"name":"Saco Plástico lixo 10unid - 50L","code":"SLASP/S50","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"_id":89}
-{"$$deleted":true,"_id":76}
-{"createdAt":1526894514603,"updatedAt":1526894514603,"id":76,"name":"Toalhas de mão Recicladas 21x23","code":"TMR2123","costPrice":4.41,"salePrice":9.9,"userGroupd":null,"_id":76}
-{"$$deleted":true,"_id":54}
-{"createdAt":1526894131271,"updatedAt":1526894131271,"id":54,"name":"REGOL 29 D - Sabonete Liquido Inodoro","code":"R29D","costPrice":0.77,"salePrice":1.8,"userGroupd":null,"_id":54}
-{"$$deleted":true,"_id":81}
-{"createdAt":1526894514612,"updatedAt":1526894514612,"id":81,"name":"Vassoura NINFA Despontada","code":"REGUL157","costPrice":1.33,"salePrice":3,"userGroupd":null,"_id":81}
-{"$$deleted":true,"_id":8}
-{"createdAt":1526892926544,"updatedAt":1526892926544,"id":8,"name":"Esfregona Algodão","code":"REGUL008","costPrice":0.56,"salePrice":2.75,"userGroupd":null,"_id":8}
-{"$$deleted":true,"_id":26}
-{"createdAt":1526893390578,"updatedAt":1526893390578,"id":26,"name":"Porta Rolos Jumbo em ABS","code":"75-2000","costPrice":5.5,"salePrice":15.6,"userGroupd":null,"_id":26}
-{"$$deleted":true,"_id":59}
-{"createdAt":1526894131280,"updatedAt":1526894131280,"id":59,"name":"REGOL 9 - Desengordurante por imersão","code":"R9","costPrice":0.72,"salePrice":1.5,"userGroupd":null,"_id":59}
-{"$$deleted":true,"_id":62}
-{"createdAt":1526894131284,"updatedAt":1526894131284,"id":62,"name":"REGOL CL - Espuma Desinfetante de Base Cloro","code":"RCL","costPrice":0.52,"salePrice":1.4,"userGroupd":null,"_id":62}
-{"$$deleted":true,"_id":14}
-{"createdAt":1526893117418,"updatedAt":1526893117418,"id":14,"name":"Guardanapos ZZ 14X14 C/ 9000","code":"GZZ1414","costPrice":4.98,"salePrice":9.9,"userGroupd":null,"_id":14}
-{"$$deleted":true,"_id":40}
-{"createdAt":1526893746703,"updatedAt":1526893746703,"id":40,"name":"REGOL 18 MONTANHA - Multiusos","code":"R18M","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"_id":40}
-{"$$deleted":true,"_id":11}
-{"createdAt":1526893117414,"updatedAt":1526893117414,"id":11,"name":"guardanapos 33x33 1 folha","code":"G33331F","costPrice":8.87,"salePrice":13.5,"userGroupd":null,"_id":11}
-{"$$deleted":true,"_id":50}
-{"createdAt":1526893950981,"updatedAt":1526893950981,"id":50,"name":"REGOL 200 - Desengordurante de fornos e grelhas 5x1L","code":"R200F5","costPrice":7.21,"salePrice":15.5,"userGroupd":null,"_id":50}
-{"$$deleted":true,"_id":43}
-{"createdAt":1526893746709,"updatedAt":1526893746709,"id":43,"name":"REGOL 18GS - Multiusos Desengordurante ","code":"R18GS","costPrice":0.7,"salePrice":1.4,"userGroupd":null,"_id":43}
-{"$$deleted":true,"_id":64}
-{"createdAt":1526894315676,"updatedAt":1526894315676,"id":64,"name":"REGOL SDS - Desinfetante Á base de alcool p/ superficies e utensilios","code":"RSDSC","costPrice":0.85,"salePrice":1.8,"userGroupd":null,"_id":64}
-{"$$deleted":true,"_id":4}
-{"createdAt":1526892601670,"updatedAt":1526892601670,"id":4,"name":"Cabo Cromado 150 cm c/ rosca Furo","code":"REGUL116","costPrice":3.23,"salePrice":8,"userGroupd":null,"_id":4}
-{"$$deleted":true,"_id":3}
-{"createdAt":1526892529470,"updatedAt":1526892529470,"id":3,"name":"Balde com espremedor Flexivel","code":"REGUL034","costPrice":0.99,"salePrice":3.5,"userGroupd":null,"_id":3}
-{"$$deleted":true,"_id":21}
-{"createdAt":1526893390571,"updatedAt":1526893390571,"id":21,"name":"Pano microfibra 250 GR - Verde","code":"REGUL051","costPrice":0.41,"salePrice":2.5,"userGroupd":null,"_id":21}
-{"$$deleted":true,"_id":94}
-{"createdAt":1527177840158,"updatedAt":1527177840158,"id":94,"name":"REGOL 53 GREEN - Amaciador textil","code":"R53GR","costPrice":0.7,"salePrice":1.6,"userGroupd":null,"_id":94}
-{"$$deleted":true,"_id":83}
-{"createdAt":1526894514616,"updatedAt":1526894514616,"id":83,"name":"Toalhas de mesa 30x45","code":"TM30X45","costPrice":5,"salePrice":11.9,"userGroupd":null,"_id":83}
-{"$$deleted":true,"_id":55}
-{"createdAt":1526894131274,"updatedAt":1526894131274,"id":55,"name":"REGOL 5 - Abrilhantador de superficie em inox","code":"r5f6","costPrice":7.62,"salePrice":17.5,"userGroupd":null,"_id":55}
-{"$$deleted":true,"_id":9}
-{"createdAt":1526892926545,"updatedAt":1526892926545,"id":9,"name":"Formas aluminio T16 C\\ tampa","code":"RFA016","costPrice":11.9,"salePrice":21.5,"userGroupd":null,"_id":9}
-{"$$deleted":true,"_id":5}
-{"createdAt":1526892601673,"updatedAt":1526892601673,"id":5,"name":"Cabo Cromado com rosca","code":"REGUL115","costPrice":0.54,"salePrice":3,"userGroupd":null,"_id":5}
-{"$$deleted":true,"_id":24}
-{"createdAt":1526893390575,"updatedAt":1526893390575,"id":24,"name":"Piaçaba","code":"EQWC020","costPrice":2.29,"salePrice":6.9,"userGroupd":null,"_id":24}
-{"$$deleted":true,"_id":31}
-{"createdAt":1526893575163,"updatedAt":1526893575163,"id":31,"name":"REGOL 10 - Desengordurante 10L","code":"R10","costPrice":1.16,"salePrice":3.05,"userGroupd":null,"_id":31}
-{"$$deleted":true,"_id":18}
-{"createdAt":1526893390566,"updatedAt":1526893390566,"id":18,"name":"Luvas Nitrilio s/ pó pack 100 unid","code":"RFE0114","costPrice":3.47,"salePrice":6.75,"userGroupd":null,"_id":18}
-{"$$deleted":true,"_id":20}
-{"createdAt":1526893390570,"updatedAt":1526893390570,"id":20,"name":"Maquina Coopermatic","code":"EQWCCOOP","costPrice":5,"salePrice":12,"userGroupd":null,"_id":20}
-{"$$deleted":true,"_id":82}
-{"createdAt":1526894514614,"updatedAt":1526894514614,"id":82,"name":"Toalhas de mesa 70x70 c/ 250F","code":"TM70X70","costPrice":3.5,"salePrice":8.93,"userGroupd":null,"_id":82}
-{"$$deleted":true,"_id":27}
-{"createdAt":1526893575156,"updatedAt":1526893575156,"id":27,"name":"raclete limpa vidros inox","code":"REGUL084","costPrice":5.67,"salePrice":11.5,"userGroupd":null,"_id":27}
-{"$$deleted":true,"_id":74}
-{"createdAt":1526894514600,"updatedAt":1526894514600,"id":74,"name":"Suporte Bobine Horizontal - Fixação de parede","code":"DPC005","costPrice":15,"salePrice":35,"userGroupd":null,"_id":74}
-{"$$deleted":true,"_id":49}
-{"createdAt":1526893950979,"updatedAt":1526893950979,"id":49,"name":"REGOL 200 - Desengordurante de fornos e grelhas","code":"RD25","costPrice":1.03,"salePrice":2.4,"userGroupd":null,"_id":49}
-{"name":"Easyfoam VF32 -Deterg. liq. clorado 20L","costPrice":37.31,"salePrice":46.64,"code":"REGEFO","createdAt":1527582515853,"updatedAt":1527582515853,"id":96,"userGroupd":null,"_id":96}
-{"$$deleted":true,"_id":36}
-{"createdAt":1526893746680,"updatedAt":1526893746680,"id":36,"name":"REGOL 16 A - Desinfetante Germicida para lavagem de loiça","code":"R16A","costPrice":0.75,"salePrice":1.7,"userGroupd":null,"_id":36}
-{"$$deleted":true,"_id":68}
-{"createdAt":1526894315682,"updatedAt":1526894315682,"id":68,"name":"Rolo Industrial Pasta 2 Folhas 300 mts","code":"RIP2F300","costPrice":6.39,"salePrice":14.5,"userGroupd":null,"_id":68}
-{"$$deleted":true,"_id":95}
-{"createdAt":1527243873349,"updatedAt":1527243873349,"id":95,"name":"Doseador Peristaltico Deterg. 220V","code":"DPRD","costPrice":35,"salePrice":61.25,"userGroupd":null,"_id":95}
-{"$$deleted":true,"_id":60}
-{"createdAt":1526894131282,"updatedAt":1526894131282,"id":60,"name":"REGOL ALU - Deterg. Loiça p/ maquinas ","code":"RALU","costPrice":1.14,"salePrice":2.65,"userGroupd":null,"_id":60}
-{"$$deleted":true,"_id":37}
-{"createdAt":1526893746682,"updatedAt":1526893746682,"id":37,"name":"REGOL 18 BOSQUE - Multiusos Desinfectante ","code":"R18B","costPrice":0.52,"salePrice":1.2,"userGroupd":null,"_id":37}
-{"$$deleted":true,"_id":28}
-{"createdAt":1526893575158,"updatedAt":1526893575158,"id":28,"name":"Recarga ambientador 250ml","code":"EQWC007","costPrice":0.9,"salePrice":5,"userGroupd":null,"_id":28}
-{"name":"Pano microfibra 250gr - Amarelo","costPrice":0,"salePrice":2.5,"code":"REGUL048","createdAt":1527584135175,"updatedAt":1527584135175,"id":97,"userGroupd":null,"_id":97}
-{"$$deleted":true,"_id":97}
-{"name":"Pano microfibra 250gr - Amarelo","costPrice":0.41,"salePrice":2.5,"code":"REGUL048","createdAt":1527584135175,"updatedAt":1527584135175,"id":97,"userGroupd":null,"_id":97}
-{"$$deleted":true,"_id":73}
-{"createdAt":1526894514594,"updatedAt":1526894514594,"id":73,"name":"Saco Plastico Perfumado Azul c/ 12 unid. 30L","code":"SLASP/S30","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"_id":73}
-{"$$deleted":true,"_id":91}
-{"createdAt":1527090124155,"updatedAt":1527090124155,"id":91,"name":"Regol Lix Gel - Lixivia em Gel","code":"R15G","costPrice":0.7,"salePrice":1.8,"userGroupd":null,"_id":91}
-{"$$deleted":true,"_id":57}
-{"createdAt":1526894131277,"updatedAt":1526894131277,"id":57,"name":"REGOL 52 GREEN - Detergente Liquido lavar roupa","code":"R52GR","costPrice":1.05,"salePrice":2.3,"userGroupd":null,"_id":57}
-{"$$deleted":true,"_id":92}
-{"createdAt":1527153852461,"updatedAt":1527153852461,"id":92,"name":"Regol Café - Descalcificante p/ maq. 1L","code":"RCF","costPrice":1.86,"salePrice":9,"userGroupd":null,"_id":92}
-{"$$deleted":true,"_id":71}
-{"createdAt":1526894315686,"updatedAt":1526894315686,"id":71,"name":"saco de papel S005 31x14x5","code":"SP005","costPrice":8.5,"salePrice":17.5,"userGroupd":null,"_id":71}
-{"$$deleted":true,"_id":90}
-{"createdAt":1527083252752,"updatedAt":1527083252752,"id":90,"name":"REGOL 18 MAD - Deterg sabonoso madeira","code":"R18MAD","costPrice":1.27,"salePrice":2.8,"userGroupd":null,"_id":90}
-{"$$deleted":true,"_id":19}
-{"createdAt":1526893390569,"updatedAt":1526893390569,"id":19,"name":"Luvas Palhaço c/ 100 unid.","code":"RFES0115","costPrice":0.21,"salePrice":0.75,"userGroupd":null,"_id":19}
-{"$$deleted":true,"_id":17}
-{"createdAt":1526893117422,"updatedAt":1526893117422,"id":17,"name":"Luvas multiusos","code":"RFES0117","costPrice":0.99,"salePrice":2.5,"userGroupd":null,"_id":17}
-{"$$deleted":true,"_id":66}
-{"createdAt":1526894315678,"updatedAt":1526894315678,"id":66,"name":"Rolo tissue auto corte pasta 1F 6rls","code":"RTAMS6R","costPrice":8.66,"salePrice":19,"userGroupd":null,"_id":66}
-{"$$deleted":true,"_id":30}
-{"createdAt":1526893575161,"updatedAt":1526893575161,"id":30,"name":"REGOL 10 - Desengordurante 5X1L","code":"R10F5","costPrice":6,"salePrice":19,"userGroupd":null,"_id":30}
-{"$$deleted":true,"_id":31}
-{"createdAt":1526893575163,"updatedAt":1526893575163,"id":31,"name":"REGOL 10 - Desengordurante ","code":"R10","costPrice":1.16,"salePrice":3.1,"userGroupd":null,"_id":31}
-{"$$deleted":true,"_id":65}
-{"createdAt":1526894315677,"updatedAt":1526894315677,"id":65,"name":"REGOL SDS - Desinfetante bactericida 6x500ml","code":"RSDSF6","costPrice":3.92,"salePrice":12.5,"userGroupd":null,"_id":65}
-{"name":"Regol 34 - Desentupidor de Canos","costPrice":2.65,"salePrice":9.9,"code":"R34","createdAt":1527604726220,"updatedAt":1527604726220,"id":98,"userGroupd":null,"_id":98}
-{"$$deleted":true,"_id":15}
-{"createdAt":1526893117419,"updatedAt":1526893117419,"id":15,"name":"Luvas de Vinil s\\ pó","code":"REGUL113A","costPrice":2,"salePrice":4.5,"userGroupd":null,"_id":15}
-{"$$deleted":true,"_id":79}
-{"createdAt":1526894514608,"updatedAt":1526894514608,"id":79,"name":"Toalhas de mesa 80x80 com 100 unid","code":"TM80X80","costPrice":5.87,"salePrice":13.5,"userGroupd":null,"_id":79}
-{"$$deleted":true,"_id":78}
-{"createdAt":1526894514606,"updatedAt":1526894514606,"id":78,"name":"Toalhas de mesa 120x80","code":"TM120X80","costPrice":8.59,"salePrice":16.5,"userGroupd":null,"_id":78}
-{"$$deleted":true,"_id":12}
-{"createdAt":1526893117416,"updatedAt":1526893117416,"id":12,"name":"Guardanapos D1000","code":"G1000","costPrice":0.95,"salePrice":2,"userGroupd":null,"_id":12}
-{"$$deleted":true,"_id":22}
-{"createdAt":1526893390572,"updatedAt":1526893390572,"id":22,"name":"Papel Higienico domestico 96 rolos","code":"PHDR96R","costPrice":7.89,"salePrice":16.9,"userGroupd":null,"_id":22}
-{"$$deleted":true,"_id":56}
-{"createdAt":1526894131275,"updatedAt":1526894131275,"id":56,"name":"REGOL 5 - Limpeza e abrilhantador ","code":"R5","costPrice":2.07,"salePrice":4.4,"userGroupd":null,"_id":56}
-{"$$deleted":true,"_id":25}
-{"createdAt":1526893390577,"updatedAt":1526893390577,"id":25,"name":"placas auto colante pack 6 ","code":"CPA041","costPrice":7.65,"salePrice":13.39,"userGroupd":null,"_id":25}
-{"$$deleted":true,"_id":2}
-{"createdAt":1526892168367,"updatedAt":1526892168367,"id":2,"name":"Apanhador / cabo","code":"REGUL174","costPrice":0.59,"salePrice":2.5,"userGroupd":null,"_id":2}
-{"$$deleted":true,"_id":32}
-{"createdAt":1526893575164,"updatedAt":1526893575164,"id":32,"name":"REGOL 12 GEL - Gel desifectante e bactericida perfumado","code":"R12GEL","costPrice":1.02,"salePrice":2.2,"userGroupd":null,"_id":32}
-{"$$deleted":true,"_id":10}
-{"createdAt":1526893117412,"updatedAt":1526893117412,"id":10,"name":"Franja de substituição + armação +cabo","code":"REGUL015","costPrice":4.29,"salePrice":8.9,"userGroupd":null,"_id":10}
-{"$$deleted":true,"_id":61}
-{"createdAt":1526894131283,"updatedAt":1526894131283,"id":61,"name":"REGOL B70 - Desinfectante Clorado p/ alimentos","code":"RB70","costPrice":0.41,"salePrice":1.2,"userGroupd":null,"_id":61}
-{"$$deleted":true,"_id":80}
-{"createdAt":1526894514609,"updatedAt":1526894514609,"id":80,"name":"toalheiro em ABS","code":"DTM003","costPrice":5.5,"salePrice":15.6,"userGroupd":null,"_id":80}
-{"$$deleted":true,"_id":6}
-{"createdAt":1526892926540,"updatedAt":1526892926540,"id":6,"name":"Dispensador autocorte em ABS","code":"DAC002","costPrice":35,"salePrice":59,"userGroupd":null,"_id":6}
+{"createdAt":1526892168367,"updatedAt":1526892168367,"idold":2,"name":"Apanhador / cabo","code":"REGUL174","costPrice":0.59,"salePrice":2.5,"userGroupd":null,"idold":2}
+{"createdAt":1526892529470,"updatedAt":1526892529470,"idold":3,"name":"Balde com espremedor Flexivel","code":"REGUL034","costPrice":0.99,"salePrice":3.5,"userGroupd":null,"idold":3}
+{"createdAt":1526892601670,"updatedAt":1526892601670,"idold":4,"name":"Cabo Cromado 150 cm c/ rosca Furo","code":"REGUL116","costPrice":3.23,"salePrice":8,"userGroupd":null,"idold":4}
+{"createdAt":1526892601673,"updatedAt":1526892601673,"idold":5,"name":"Cabo Cromado com rosca","code":"REGUL115","costPrice":0.54,"salePrice":3,"userGroupd":null,"idold":5}
+{"createdAt":1526892926540,"updatedAt":1526892926540,"idold":6,"name":"Dispensador autocorte em ABS","code":"DAC002","costPrice":35,"salePrice":59,"userGroupd":null,"idold":6}
+{"createdAt":1526892926542,"updatedAt":1526892926542,"idold":7,"name":"Dispensador Cleanline Mecha Branco","code":"DPM001","costPrice":12.8,"salePrice":24.5,"userGroupd":null,"idold":7}
+{"createdAt":1526892926544,"updatedAt":1526892926544,"idold":8,"name":"Esfregona Algodão","code":"REGUL008","costPrice":0.56,"salePrice":2.75,"userGroupd":null,"idold":8}
+{"createdAt":1526892926545,"updatedAt":1526892926545,"idold":9,"name":"Formas aluminio T16 C\\ tampa","code":"RFA016","costPrice":11.9,"salePrice":21.5,"userGroupd":null,"idold":9}
+{"createdAt":1526893117412,"updatedAt":1526893117412,"idold":10,"name":"Franja de substituição + armação +cabo","code":"REGUL015","costPrice":4.29,"salePrice":8.9,"userGroupd":null,"idold":10}
+{"createdAt":1526893117414,"updatedAt":1526893117414,"idold":11,"name":"guardanapos 33x33 1 folha","code":"G33331F","costPrice":8.87,"salePrice":13.5,"userGroupd":null,"idold":11}
+{"createdAt":1526893117416,"updatedAt":1526893117416,"idold":12,"name":"Guardanapos D1000","code":"G1000","costPrice":0.95,"salePrice":2,"userGroupd":null,"idold":12}
+{"createdAt":1526893117417,"updatedAt":1526893117417,"idold":13,"name":"Guardanapos tipo L sulfito c/ 50 maços","code":"GTL6000","costPrice":4.31,"salePrice":9.9,"userGroupd":null,"idold":13}
+{"createdAt":1526893117418,"updatedAt":1526893117418,"idold":14,"name":"Guardanapos ZZ 14X14 C/ 9000","code":"GZZ1414","costPrice":4.98,"salePrice":9.9,"userGroupd":null,"idold":14}
+{"createdAt":1526893117419,"updatedAt":1526893117419,"idold":15,"name":"Luvas de Vinil s\\ pó","code":"REGUL113A","costPrice":2,"salePrice":4.5,"userGroupd":null,"idold":15}
+{"createdAt":1526893117420,"updatedAt":1526893117420,"idold":16,"name":"Luvas latex c/ pó c/ 100 unid.","code":"","costPrice":3.6,"salePrice":6,"userGroupd":null,"idold":16}
+{"createdAt":1526893117422,"updatedAt":1526893117422,"idold":17,"name":"Luvas multiusos","code":"RFES0117","costPrice":0.99,"salePrice":2.5,"userGroupd":null,"idold":17}
+{"createdAt":1526893390566,"updatedAt":1526893390566,"idold":18,"name":"Luvas Nitrilio s/ pó pack 100 unid","code":"RFE0114","costPrice":3.47,"salePrice":6.75,"userGroupd":null,"idold":18}
+{"createdAt":1526893390569,"updatedAt":1526893390569,"idold":19,"name":"Luvas Palhaço c/ 100 unid.","code":"RFES0115","costPrice":0.21,"salePrice":0.75,"userGroupd":null,"idold":19}
+{"createdAt":1526893390570,"updatedAt":1526893390570,"idold":20,"name":"Maquina Coopermatic","code":"EQWCCOOP","costPrice":5,"salePrice":12,"userGroupd":null,"idold":20}
+{"createdAt":1526893390571,"updatedAt":1526893390571,"idold":21,"name":"Pano microfibra 250 GR - Verde","code":"REGUL051","costPrice":0.41,"salePrice":2.5,"userGroupd":null,"idold":21}
+{"createdAt":1526893390572,"updatedAt":1526893390572,"idold":22,"name":"Papel Higienico domestico 96 rolos","code":"PHDR96R","costPrice":7.89,"salePrice":16.9,"userGroupd":null,"idold":22}
+{"createdAt":1526893390574,"updatedAt":1526893390574,"idold":23,"name":"Papel Higienico Jumbo Pasta 12 R","code":"PHJVP12R","costPrice":3.58,"salePrice":9.9,"userGroupd":null,"idold":23}
+{"createdAt":1526893390575,"updatedAt":1526893390575,"idold":24,"name":"Piaçaba","code":"EQWC020","costPrice":2.29,"salePrice":6.9,"userGroupd":null,"idold":24}
+{"createdAt":1526893390577,"updatedAt":1526893390577,"idold":25,"name":"placas auto colante pack 6 ","code":"CPA041","costPrice":7.65,"salePrice":13.39,"userGroupd":null,"idold":25}
+{"createdAt":1526893390578,"updatedAt":1526893390578,"idold":26,"name":"Porta Rolos Jumbo em ABS","code":"75-2000","costPrice":5.5,"salePrice":15.6,"userGroupd":null,"idold":26}
+{"createdAt":1526893575156,"updatedAt":1526893575156,"idold":27,"name":"raclete limpa vidros inox","code":"REGUL084","costPrice":5.67,"salePrice":11.5,"userGroupd":null,"idold":27}
+{"createdAt":1526893575158,"updatedAt":1526893575158,"idold":28,"name":"Recarga ambientador 250ml","code":"EQWC007","costPrice":0.9,"salePrice":5,"userGroupd":null,"idold":28}
+{"createdAt":1526893575159,"updatedAt":1526893575159,"idold":29,"name":"Recarga Coopermatic 250ml","code":"CPA002","costPrice":5.49,"salePrice":10.5,"userGroupd":null,"idold":29}
+{"createdAt":1526893575161,"updatedAt":1526893575161,"idold":30,"name":"REGOL 10 - Desengordurante 5X1L","code":"R10F5","costPrice":6,"salePrice":19,"userGroupd":null,"idold":30}
+{"createdAt":1526893575163,"updatedAt":1526893575163,"idold":31,"name":"REGOL 10 - Desengordurante ","code":"R10","costPrice":1.16,"salePrice":3.1,"userGroupd":null,"idold":31}
+{"createdAt":1526893575164,"updatedAt":1526893575164,"idold":32,"name":"REGOL 12 GEL - Gel desifectante e bactericida perfumado","code":"R12GEL","costPrice":1.02,"salePrice":2.2,"userGroupd":null,"idold":32}
+{"createdAt":1526893575165,"updatedAt":1526893575165,"idold":33,"name":"REGOL 15 - Deterg. Desinfectante","code":"R15","costPrice":0.3,"salePrice":1.2,"userGroupd":null,"idold":33}
+{"createdAt":1526893575167,"updatedAt":1526893575167,"idold":34,"name":"REGOL 16 - Deterg. Manual Loiça ","code":"R16","costPrice":0.5,"salePrice":1.2,"userGroupd":null,"idold":34}
+{"createdAt":1526893575168,"updatedAt":1526893575168,"idold":35,"name":"REGOL 16 - Deterg. Manual Loiça- CONCENTRADO 5X1L","code":"R16F5","costPrice":3.7,"salePrice":8.5,"userGroupd":null,"idold":35}
+{"createdAt":1526893746680,"updatedAt":1526893746680,"idold":36,"name":"REGOL 16 A - Desinfetante Germicida para lavagem de loiça","code":"R16A","costPrice":0.75,"salePrice":1.7,"userGroupd":null,"idold":36}
+{"createdAt":1526893746682,"updatedAt":1526893746682,"idold":37,"name":"REGOL 18 BOSQUE - Multiusos Desinfectante ","code":"R18B","costPrice":0.52,"salePrice":1.2,"userGroupd":null,"idold":37}
+{"createdAt":1526893746700,"updatedAt":1526893746700,"idold":38,"name":"REGOL 18 LAVANDA - Multiusos Desinfectante ","code":"R18L","costPrice":0.69,"salePrice":1.2,"userGroupd":null,"idold":38}
+{"createdAt":1526893746701,"updatedAt":1526893746701,"idold":39,"name":"REGOL 18 LIMÃO- Multiusos Desinfectante ","code":"R18LM","costPrice":0.52,"salePrice":1.2,"userGroupd":null,"idold":39}
+{"createdAt":1526893746703,"updatedAt":1526893746703,"idold":40,"name":"REGOL 18 MONTANHA - Multiusos","code":"R18M","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"idold":40}
+{"createdAt":1526893746706,"updatedAt":1526893746706,"idold":41,"name":"REGOL 18 PINHO - Multiusos Desinfectante ","code":"R18P","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"idold":41}
+{"createdAt":1526893746707,"updatedAt":1526893746707,"idold":42,"name":"REGOL 18 TROPICAL- Multiusos Desinfectante ","code":"R18T","costPrice":0.4,"salePrice":1.2,"userGroupd":null,"idold":42}
+{"createdAt":1526893746709,"updatedAt":1526893746709,"idold":43,"name":"REGOL 18GS - Multiusos Desengordurante ","code":"R18GS","costPrice":0.7,"salePrice":1.4,"userGroupd":null,"idold":43}
+{"createdAt":1526893950971,"updatedAt":1526893950971,"idold":44,"name":"REGOL 18RI - Multiusos desinfetante","code":"R18RI","costPrice":1.72,"salePrice":3.2,"userGroupd":null,"idold":44}
+{"createdAt":1526893950974,"updatedAt":1526893950974,"idold":45,"name":"REGOL 19  - Deterg. Loiça p/ maquinas - 10L","code":"R19","costPrice":0.57,"salePrice":1.35,"userGroupd":null,"idold":45}
+{"createdAt":1526893950975,"updatedAt":1526893950975,"idold":46,"name":"REGOL 19  - Deterg. Loiça p/ maquinas 5 LT","code":"R19","costPrice":0.57,"salePrice":1.4,"userGroupd":null,"idold":46}
+{"createdAt":1526893950977,"updatedAt":1526893950977,"idold":47,"name":"REGOL 19 ULTRA - Deterg. Loiça p/ maquinas 10 LT","code":"R19U","costPrice":1.11,"salePrice":2.6,"userGroupd":null,"idold":47}
+{"createdAt":1526893950978,"updatedAt":1526893950978,"idold":48,"name":"REGOL 19 ULTRA - Deterg. Loiça p/ maquinas 5LT","code":"R19U","costPrice":1.11,"salePrice":2.65,"userGroupd":null,"idold":48}
+{"createdAt":1526893950979,"updatedAt":1526893950979,"idold":49,"name":"REGOL 200 - Desengordurante de fornos e grelhas","code":"RD25","costPrice":1.03,"salePrice":2.4,"userGroupd":null,"idold":49}
+{"createdAt":1526893950981,"updatedAt":1526893950981,"idold":50,"name":"REGOL 200 - Desengordurante de fornos e grelhas 5x1L","code":"R200F5","costPrice":7.21,"salePrice":15.5,"userGroupd":null,"idold":50}
+{"createdAt":1526893950982,"updatedAt":1526893950982,"idold":51,"name":"REGOL 20A- Limpa Vidros area Alimentar","code":"R20A","costPrice":0.61,"salePrice":1.6,"userGroupd":null,"idold":51}
+{"createdAt":1526893950985,"updatedAt":1526893950985,"idold":52,"name":"REGOL 22  - Secante e Abrilhantador p/ maq. Loiça","code":"R22","costPrice":0.82,"salePrice":1.8,"userGroupd":null,"idold":52}
+{"createdAt":1526893950986,"updatedAt":1526893950986,"idold":53,"name":"REGOL 29 - Sabonete Liquido Perolado","code":"R29","costPrice":0.52,"salePrice":1.4,"userGroupd":null,"idold":53}
+{"createdAt":1526894131271,"updatedAt":1526894131271,"idold":54,"name":"REGOL 29 D - Sabonete Liquido Inodoro","code":"R29D","costPrice":0.77,"salePrice":1.8,"userGroupd":null,"idold":54}
+{"createdAt":1526894131274,"updatedAt":1526894131274,"idold":55,"name":"REGOL 5 - Abrilhantador de superficie em inox","code":"r5f6","costPrice":7.62,"salePrice":17.5,"userGroupd":null,"idold":55}
+{"createdAt":1526894131275,"updatedAt":1526894131275,"idold":56,"name":"REGOL 5 - Limpeza e abrilhantador ","code":"R5","costPrice":2.07,"salePrice":4.4,"userGroupd":null,"idold":56}
+{"createdAt":1526894131277,"updatedAt":1526894131277,"idold":57,"name":"REGOL 52 GREEN - Detergente Liquido lavar roupa","code":"R52GR","costPrice":1.05,"salePrice":2.3,"userGroupd":null,"idold":57}
+{"createdAt":1526894131279,"updatedAt":1526894131279,"idold":58,"name":"REGOL 53 AZUL - Amaciador textil","code":"R53AZ","costPrice":0.7,"salePrice":1.6,"userGroupd":null,"idold":58}
+{"createdAt":1526894131280,"updatedAt":1526894131280,"idold":59,"name":"REGOL 9 - Desengordurante por imersão","code":"R9","costPrice":0.72,"salePrice":1.5,"userGroupd":null,"idold":59}
+{"createdAt":1526894131282,"updatedAt":1526894131282,"idold":60,"name":"REGOL ALU - Deterg. Loiça p/ maquinas ","code":"RALU","costPrice":1.14,"salePrice":2.65,"userGroupd":null,"idold":60}
+{"createdAt":1526894131283,"updatedAt":1526894131283,"idold":61,"name":"REGOL B70 - Desinfectante Clorado p/ alimentos","code":"RB70","costPrice":0.41,"salePrice":1.2,"userGroupd":null,"idold":61}
+{"createdAt":1526894131284,"updatedAt":1526894131284,"idold":62,"name":"REGOL CL - Espuma Desinfetante de Base Cloro","code":"RCL","costPrice":0.52,"salePrice":1.4,"userGroupd":null,"idold":62}
+{"createdAt":1526894315674,"updatedAt":1526894315674,"idold":63,"name":"REGOL DSG25 - Desengordurante fornos e grelhas","code":"RDSG25","costPrice":0.91,"salePrice":2.4,"userGroupd":null,"idold":63}
+{"createdAt":1526894315676,"updatedAt":1526894315676,"idold":64,"name":"REGOL SDS - Desinfetante Á base de alcool p/ superficies e utensilios","code":"RSDSC","costPrice":0.85,"salePrice":1.8,"userGroupd":null,"idold":64}
+{"createdAt":1526894315677,"updatedAt":1526894315677,"idold":65,"name":"REGOL SDS - Desinfetante bactericida 6x500ml","code":"RSDSF6","costPrice":3.92,"salePrice":12.5,"userGroupd":null,"idold":65}
+{"createdAt":1526894315678,"updatedAt":1526894315678,"idold":66,"name":"Rolo tissue auto corte pasta 1F 6rls","code":"RTAMS6R","costPrice":8.66,"salePrice":19,"userGroupd":null,"idold":66}
+{"createdAt":1526894315681,"updatedAt":1526894315681,"idold":67,"name":"Rolo Autocorte reciclado 1F 6RLS","code":"RTR","costPrice":6.02,"salePrice":12.2,"userGroupd":null,"idold":67}
+{"createdAt":1526894315682,"updatedAt":1526894315682,"idold":68,"name":"Rolo Industrial Pasta 2 Folhas 300 mts","code":"RIP2F300","costPrice":6.39,"salePrice":14.5,"userGroupd":null,"idold":68}
+{"createdAt":1526894315684,"updatedAt":1526894315684,"idold":69,"name":"Rolos mecha pasta - 6 rolos c/ 100 mts","code":"RMP1106","costPrice":7.21,"salePrice":15,"userGroupd":null,"idold":69}
+{"createdAt":1526894315685,"updatedAt":1526894315685,"idold":70,"name":"Saboneteira ABS Branca 1 L","code":"SBN003","costPrice":5.5,"salePrice":12.75,"userGroupd":null,"idold":70}
+{"createdAt":1526894315686,"updatedAt":1526894315686,"idold":71,"name":"saco de papel S005 31x14x5","code":"SP005","costPrice":8.5,"salePrice":17.5,"userGroupd":null,"idold":71}
+{"createdAt":1526894315687,"updatedAt":1526894315687,"idold":72,"name":"Saco plástico de lixo c/ 6 unidades- 100L","code":"SLASP/S100","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"idold":72}
+{"createdAt":1526894514594,"updatedAt":1526894514594,"idold":73,"name":"Saco Plastico Perfumado Azul c/ 12 unid. 30L","code":"SLASP/S30","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"idold":73}
+{"createdAt":1526894514600,"updatedAt":1526894514600,"idold":74,"name":"Suporte Bobine Horizontal - Fixação de parede","code":"DPC005","costPrice":15,"salePrice":35,"userGroupd":null,"idold":74}
+{"createdAt":1526894514601,"updatedAt":1526894514601,"idold":75,"name":"Tapete Urinol","code":"EQWC001","costPrice":2.69,"salePrice":6.5,"userGroupd":null,"idold":75}
+{"createdAt":1526894514603,"updatedAt":1526894514603,"idold":76,"name":"Toalhas de mão Recicladas 21x23","code":"TMR2123","costPrice":4.41,"salePrice":9.9,"userGroupd":null,"idold":76}
+{"createdAt":1526894514604,"updatedAt":1526894514604,"idold":77,"name":"Toalhas de mão pasta 21x23 c/ 3000","code":"TMP2123","costPrice":5.52,"salePrice":19,"userGroupd":null,"idold":77}
+{"createdAt":1526894514606,"updatedAt":1526894514606,"idold":78,"name":"Toalhas de mesa 120x80","code":"TM120X80","costPrice":8.59,"salePrice":16.5,"userGroupd":null,"idold":78}
+{"createdAt":1526894514608,"updatedAt":1526894514608,"idold":79,"name":"Toalhas de mesa 80x80 com 100 unid","code":"TM80X80","costPrice":5.87,"salePrice":13.5,"userGroupd":null,"idold":79}
+{"createdAt":1526894514609,"updatedAt":1526894514609,"idold":80,"name":"toalheiro em ABS","code":"DTM003","costPrice":5.5,"salePrice":15.6,"userGroupd":null,"idold":80}
+{"createdAt":1526894514612,"updatedAt":1526894514612,"idold":81,"name":"Vassoura NINFA Despontada","code":"REGUL157","costPrice":1.33,"salePrice":3,"userGroupd":null,"idold":81}
+{"createdAt":1526894514614,"updatedAt":1526894514614,"idold":82,"name":"Toalhas de mesa 70x70 c/ 250F","code":"TM70X70","costPrice":3.5,"salePrice":8.93,"userGroupd":null,"idold":82}
+{"createdAt":1526894514616,"updatedAt":1526894514616,"idold":83,"name":"Toalhas de mesa 30x45","code":"TM30X45","costPrice":5,"salePrice":11.9,"userGroupd":null,"idold":83}
+{"createdAt":1526978991333,"updatedAt":1526978991333,"idold":84,"name":"Pack SERVIÇO Mensal","code":"RF","costPrice":0,"salePrice":39.9,"userGroupd":null,"idold":84}
+{"createdAt":1526978991337,"updatedAt":1526978991337,"idold":85,"name":"Serviço mensal sem pack","code":"","costPrice":0,"salePrice":50,"userGroupd":null,"idold":85}
+{"createdAt":1526978991339,"updatedAt":1526978991339,"idold":86,"name":"Serviço trimestral sem pack","code":"","costPrice":0,"salePrice":68.75,"userGroupd":null,"idold":86}
+{"createdAt":1526978991340,"updatedAt":1526978991340,"idold":87,"name":"Serviço semestral sem pack","code":"","costPrice":0,"salePrice":100,"userGroupd":null,"idold":87}
+{"createdAt":1526978991341,"updatedAt":1526978991341,"idold":88,"name":"Serviço sem pack","code":"","costPrice":0,"salePrice":29.9,"userGroupd":null,"idold":88}
+{"createdAt":1527071409471,"updatedAt":1527071409471,"idold":89,"name":"Saco Plástico lixo 10unid - 50L","code":"SLASP/S50","costPrice":0.38,"salePrice":0.75,"userGroupd":null,"idold":89}
+{"createdAt":1527083252752,"updatedAt":1527083252752,"idold":90,"name":"REGOL 18 MAD - Deterg sabonoso madeira","code":"R18MAD","costPrice":1.27,"salePrice":2.8,"userGroupd":null,"idold":90}
+{"createdAt":1527090124155,"updatedAt":1527090124155,"idold":91,"name":"Regol Lix Gel - Lixivia em Gel","code":"R15G","costPrice":0.7,"salePrice":1.8,"userGroupd":null,"idold":91}
+{"createdAt":1527153852461,"updatedAt":1527153852461,"idold":92,"name":"Regol Café - Descalcificante p/ maq. 1L","code":"RCF","costPrice":1.86,"salePrice":9,"userGroupd":null,"idold":92}
+{"createdAt":1527153876916,"updatedAt":1527153876916,"idold":93,"name":"MOPA DE ALGODÃO","code":"","costPrice":1.75,"salePrice":3.5,"userGroupd":null,"idold":93}
+{"createdAt":1527177840158,"updatedAt":1527177840158,"idold":94,"name":"REGOL 53 GREEN - Amaciador textil","code":"R53GR","costPrice":0.7,"salePrice":1.6,"userGroupd":null,"idold":94}
+{"createdAt":1527243873349,"updatedAt":1527243873349,"idold":95,"name":"Doseador Peristaltico Deterg. 220V","code":"DPRD","costPrice":35,"salePrice":61.25,"userGroupd":null,"idold":95}
+{"name":"Easyfoam VF32 -Deterg. liq. clorado 20L","costPrice":37.31,"salePrice":46.64,"code":"REGEFO","createdAt":1527582515853,"updatedAt":1527582515853,"idold":96,"userGroupd":null,"idold":96}
+{"name":"Pano microfibra 250gr - Amarelo","costPrice":0.41,"salePrice":2.5,"code":"REGUL048","createdAt":1527584135175,"updatedAt":1527584135175,"idold":97,"userGroupd":null,"idold":97}
+{"name":"Regol 34 - Desentupidor de Canos","costPrice":2.65,"salePrice":9.9,"code":"R34","createdAt":1527604726220,"updatedAt":1527604726220,"idold":98,"userGroupd":null,"idold":98}
+

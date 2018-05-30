@@ -5,6 +5,12 @@ Vue.filter('formatDate', function(value) {
   }
 })
 
+Vue.filter('formatEuro', function(value) {
+  if (value) {
+    return Number(value).toLocaleString("es-ES", {minimumFractionDigits: 2}) + " €"
+  }
+})
+
 parasails.registerPage('welcome', {
   
   //  ╦╔╗╔╦╔╦╗╦╔═╗╦    ╔═╗╔╦╗╔═╗╔╦╗╔═╗

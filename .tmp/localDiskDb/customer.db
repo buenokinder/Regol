@@ -1,4 +1,3 @@
-{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}
 {"createdAt":1526891536856,"updatedAt":1526891536856,"id":2,"name":"Café MCV Azurém","userGroupd":null,"_id":2}
 {"createdAt":1526894610880,"updatedAt":1526894610880,"id":4,"name":"RESTAURANTE MIKADO","userGroupd":null,"_id":4}
 {"createdAt":1526894768706,"updatedAt":1526894768706,"id":5,"name":"CAFÉ CRUZEIRO","userGroupd":null,"_id":5}
@@ -192,3 +191,4 @@
 {"name":"PIKENIK de Vera Patricia Abreu Pinto Unipessoal","createdAt":1527603618629,"updatedAt":1527603618629,"id":195,"userGroupd":null,"_id":195}
 {"name":"Café Jojá de Debora Andreia Araujo Ferreira","createdAt":1527605927131,"updatedAt":1527605927131,"id":196,"userGroupd":null,"_id":196}
 {"name":"Julio Sousa & Sónia Ferreira - Restaurante e Pizzaria lda","createdAt":1527607111469,"updatedAt":1527607111469,"id":197,"userGroupd":null,"_id":197}
+{"$$indexCreated":{"fieldName":"id","unique":true,"sparse":false}}

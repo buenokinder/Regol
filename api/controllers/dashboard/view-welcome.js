@@ -18,16 +18,38 @@ module.exports = {
 
 
   fn: async function (inputs, exits) {
-    var totalCustomers =   await Customer.count();
-    var totalProducts =   await Product.count();
+    this.req.setTimeout(240000);
+    var db =  Customer.getDatastore().manager;
+    console.log(InvoiceItems.tableName)
+    var customerContext = db.collection(Customer.tableName);
+    var productContext = db.collection(Product.tableName);
+    var invoiceContext = db.collection(Invoice.tableName);
+
+
+    var totalCustomers = 0; 
+    customerContext.count(function(err, count) {
+      sails.log("contei:" +  count)
+      totalCustomers= count;
+    })
+    
+    var totalProducts =  0;
+    productContext.count(function(err, count) {
+      sails.log("contei:" +  count)
+      totalProducts= count;
+    })
 
     var date = new Date(), y = date.getFullYear(), m = date.getMonth();
     var firstDay = new Date(y, m, 1);
     var lastDay = new Date(y, m + 1, 0);
     sails.log(firstDay);
-    var totalSales =   await Invoice.sum("total").where({
-                                                          date: { '>': firstDay }});
+    var totalSales =  0;// await Invoice.sum("total").where({
+                        //                                  date: { '>': firstDay }});
 
+
+    // invoiceContext.sum(function(err, count) {
+    //   sails.log("contei:" +  count)
+    //   totalProducts= count;
+    // })
     var invoices =   await Invoice.find().populate('invoiceItems').where({
                                                             date: { '>': firstDay }});
 
@@ -56,15 +78,15 @@ module.exports = {
       }
     }
 
-    var totalDiscount = await Invoice.sum("discount").where({
-      date: { '>': firstDay }});
+    var totalDiscount = 0; // await Invoice.sum("discount").where({
+      //date: { '>': firstDay }});
    
-    var totalInvoice =   await Invoice.count();
+    var totalInvoice =  0; // await Invoice.count();
    
 
     var averageProducstPrice =  (total/totalProductsSale)
-    var totalFixedCost =   await FixedCost.sum("value").where({
-      date: { '>': firstDay }});
+    var totalFixedCost =  0;// await FixedCost.sum("value").where({
+     // date: { '>': firstDay }});
    
     var averageContribuitionFixedCost =   (totalFixedCost/totalProductsSale);
 
@@ -74,7 +96,7 @@ module.exports = {
     return exits.success({
       currentSection: 'welcome',
       totalCustomers: totalCustomers,
-      totalSales: totalSales.toFixed(2),
+      totalSales: soma.toFixed(2),
       totalDiscount: totalDiscount.toFixed(2),
       totalCost: totalCost.toFixed(2),
       totalProducts: totalProducts,

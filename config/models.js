@@ -72,7 +72,7 @@ module.exports.models = {
     createdAt: { type: 'number', autoCreatedAt: true, },
     updatedAt: { type: 'number', autoUpdatedAt: true, },
     id: { type: 'string', columnName: '_id' },
-    //id: { type: 'number', autoIncrement: true, }, localD
+    //id: { type: 'number', autoIncrement: true, },
     //--------------------------------------------------------------------------
     //  /\   Using MongoDB?
     //  ||   Replace `id` above with this instead:

@@ -25,7 +25,20 @@ parasails.registerPage('productreport', {
       confirmRemoveProductUpdateModalOpen: false,
     },
   
- 
+    computed: {
+      total: function(){
+
+        let total = [];
+      
+        Object.entries(this.invoiceItems).forEach(([key, val]) => {
+            total.push(val.totalPrice-val.totalCost) // the value of the current key.
+        });
+      
+        return total.reduce(function(total, num){ return total + num }, 0);
+      
+      }
+
+    },
     
   
     //  ╦  ╦╔═╗╔═╗╔═╗╦ ╦╔═╗╦  ╔═╗
@@ -35,7 +48,7 @@ parasails.registerPage('productreport', {
       // Attach any initial data from the server.
       _.extend(this, SAILS_LOCALS);
     },
-  
+    
    
   
   });
