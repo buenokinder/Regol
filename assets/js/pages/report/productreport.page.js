@@ -36,7 +36,31 @@ parasails.registerPage('productreport', {
       
         return total.reduce(function(total, num){ return total + num }, 0);
       
-      }
+      }   ,
+      totalCusto: function(){
+
+        let total = [];
+      
+        Object.entries(this.invoiceItems).forEach(([key, val]) => {
+            total.push(val.totalCost) // the value of the current key.
+        });
+      
+        return total.reduce(function(total, num){ return total + num }, 0);
+      
+      }  ,
+      totalVendas: function(){
+
+        let total = [];
+      
+        Object.entries(this.invoiceItems).forEach(([key, val]) => {
+            total.push(val.totalPrice) // the value of the current key.
+        });
+      
+        return total.reduce(function(total, num){ return total + num }, 0);
+      
+      }  
+      
+      
 
     },
     
