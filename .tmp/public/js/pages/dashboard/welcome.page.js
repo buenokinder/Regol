@@ -9,6 +9,7 @@ Vue.filter('formatEuro', function(value) {
   if (value) {
     return Number(value).toLocaleString("es-ES", {minimumFractionDigits: 2}) + " €"
   }
+  return "0,00 €";
 })
 
 parasails.registerPage('welcome', {
