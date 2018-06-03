@@ -17,6 +17,11 @@ module.exports = {
         description: 'Customer Name.',
         required: true
       },
+      code: {
+        type: 'string',
+        description: 'Customer Name.',
+        required: true
+      },
       oldid: {
         type: 'number',
         required: false

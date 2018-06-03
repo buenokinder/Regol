@@ -36,15 +36,17 @@
       <div class="modal-body">
         <div class="form-group" v-for="(customer, index) in addCustomersFormData.customers">
           <div class="row">
+              <div class="col">
+                  <label >Codigo</label>
+                  <input class="form-control" type="text" v-model="addCustomersFormData.customers[index].code" >
+                </div>
             <div class="col">
-              <label v-if="index === 0">Nome</label>
-              <input class="form-control" type="text" v-model="addCustomersFormData.customers[index].name" :placeholder="index === 0 ? 'Ralph' : index === 1 ? 'Donny' : index === 2 ? 'Leo' : 'Full name'">
+              <label>Nome</label>
+              <input class="form-control" type="text" v-model="addCustomersFormData.customers[index].name" >
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <span class="add-more-button" @click="clickAddMoreButton()"><span class="fa fa-plus text-info mr-1"></span> Add more</span>
-        </div>
+     
          <p class="text-danger" v-if="formErrors.customers"><small>Please make sure all your invitees have a name and an email address.</small></p>
          <p class="text-danger" v-if="cloudError"><small>An error occured while processing your request. Please check your information and try again, or <a href="/contact">contact support</a> if the error persists.</small></p>
       </div>

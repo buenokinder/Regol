@@ -38,7 +38,7 @@ module.exports = {
       totalProducts= count;
     })
 
-    var date = new Date(), y = date.getFullYear(), m = date.getMonth();
+    var date = new Date(), y = date.getFullYear(), m = 5
     var firstDay = new Date(y, m, 1);
     var lastDay = new Date(y, m + 1, 0);
     sails.log(firstDay);
@@ -50,8 +50,8 @@ module.exports = {
     //   sails.log("contei:" +  count)
     //   totalProducts= count;
     // })
-    var invoices =   await Invoice.find().populate('invoiceItems').where({
-                                                            date: { '>': firstDay }});
+    var invoices =   await Invoice.find().populate('invoiceItems');//.where({
+                                                            //date: { '>': firstDay }});
 
 
     

@@ -18,7 +18,7 @@ module.exports = {
   
   
     fn: async function (inputs, exits) {
-      var products = await Product.find();
+      var products = await Product.find().sort('name Asc');
       return exits.success({
         currentSection: 'product',
         products: products,
