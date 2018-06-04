@@ -62,8 +62,10 @@ module.exports = {
     var totalProductsSale = 0;
     var totalCost = 0;
     var soma = 0;
+    var totalDiscount = 0;
     for (let invoice of invoices) {
       soma = soma + invoice.total;
+      totalDiscount = totalDiscount + invoice.discount;
       sails.log('NF ' + invoice.total)
       sails.log('NF ' + invoice.numero)
       sails.log('Soma ' + soma)
@@ -78,7 +80,7 @@ module.exports = {
       }
     }
 
-    var totalDiscount = 0; // await Invoice.sum("discount").where({
+     // await Invoice.sum("discount").where({
       //date: { '>': firstDay }});
    
     var totalInvoice =  0; // await Invoice.count();
