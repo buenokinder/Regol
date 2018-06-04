@@ -10,11 +10,13 @@
         <h5 class="text-muted">Clientes</h5>
         <table class="table table-striped">
           <thead>
+              <th>Code</th>
             <th>Nome</th>
             <th class="actions-column"></th>
           </thead>
           <tbody>
             <tr v-for="customer in customers">
+              <td><strong>{{customer.code}}</strong></td>
               <td><strong>{{customer.name}}</strong></td>
               <td class="actions-column">
                 <button class="btn btn-sm btn-outline-danger" @click="clickRemoveCustomer(customer.id)">Remove client</button>
