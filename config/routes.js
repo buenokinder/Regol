@@ -44,6 +44,8 @@ module.exports.routes = {
 
 
   'GET /report/productreport':            { action: 'report/productreport' },
+  'GET /report/customerreport':            { action: 'report/customerreport' },
+  
   
   
 

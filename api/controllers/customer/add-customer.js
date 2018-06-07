@@ -36,7 +36,11 @@ module.exports = {
   
       for (let customer of inputs.customers) {
         var existingCustomer = await Customer.findOne({ name: customer.name });
-  
+        var newCustomer = {};
+        newCustomer["name"] = customer.name;
+        newCustomer.code =   customer.code;
+
+
         if(!existingCustomer) {
           await Customer.create(customer).fetch();
         }

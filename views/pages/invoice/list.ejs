@@ -23,7 +23,7 @@
               <td><strong>{{invoice.numero}}</strong></td>
               <td class="d-none d-md-table-cell">{{invoice.date | formatDate }}</td>
               <td class="d-none d-md-table-cell">{{invoice.fiscalDate | formatDate }}</td>
-              <td class="d-none d-md-table-cell">{{invoice.customer.name}}</td>
+              <td v-if="invoice.customer" class="d-none d-md-table-cell">{{invoice.customer.name}}</td>
               <td class="d-none d-md-table-cell">{{invoice.discount | formatEuro}}</td>
               <td class="d-none d-md-table-cell">{{invoice.total | formatEuro}}</td>
               <td class="actions-column">

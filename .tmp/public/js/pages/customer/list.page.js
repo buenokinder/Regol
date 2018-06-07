@@ -13,7 +13,8 @@ parasails.registerPage('customer', {
     addCustomersFormData: {
       customers: [
         {
-          name: ''
+          name: '',
+          code: ''
         }
       ]
     },
@@ -65,6 +66,8 @@ parasails.registerPage('customer', {
         customers: [
           {
             name: '',
+
+            code: ''
           }
         ]
       };
@@ -79,8 +82,7 @@ parasails.registerPage('customer', {
     clickAddMoreButton: function() {
       this.addCustomersFormData.customers.push({
         name: '',
-        email: '',
-        telemove: '',
+        code: ''
       });
     },
 

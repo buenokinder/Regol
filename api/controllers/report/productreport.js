@@ -40,7 +40,27 @@ module.exports = {
     
    ]).toArray();
    
-   console.log(result)
+   var invoices =   await Invoice.find();
+
+   var totalDiscount = 0;
+   for (let invoice of invoices) {
+     totalDiscount = totalDiscount + invoice.discount; 
+   }
+   var custoTotal = 0;
+    for (let item of result) {
+      custoTotal = custoTotal + item.totalCost;
+    }
+
+    for (let item of result) {
+
+      var contribuicaoCusto = ((item.totalCost*100)/custoTotal)/100;
+ 
+
+      item.totalCost = item.totalCost+(item.totalCost*contribuicaoCusto);
+     
+    }
+
+
     return exits.success({
       currentSection: 'welcome',
       invoiceItems: result,
