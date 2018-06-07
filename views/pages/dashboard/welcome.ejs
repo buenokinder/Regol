@@ -3,6 +3,16 @@
     <h1>Bem Vindo!</h1>
     <hr/>
     <p>Este é o sistema financeiro da Regoldi.</p>
+    <div class="row">
+      <div class="col-md-12">
+          <label  >Produtos</label>
+          
+          <v-select  v-model="month"  :options="months" label="name"></v-select>
+          <div class="form-group">
+            <span class="add-more-button" @click="find()"><span class="fa fa-plus text-info mr-1"></span> Pesquisar</span>
+          </div>
+        </div>
+  </div>
    <div class="row">
      
     <div class="col-md-4">
@@ -30,17 +40,16 @@
    
      </div>
      <div class="row">
-     
+      <div class="col-md-4">
+        <caixa :qtd="totalProductsSale" titulo="Quantidade de produtos vendido" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
+      </div>
         <div class="col-md-4">
           <caixa :qtd="totalInvoices" titulo="Quantidade de Faturas" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
         </div>
         <div class="col-md-4">
-            <caixa :qtd="averageProducstPrice" titulo="Preço de venda Médio" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
-          </div>
-          <div class="col-md-4">
-              <caixa :qtd="averageContribuitionFixedCost" titulo="Contribuição média dos seus produtos (Custos)" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
-            </div>
-        
+          <caixa :qtd="qtdProdutosEquilibrio" titulo="Qtd vender para não ter prejuízo?" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
+        </div>
+      
     </div>
     <div class="row">
      
@@ -50,9 +59,7 @@
         <div class="col-md-4">
             <caixa :qtd="faturamentoSemPrejuizo" titulo="Qual deve ser o faturamento para não ter prejuízo?" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
           </div>
-          <div class="col-md-4">
-              <caixa :qtd="qtdProdutosEquilibrio" titulo="Qtd vender para não ter prejuízo?" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
-            </div>
+          
         
     </div>
     <div class="row">
@@ -60,9 +67,7 @@
         <div class="col-md-4">
            <caixa :qtd="totalFixedCost" titulo="Custos Indirectos" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
          </div>  -->
-         <div class="col-md-4">
-             <caixa :qtd="totalProductsSale" titulo="Quantidade de produtos vendido" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
-           </div>
+        
            <!-- <div class="col-md-4">
                <caixa :qtd="qtdProdutosEquilibrio" titulo="Qtd vender para não ter prejuízo?" url="/invoice" cor="orange" icone="ion ion-person-stalker"></caixa>
              </div> -->

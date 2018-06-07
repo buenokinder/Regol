@@ -19,6 +19,7 @@ module.exports = {
 
   fn: async function (inputs, exits) {
     this.req.setTimeout(240000);
+    var month = this.req.param('month');
     var db =  Customer.getDatastore().manager;
     console.log(InvoiceItems.tableName)
     var customerContext = db.collection(Customer.tableName);
@@ -39,8 +40,9 @@ module.exports = {
     })
 
     var date = new Date(), y = date.getFullYear(), m = 5
-    var firstDay = new Date(y, m, 1);
-    var lastDay = new Date(y, m + 1, 0);
+    if(!month) month = date.getMonth();
+    var firstDay = new Date(y, month, 1);
+    var lastDay = new Date(y, month + 1, 0);
     sails.log(firstDay);
     var totalSales =  0;// await Invoice.sum("total").where({
                         //                                  date: { '>': firstDay }});
@@ -50,8 +52,8 @@ module.exports = {
     //   sails.log("contei:" +  count)
     //   totalProducts= count;
     // })
-    var invoices =   await Invoice.find().populate('invoiceItems');//.where({
-                                                            //date: { '>': firstDay }});
+
+    var invoices =   await Invoice.find().populate('invoiceItems').where({ fiscalDate: { '>': firstDay }});
 
 
     
@@ -66,10 +68,7 @@ module.exports = {
     for (let invoice of invoices) {
       soma = soma + invoice.total;
       totalDiscount = totalDiscount + invoice.discount;
-      sails.log('NF ' + invoice.total)
-      sails.log('NF ' + invoice.numero)
-      sails.log('Soma ' + soma)
-      sails.log('----------------')
+     
       totalInvoice = totalInvoice + 1;
       for (let invoiceItem of invoice.invoiceItems) {
         total = total + (invoiceItem.quantity*invoiceItem.salePrice)
