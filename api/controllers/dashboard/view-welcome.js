@@ -29,21 +29,25 @@ module.exports = {
 
     var totalCustomers = 0; 
     customerContext.count(function(err, count) {
-      sails.log("contei:" +  count)
+
       totalCustomers= count;
     })
     
     var totalProducts =  0;
     productContext.count(function(err, count) {
-      sails.log("contei:" +  count)
+
       totalProducts= count;
     })
 
     var date = new Date(), y = date.getFullYear(), m = 5
     if(!month) month = date.getMonth();
+    var m = month + 1;
     var firstDay = new Date(y, month, 1);
-    var lastDay = new Date(y, month + 1, 0);
+    var firstDay1 = new Date(y, m, 1);
+    var lastDay = new Date(2018, month + 1, 0);
     sails.log(firstDay);
+    sails.log(firstDay1);
+    sails.log(lastDay);
     var totalSales =  0;// await Invoice.sum("total").where({
                         //                                  date: { '>': firstDay }});
 
@@ -53,9 +57,7 @@ module.exports = {
     //   totalProducts= count;
     // })
 
-    var invoices =   await Invoice.find().populate('invoiceItems').where({ fiscalDate: { '>': firstDay }});
-
-
+    var invoices =   await Invoice.find().populate('invoiceItems').where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }});
     
     var total = 0;
     var totalItemsTotal = 0;
