@@ -18,7 +18,20 @@ module.exports = {
   
   
     fn: async function (inputs, exits) {
-      var invoices = await Invoice.find().populate('customer')
+
+      var month = this.req.param('month');
+      var db =  Customer.getDatastore().manager;
+   
+  
+      var date = new Date(), y = date.getFullYear(), m = 5
+      if(!month) month = date.getMonth();
+      var m = new Number(month) + 1;
+      var firstDay = new Date(y, month, 1);
+      var firstDay1 = new Date(y, m, 1);
+      var lastDay = new Date(2018, month + 1, 0);
+
+      
+      var invoices = await Invoice.find().where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }}).populate('customer')
                                           .populate('company')
                                           .populate('invoiceItems').sort('numero Desc');;
 

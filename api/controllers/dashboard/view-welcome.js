@@ -27,21 +27,11 @@ module.exports = {
     var fixedCostContext = db.collection(FixedCost.tableName);
     var invoiceContext = db.collection(Invoice.tableName);
 
-    var totalCustomers = 0; 
-    customerContext.count(function(err, count) {
-
-      totalCustomers= count;
-    })
     
-    var totalProducts =  0;
-    productContext.count(function(err, count) {
-
-      totalProducts= count;
-    })
 
     var date = new Date(), y = date.getFullYear(), m = 5
     if(!month) month = date.getMonth();
-    var m = month + 1;
+    var m = new Number(month) + 1;
     var firstDay = new Date(y, month, 1);
     var firstDay1 = new Date(y, m, 1);
     var lastDay = new Date(2018, month + 1, 0);
@@ -59,6 +49,19 @@ module.exports = {
 
     var invoices =   await Invoice.find().populate('invoiceItems').where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }});
     
+    var totalCustomers = 0; 
+    customerContext.count(function(err, count) {
+
+      totalCustomers= count;
+    })
+    
+    var totalProducts =  0;
+    productContext.count(function(err, count) {
+
+      totalProducts= count;
+    })
+
+
     var total = 0;
     var totalItemsTotal = 0;
     var totalItems = 0;
@@ -93,17 +96,20 @@ module.exports = {
    
 
      const totalFixedCost = await  fixedCostContext.aggregate([
-      {$match: {}}
+      {$match: { fiscalDate: { '>': firstDay, '<':  firstDay1 }} }
     ,
     { $group : { 
       _id: { month: "$month" },
       total: { $sum:  "$value" } } }, 
    
   ]).toArray();
-console.log( totalFixedCost[0].total);
-    var averageContribuitionFixedCost =   (totalFixedCost[0].total/totalProductsSale);
+  var FixedCostReturn = 0;
+  if(totalFixedCost.legth > 0)
+  FixedCostReturn = totalFixedCost[0].total;
 
-    var faturamentoSemPrejuizo = totalFixedCost[0].total/(averageProducstPrice/averageContribuitionFixedCost);
+    var averageContribuitionFixedCost =   (FixedCostReturn/totalProductsSale);
+
+    var faturamentoSemPrejuizo = FixedCostReturn/(averageProducstPrice/averageContribuitionFixedCost);
     var qtdProdutosEquilibrio = faturamentoSemPrejuizo/averageProducstPrice
 
     return exits.success({
@@ -114,7 +120,7 @@ console.log( totalFixedCost[0].total);
       totalCost: totalCost.toFixed(2),
       totalProducts: totalProducts,
       totalItemsTotal: total.toFixed(2),
-      totalFixedCost: totalFixedCost[0].total.toFixed(2),
+      totalFixedCost: FixedCostReturn.toFixed(2),
       totalItems: totalItems,
       totalInvoices: totalInvoice,
       averageProducstPrice: averageProducstPrice.toFixed(2),

@@ -5,10 +5,22 @@ parasails.registerPage('invoice', {
   //  ║║║║║ ║ ║╠═╣║    ╚═╗ ║ ╠═╣ ║ ║╣
   //  ╩╝╚╝╩ ╩ ╩╩ ╩╩═╝  ╚═╝ ╩ ╩ ╩ ╩ ╚═╝
   data: {
-
+    months: [{ id: "0", name: "Janeiro"},
+    { id: "1", name: "Fevereiro"},
+    { id: "2", name: "Março"},
+    { id: "3", name: "Abril"},
+    { id: "4", name: "Maio"},
+    { id: "5", name: "Junho"},
+    { id: "6", name: "Julho"},
+    { id: "7", name: "Agosto"},
+    { id: "8", name: "Setembro"},
+    { id: "9", name: "Outubro"},
+    { id: "10", name: "Novembro"},
+    { id: "11", name: "Dezembro"}],
     invoices: [],
     companies: [],
     products: [],
+    month: null,
     customers: [],
     product: '' ,
     quantity: 0,
@@ -124,6 +136,13 @@ parasails.registerPage('invoice', {
       console.log('Feito');
       // Open the modal.
       this.goto('/invoice/new');
+    },
+    find: function() {
+
+      location.href='/invoice?month=' + this.month.id
+     
+  
+     //this.$router.push({name: 'userIndex', query: { page: '123' } });
     },
 
     _clearAddInvoicesModal: function() {
