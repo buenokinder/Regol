@@ -22,11 +22,24 @@ module.exports = {
   var db = InvoiceItems.getDatastore().manager;
   console.log(InvoiceItems.tableName)
   var rawMongoCollection = db.collection("invoiceitems");
+  var month = this.req.param('month');
+  var db =  Customer.getDatastore().manager;
 
+
+  var date = new Date(), y = date.getFullYear(), m = 5
+  if(!month) month = date.getMonth();
+  var m = new Number(month) + 1;
+  var firstDay = new Date(y, month, 1);
+  var firstDay1 = new Date(y, m, 1);
+  var lastDay = new Date(2018, month + 1, 0);
+
+    
+  var invoices = await Invoice.find().where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }});
   var items = [];
+  console.log(invoices)
   const result = await  rawMongoCollection.aggregate([
-       {$match: {}}
-     ,
+       {$match: { invoice: { $in: [{'5b1aaeea906e9b5eea4f7596'}] } }}
+    ,
      { $lookup: {
       from: "product",
       localField: "product",
@@ -39,7 +52,7 @@ module.exports = {
      quantity: { $sum:  "$quantity" } } }, 
     
    ]).toArray();
-   
+   console.log(result)
    var invoices =   await Invoice.find();
 
    var totalDiscount = 0;

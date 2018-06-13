@@ -1,9 +1,16 @@
 <div id="productreport">
        
-  <!-- <div class="page-header text-center">
-    <h1>Produtos</h1>
-
-  </div> -->
+  <div class="page-header text-center">
+    <h1>Relatório de Vendas Por Produto</h1>
+    <div class="col-md-12">
+      <label  >Periodo</label>
+      
+      <v-select  v-model="month"  :options="months" label="name"></v-select>
+      <div class="form-group">
+        <span class="add-more-button" @click="find()"><span class="fa fa-plus text-info mr-1"></span> Pesquisar</span>
+      </div>
+    </div>
+  </div>
   <div class="friends-list" v-if="invoiceItems.length > 0">
     <h5 class="text-muted">Produtos</h5>
     <table class="table table-striped">

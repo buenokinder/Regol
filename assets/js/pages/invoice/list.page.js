@@ -17,10 +17,11 @@ parasails.registerPage('invoice', {
     { id: "9", name: "Outubro"},
     { id: "10", name: "Novembro"},
     { id: "11", name: "Dezembro"}],
+    month: null,
     invoices: [],
     companies: [],
     products: [],
-    month: null,
+    
     customers: [],
     product: '' ,
     quantity: 0,
