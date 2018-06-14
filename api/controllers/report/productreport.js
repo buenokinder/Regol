@@ -36,10 +36,16 @@ module.exports = {
     
   var invoices = await Invoice.find().where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }});
   var items = [];
-  console.log(invoices)
+  var rules = [{'invoice.id': '5b0eb9b75003cebd43d1b78a'}];
   const result = await  rawMongoCollection.aggregate([
-       {$match: { invoice: { $in: [{'5b1aaeea906e9b5eea4f7596'}] } }}
+       {$match: { 'invoice.fiscalDate': { '>': firstDay, '<':  firstDay1 }} }
     ,
+    { $lookup: {
+      from: "invoice",
+      localField: "invoice",
+      foreignField: "_id",
+      as: "invoice"
+   }},
      { $lookup: {
       from: "product",
       localField: "product",
@@ -49,10 +55,10 @@ module.exports = {
      { $group : { _id : { product: "$product"  , salePrice: "$salePrice"  } ,
      totalPrice: { $sum: { $multiply: [ "$salePrice", "$quantity" ] } },
      totalCost: { $sum: { $multiply: [ "$costPrice", "$quantity" ] } },
-     quantity: { $sum:  "$quantity" } } }, 
-    
+     quantity: { $sum:  "$quantity" } } }
    ]).toArray();
-   console.log(result)
+
+   console.log(invoices)
    var invoices =   await Invoice.find();
 
    var totalDiscount = 0;
