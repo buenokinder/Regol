@@ -27,8 +27,9 @@
       <tbody>
        
         <tr v-for="invoiceItem in invoiceItems">
-          <td><strong>{{invoiceItem._id.product[0].code}}</strong></td>
-          <td><strong>{{invoiceItem._id.product[0].name}}</strong></td>
+         
+          <td><strong>{{invoiceItem.invoiceitems.product[0]}}</strong></td>
+          <!-- <td><strong>{{invoiceItem._id.product[0].name}}</strong></td> -->
            <td class="d-none d-md-table-cell">{{invoiceItem.quantity}}</td>
            <td class="d-none d-md-table-cell">{{invoiceItem.totalCost | formatEuro}}</td>
            <td class="d-none d-md-table-cell">{{invoiceItem.totalPrice | formatEuro}}</td>

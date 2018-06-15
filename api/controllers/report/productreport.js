@@ -34,50 +34,95 @@ module.exports = {
   var lastDay = new Date(2018, month + 1, 0);
 
     
-  var invoices = await Invoice.find().where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }});
-  var items = [];
-  var rules = [{'invoice.id': '5b0eb9b75003cebd43d1b78a'}];
-  const result = await  rawMongoCollection.aggregate([
-       {$match: { 'invoice.fiscalDate': { '>': firstDay, '<':  firstDay1 }} }
-    ,
-    { $lookup: {
-      from: "invoice",
-      localField: "invoice",
-      foreignField: "_id",
-      as: "invoice"
-   }},
-     { $lookup: {
-      from: "product",
-      localField: "product",
-      foreignField: "_id",
-      as: "product"
-   }},
-     { $group : { _id : { product: "$product"  , salePrice: "$salePrice"  } ,
-     totalPrice: { $sum: { $multiply: [ "$salePrice", "$quantity" ] } },
-     totalCost: { $sum: { $multiply: [ "$costPrice", "$quantity" ] } },
-     quantity: { $sum:  "$quantity" } } }
-   ]).toArray();
+  var invoices = await Invoice.find().where({ fiscalDate: { '>': firstDay, '<':  firstDay1 }}).populate('invoiceItems');
+  
+   var options = {
+        
+  };
+  
+  var pipeline = [
+      {
+          "$project": {
+              "_id": 0,
+              "invoiceitems": "$$ROOT"
+          }
+      }, 
+      {
+          "$lookup": {
+              "localField": "invoiceitems.invoice.id",
+              "from": "invoice",
+              "foreignField": "id",
+              "as": "invoice"
+          }
+      }, 
+      
+      {
+          "$unwind": {
+              "path": "$invoice",
+              "preserveNullAndEmptyArrays": false
+          }
+      }, 
+      {
+          "$match": {
+              "invoice.fiscalDate": {
+                  "$gt": firstDay
+              }
+          }
+      }, 
+      {
+        
+          "$group": {
+              "_id": {
+                  "invoiceitems\u1390product": "$invoiceitems.product",
+                  "invoiceitems\u1390salePrice": "$invoiceitems.salePrice" },
+                      "totalPrice": { "$sum": { "$multiply": [ "$invoiceitems.salePrice", "$invoiceitems.quantity" ] } },
+                      "totalCost": { "$sum": { "$multiply": [ "$invoiceitems.costPrice", "$invoiceitems.quantity" ] } },
+                      "quantity": { "$sum":  "$invoiceitems.quantity" }  
+              
+          }
+      }, 
+      {
+          "$project": {
+              "_id": 0,
+              "invoiceitems.product": "$_id.invoiceitems\u1390product",
+              "invoiceitems.salePrice": "$_id.invoiceitems\u1390salePrice",
+              "totalPrice": "$totalPrice",
+              "totalCost": "$totalCost",
+              "quantity": "$quantity"
+          }
+      }
+  ];
+  
+ 
+  const result = await rawMongoCollection.aggregate(pipeline, options).toArray();;
+  console.log(result);
 
-   console.log(invoices)
-   var invoices =   await Invoice.find();
+  //  var totalDiscount = 0;
+  //  for (let invoice of invoices) {
+  //    console.log(invoice)
+  //    totalDiscount = totalDiscount + invoice.discount; 
+  //    var totalPrice = 0;
+  //     for (let invoiceItem of invoice.invoiceItems){
+  //       totalPrice = invoiceItem.salePrice*invoiceItem.quantity;
 
-   var totalDiscount = 0;
-   for (let invoice of invoices) {
-     totalDiscount = totalDiscount + invoice.discount; 
-   }
-   var custoTotal = 0;
-    for (let item of result) {
-      custoTotal = custoTotal + item.totalCost;
-    }
+  //     }
+  //     invoice.totalPrice = totalPrice;
+  //  }
 
-    for (let item of result) {
+  //  console.log(invoices);
+  //  var custoTotal = 0;
+  //   for (let item of result) {
+  //     custoTotal = custoTotal + item.totalCost;
+  //   }
 
-      var contribuicaoCusto = ((item.totalCost*100)/custoTotal)/100;
+  //   for (let item of result) {
+
+  //     var contribuicaoCusto = ((item.totalCost*100)/custoTotal)/100;
  
 
-      item.totalCost = item.totalCost+(item.totalCost*contribuicaoCusto);
+  //     item.totalCost = item.totalCost+(item.totalCost*contribuicaoCusto);
      
-    }
+  //   }
 
 
     return exits.success({
